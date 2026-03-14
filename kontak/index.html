@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   <style>
+/* Biar konten gak ketutupan navbar */
+#search-status-global {
+    margin-top: 20px !important; /* Sesuaikan angka ini (80px - 100px biasanya pas) */
+    position: relative;
+    z-index: 10; /* Biar dia di atas background tapi di bawah navbar dropdown */
+}
+
+/* Kalau di HP navigasinya lebih tinggi, kita sesuaikan lagi */
+@media (max-width: 768px) {
+    #search-status-global {
+        margin-top: 80px !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
+    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
+  </div>
+
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+
+  <ul id="nav-list">
+   <li class="nav-search">
+    <form onsubmit="return jalankanCari(event)">
+        <input type="text" placeholder="Cari..." id="search-input">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+     <li><a href="../">Beranda</a></li>
+    <li><a href="../#jadwalsholat">Jadwal Sholat</a></li>
+    <li><a href="../infaq">Infaq</a></li>
+    <li><a href="../hasildonasi">Hasil Donasi</a></li>
+    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
+   <li><a href="../ramadhan">Ramadhan</a></li>
+    <li><a href="../berita">Berita</a></li>
+    <li><a href="../kajian">Kajian</a></li>
+     <li><a href="../galerimasjid">Galeri</a></li>
+    <li><a href="../kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+<div class="marquee-info">
+    <div class="marquee-content">
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+    </div>
+</div>
+
+<section class="banner-berita">
+    <img src="../img/slide01.png" alt="Kontak Masjid Al-Amanah" class="banner-img">
+    
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1 class="title-main contact-gradient">Hubungi Kami</h1>
+            <div class="title-sub">
+                <i class="fas fa-headset"></i> Layanan Informasi & Pelayanan Jamaah Al-Amanah
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="breadcrumb-container">
+    <div class="container-inner">
+        <ul class="breadcrumb-list">
+            <li><a href="../index.html">Beranda</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            <li class="current">Kontak</li>
+
+            <li class="link-arsip">
+                <a href="https://wa.me/628558009990" target="_blank" class="btn-text-wa">
+                    Ada Pertanyaan? Chat WhatsApp <i class="fab fa-whatsapp"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>
+
+
+<section class="info-section" id="kontak">
+    <div class="info-container">
+        <div class="info-header">
+            <span class="sub-title">Hubungi Kami</span>
+            <h2 class="info-title">Kontak & Lokasi</h2>
+            <div class="info-divider"></div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-map-column">
+                <div class="map-frame">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d69165.82341347696!2d106.94745511795396!3d-6.108046402794488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a270053d84041%3A0xbdc66a861b6ac51a!2sMasjid%20Al-Amanah!5e0!3m2!1sid!2sid!4v1772446907195!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="info-details-column">
+                
+                <a href="https://maps.app.goo.gl/cjzmJc6iKw9pLNC57" target="_blank" class="info-card">
+                    <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="text-box">
+                        <h4>Alamat Masjid</h4>
+                        <p>Kp. Keramat, RT.003/RW.006, Samudra Jaya, Tarumajaya, Bekasi</p>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/628558009990" target="_blank" class="info-card">
+                    <div class="icon-box whatsapp"><i class="fab fa-whatsapp"></i></div>
+                    <div class="text-box">
+                        <h4>WhatsApp Center</h4>
+                        <p>0855-8009-990 (Respon Cepat)</p>
+                    </div>
+                </a>
+
+                <a href="mailto:masjidalamanahtarumajaya24@gmail.com?subject=Tanya%20Seputar%20Masjid%20Al-Amanah" class="info-card">
+                    <div class="icon-box email"><i class="fas fa-envelope-open-text"></i></div>
+                    <div class="text-box">
+                        <h4>Email Resmi</h4>
+                        <p>masjidalamanahtarumajaya24@gmail.com</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--FOOTER-->
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        <section class="footer-insight">
+            <div class="insight-wrapper">
+                 <div class="insight-col brand-column-salman">
+    <div class="footer-brand-logo">
+        <img src="/img/logo-al-amanah.jpeg" alt="Logo Masjid Al Amanah" style="border-radius: 50px;">
+        <div class="logo-divider-text">
+            <span class="nama-masjid-text">MASJID AL-AMANAH<br>TARUMA JAYA</span>
+        </div>
+    </div>
+    <p class="masjid-address-text">
+        V2QH+MGX, Kp keramat, RT.003 RW006, <br>
+        Samudra Jaya, Kec. Tarumajaya, Bekasi Utara, Jawa Barat
+    </p>
+    <div class="footer-social-links">
+        <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" aria-label="X"><i class="fab fa-threads"></i></a>
+    </div>
+</div>
+                <div class="insight-col">
+                    <h3>PEMBAHASAN</h3>
+                    <div class="tag-cloud">
+                        <a href="../kajian/">KAJIAN SUNNAH</a>
+                        <a href="../ramadhan/">RAMADHAN</a>
+                        <a href="/berita/">BERITA</a>
+                    </div>
+                </div>
+
+                <div class="insight-col">
+                    <h3>LIHAT JUGA</h3>
+                    <ul class="quick-links">
+                        <li><a href="../infaq/">Infaq Masjid Al-Amanah</a></li>
+                        <li><a href="../hasildonasi/">Laporan Infaq Masjid Al-Amanah</a></li>
+                        <li><a href="../#jadwalsholat">Jadwal Sholat</a></li>
+                        <li><a href="../#about">Tentang Masjid Al-Amanah</a></li>
+                        <li><a href="../programrenovasi/">Program Renovasi</a></li>
+                         <li><a href="../galerimasjid/">Galeri Masjid</a></li>
+                    </ul>
+                </div>
+
+                <div class="insight-col">
+                    <h3>Referensi Islami</h3>
+                    <ul class="quick-links">
+                        <li><a href="https://www.radiorodja.com/" target="_blank">Radio Rodja TV</a></li>
+                        <li><a href="https://ypia.or.id/geliat-media-dakwah/" target="_blank">Geliat Media Dakwah</a></li>
+                         <li><a href="https://salmanitb.com/">Salman ITB</a></li>
+                        <li><a href="https://alfurqonbekasi.id/">Al-Furqon Bekasi</a></li>
+                    </ul>
+                </div> 
+            </div>
+        </section>
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+   <footer>
+      <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+    </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+</script><script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadhan - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+   <link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   <style>
+        /* --- VIDEO SECTION (2 VIDEO BERJEJER) --- */
+    .video-section {
+        background: white;
+        padding: 40px 20px;
+        max-width: 900px; /* Ukuran container diperkecil biar video gak kegedean */
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Wadah buat videonya aja */
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 Kolom di desktop */
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    .video-wrapper {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        background: #ffffff;
+    }
+
+    .video-wrapper video {
+        width: 100%;
+        display: block;
+    }
+
+    /* Judul & Penjelasan tetap di bawah */
+    .video-info-text {
+        color: #0f3d2e;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .video-description {
+        color: #444;
+        font-size: 15px;
+        line-height: 1.6;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* RESPONSIVE HP */
+    @media (max-width: 600px) {
+        .video-grid {
+            grid-template-columns: 1fr; /* Di HP otomatis ke bawah */
+        }
+        .video-section {
+            padding: 30px 15px;
+        }
+    }
+       
+        .card-berita {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .image-container {
+            width: 100%;
+            aspect-ratio: 1 / 1; 
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .content-area {
+            padding: 20px;
+        }
+
+        .content-area h3 {
+            font-size: 20px;
+            color: #0f3d2e;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .content-area p {
+            font-size: 15px;
+            color: #555;
+            text-align: justify;
+        }
+        /* Konten Utama */
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0f3d2e;
+        }
+
+
+        /* --- KAJIAN SECTION --- */
+.container-content {
+    max-width: 1200px; /* Lebarin containernya biar kartu punya ruang */
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.kajian-wrapper {
+    display: flex;
+    flex-direction: row; /* Wajib ke samping */
+    flex-wrap: wrap;    /* Biar kalau gak muat dia turun, tapi kita atur lebarnya */
+    gap: 30px;          /* Jarak antar kartu biar gak dempet */
+    justify-content: center;
+}
+
+.card-berita {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    
+    /* Desktop: Kita set lebarnya mantap (sekitar 450px - 500px) */
+    flex: 1 1 450px; 
+    max-width: 500px; /* Batasi biar gak kegedean banget di layar ultra-wide */
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Balikin ke kotak (1:1) sesuai request awal lu biar gambar gede */
+    overflow: hidden;
+}
+
+/* --- RESPONSIVE UNTUK HP --- */
+@media (max-width: 768px) {
+    .kajian-wrapper {
+        flex-direction: column; /* HP tetep tumpuk ke bawah */
+        align-items: center;
+    }
+
+    .card-berita {
+        flex: 1 1 100%;
+        max-width: 100%; /* Full lebar di HP */
+    }
+}
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .content-area {
+            padding: 20px;
+        }
+
+        .content-area h3 {
+            font-size: 20px;
+            color: #0f3d2e;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .content-area p {
+            font-size: 15px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Desain Card Modern */
+    .ramadhan-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1100px;
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+
+    .card-program {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 5px solid #0f3d2e;
+        transition: transform 0.3s ease;
+    }
+
+    .card-program:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .card-program h3 {
+        color: #0f3d2e;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .card-program p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .card-program .nominal {
+        color: #27ae60;
+        font-weight: 800;
+        font-size: 1.3rem;
+        display: block;
+    }
+
+    .total-card {
+        background: #0f3d2e !important;
+        color: white !important;
+        border-top: none;
+    }
+
+    .total-card h3, .total-card p, .total-card .nominal {
+        color: white !important;
+    }
+
+    /* Container pembungkus utama */
+.banner-ramadhan-wrapper {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Wadah relatif agar tombol bisa diposisikan absolute */
+.banner-ramadhan-content {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    line-height: 0; /* Menghilangkan gap kecil di bawah gambar */
+}
+
+/* Gambar biar auto-resize mengikuti lebar layar */
+.img-fluid-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Area tombol melayang */
+.banner-action-area {
+    position: absolute;
+    bottom: 7%; /* Jarak 12% dari bawah gambar */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+/* Style Tombol PDF */
+.btn-download-proposal {
+    background: #f1c40f !important; /* Warna kuning emas */
+    color: #000 !important;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-download-proposal:hover {
+    background: #d4ac0d !important;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .btn-download-proposal {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        border-radius: 6px;
+        /* Tambahin ini bray buat ngatur posisi tombol di HP */
+    }
+    .banner-ramadhan-content {
+        border-radius: 12px;
+    }
+}
+    /* TOMBOL KONFIRMASI WHATSAPP */
+a.konfirmasi {
+  display: block;
+  width: fit-content;
+  margin: 40px auto;            /* CENTER */
+  background: #198754;          /* hijau masjid */
+  color: #ffffff !important;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(25, 135, 84, 0.45);
+}
+
+a.konfirmasi:hover {
+  background: #157347;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(25, 135, 84, 0.6);
+}
+.jadwal-tarawih-container {
+    max-width: 500px; /* Ukuran kotak di laptop jangan terlalu raksasa */
+    margin: 40px auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.jadwal-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Paksa jadi kotak 1:1 */
+    overflow: hidden;
+    border-radius: 20px;
+    border: 4px solid #0f3d2e;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    cursor: pointer;
+    position: relative;
+}
+
+.jadwal-tarawih-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar kepotong rapi di tengah */
+    object-position: top; /* Fokus ke bagian atas gambar (biasanya judul jadwal) */
+    transition: transform 0.3s ease;
+}
+
+.jadwal-wrapper:hover .jadwal-tarawih-img {
+    transform: scale(1.05); /* Efek zoom dikit pas di-hover */
+}
+
+.overlay-click {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(15, 61, 46, 0.8);
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+.video-grid {
+    display: grid;
+    /* Ini yang bikin 2 kolom sejajar di desktop */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px; /* Kasih jarak antar kotak biar gak nyenggol */
+    max-width: 1100px; /* Lebarin dikit biar leluasa */
+    margin: 20px auto;
+}
+
+.video-wrapper {
+    width: 100%;
+    /* Pastikan tidak ada max-width yang bikin dia numpuk */
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr; /* Di HP balik tumpuk lagi */
+    }
+}
+/* Teks deskripsi di bawah kotak */
+.desc-luar {
+    margin-top: 15px; /* Jarak dari bawah kotak ke teks */
+    color: #444;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Pastikan grid-nya lebar biar bejejer di desktop */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* Jarak antar kolom diperlebar biar lega */
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+/* Biar di HP tetep tumpuk rapi */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+/* Pastikan image-container bisa menampung overlay */
+.image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Overlay tombol yang muncul saat di-hover */
+.zoom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 61, 46, 0.7); /* Hijau transparan */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0; /* Awalnya sembunyi */
+    transition: all 0.3s ease;
+}
+
+/* Munculkan overlay saat card atau gambar di-hover */
+.card-berita:hover .zoom-overlay {
+    opacity: 1;
+}
+
+.zoom-overlay i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+
+.card-berita:hover .zoom-overlay i {
+    transform: scale(1);
+}
+
+.zoom-text {
+    background: #ffc107;
+    color: #0f3d2e;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+/* Responsif HP */
+@media (max-width: 768px) {
+    /* Di HP, kita buat ikonnya agak kelihatan dikit (nggak 0 banget) 
+       biar orang tau itu bisa diklik, atau biarkan tetap 0 tapi pas di-tap lsg muncul */
+    .zoom-overlay {
+        background: rgba(15, 61, 46, 0.5); /* Lebih tipis biar gambarnya tetep jelas */
+    }
+    
+    /* Kasih efek pencet pas di tap */
+    .card-berita:active .zoom-overlay {
+        opacity: 1;
+    }
+
+    .zoom-overlay i {
+        font-size: 30px; /* Kecilin dikit ikonnya biar gak nutupin foto di layar kecil */
+    }
+}
+@media (max-width: 768px) {
+    /* Di HP, kita buat overlay-nya sedikit kelihatan (transparan tipis) 
+       biar ikon kaca pembesarnya kelihatan terus */
+    .zoom-overlay {
+        opacity: 0; /* Langsung muncul tanpa nunggu di-tap */
+        background: rgba(15, 61, 46, 0.4); /* Lebih transparan biar gambar aslinya tetep jelas */
+    }
+    
+    .zoom-text {
+        font-size: 11px; /* Kecilin dikit biar gak menuai layar HP */
+        padding: 4px 10px;
+    }
+}
+.card-arsip-sm {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 260px; /* Ukuran kotak kecil */
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.card-arsip-sm:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card-arsip-sm .thumb-box {
+    width: 100%;
+    height: 130px;
+    position: relative;
+}
+
+.card-arsip-sm .thumb-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-arsip-sm .content-sm {
+    padding: 10px;
+}
+
+.card-arsip-sm h4 {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #0f3d2e;
+    line-height: 1.2;
+}
+
+.card-arsip-sm p {
+    font-size: 11px;
+    color: #777;
+    margin: 0;
+}
+/* Style buat Badge Pinned */
+.pinned-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #d32f2f; /* Warna merah pin */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
+    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
+  </div>
+
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+
+  <ul id="nav-list">
+   <li class="nav-search">
+    <form onsubmit="return jalankanCari(event)">
+        <input type="text" placeholder="Cari..." id="search-input">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+    <li><a href="../">Beranda</a></li>
+    <li><a href="../#jadwalsholat">Jadwal Sholat</a></li>
+    <li><a href="../infaq">Infaq</a></li>
+    <li><a href="../hasildonasi">Hasil Donasi</a></li>
+    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
+   <li><a href="../ramadhan">Ramadhan</a></li>
+    <li><a href="../berita">Berita</a></li>
+    <li><a href="../kajian">Kajian</a></li>
+     <li><a href="../galerimasjid">Galeri</a></li>
+    <li><a href="../kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+
+<div class="marquee-info">
+    <div class="marquee-content">
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+    </div>
+</div>
+
+<section class="banner-berita">
+    <img src="../img/fototarawih01.png" alt="Ramadhan Masjid Al-Amanah" class="banner-img">
+    
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1 class="title-main gold-gradient">Ramadhan 1447H</h1>
+            <div class="title-sub">
+                <i class="fas fa-moon"></i> Marhaban Ya Ramadhan - Kp. Samudra Jaya
+            </div>
+        </div>
+    </div>
+</section>
+
+<a href="#agendaramadhan" class="floating-agenda-btn" id="btnAgenda">
+    <i class="fas fa-calendar-alt"></i> Lihat Agenda Ramadhan
+</a>
+
+<nav class="breadcrumb-container">
+    <div class="container-inner">
+        <ul class="breadcrumb-list">
+            <li><a href="../index.html">Beranda</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            
+            <li class="current">Ramadhan</li>
+            
+            <li class="link-arsip">
+                <a href="/ramadhan2025/">Lihat Idul Adha 2025 - 1446 H</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>
+       <div class="banner-ramadhan-wrapper">
+    <div class="banner-ramadhan-content">
+        <img src="../img/bannerproposal2.png" alt="Banner Ramadhan 1447H" class="img-fluid-banner">
+                                                                                                                                
+        <div class="banner-action-area">
+          <a href="../proposal_masjid_alamanah_tarumajaya.pdf" download="Proposal_Ramadhan_Masjid_Al_Amanah.pdf" class="btn-download-proposal" target="_blank">
+    <i class="fa fa-file-pdf"></i> Download Proposal Lengkap (PDF)
+</a>
+        </div>
+    </div>
+</div>
+
+       <div style="width: 100%; display: flex; justify-content: center;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%;">
+        
+        <h2 style="text-align: center; color: #0f3d2e; margin: 40px 0;">Agenda & Anggaran Kegiatan</h2>
+        
+        <div class="ramadhan-grid">
+    <div class="card-program">
+        <h3>Buka & Sahur Harian</h3>
+        <p>Penyediaan makanan untuk 20 orang setiap hari selama bulan Ramadhan.</p>
+        <span class="nominal">Rp 15.000.000</span>
+    </div>
+
+    <div class="card-program">
+        <h3>Ifthor Jama’i</h3>
+        <p>Buka puasa bersama akbar untuk 70 orang jemaah setiap pekan (4x).</p>
+        <span class="nominal">Rp 8.400.000</span>
+    </div>
+
+    <div class="card-program">
+        <h3>Santunan 40 Yatim</h3>
+        <p>Pemberian santunan, bingkisan, dan konsumsi untuk anak yatim & dhuafa.</p>
+        <span class="nominal">Rp 20.000.000</span>
+    </div>
+
+    <div class="card-program">
+        <h3>Syiar Ibadah</h3>
+        <p>Akomodasi Imam Tarawih, Qiyamulail, dan Kajian rutin Sabtu sore.</p>
+        <span class="nominal">Rp 8.500.000</span>
+    </div>
+
+    <div class="card-program">
+        <h3>Gema Idul Fitri</h3>
+        <p>Pelaksanaan Shalat Idul Fitri, Khotib, dan Konsumsi Hari Raya.</p>
+        <span class="nominal">Rp 3.500.000</span>
+    </div>
+
+    <div class="card-program total-card">
+        <h3>Total Kebutuhan</h3>
+        <p>Estimasi total biaya operasional Ramadhan 1447H.</p>
+        <span class="nominal">Rp 55.400.000</span>
+    </div>
+</div>
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin.%20Perkenalkan%20saya%20..........%20dari%20..........%20mau%20konfirmasi" class="konfirmasi">Konfirmasi Melalui WhatsApp</a>
+
+<!--Banner Infaq-->
+<section style="text-align: center; padding: 20px;">
+    <div class="banner-container">
+        <a href="/infaq/">
+        <img src="/img/bannergerak01.gif" alt="Infaq Masjid Al Amanah Biru">
+        </a>
+    </div>
+</section>
+
+<div class="container-content" id="agendaramadhan">
+   
+
+    <div class="kajian-wrapper">
+
+        <article class="card-berita">
+            <div style="position: relative;"> <div class="pinned-badge">
+            <i class="fas fa-thumbtack"></i> Disematkan
+        </div>
+            <a href="../img/jadwalterawihterbaru.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/jadwalterawihterbaru.jpeg" alt="Judul Berita">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Klik Selengkapnya</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">17 Februari 2026</span>
+                <h3>Jadwal Imam Shalat Tarawih 1447 H</h3>
+                <p>Berikut adalah daftar para Asatidzah yang akan mengimami shalat Tarawih di Masjid Al-Amanah selama bulan suci Ramadhan. Kami mengajak seluruh jamaah untuk hadir tepat waktu dan meraih keutamaan shalat malam berjamaah. Klik gambar untuk melihat atau Screenshot jadwalnya.</p>
+            </div>
+        </article>
+
+          <article class="card-berita" id="jadwaltarawih001">
+            <a href="../img/jadwaltarawih01.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/jadwaltarawih01.jpeg" alt="Judul Berita">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Klik Selengkapnya</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">28 Februari 2026</span>
+                <h3>Jadwal Imam Shalat Tarawih Malam ke-11: Ustadz Deni Malik Hafidzohulloh di Masjid Al-Amanah</h3>
+                <p>Sampai jumpa di shaf terdepan! Berikut adalah jadwal Asatidzah yang akan mengimami Shalat Tarawih kita tahun ini. Dari malam pertama hingga malam kemenangan, mari kita ramaikan masjid dengan ibadah dan dzikir. Jangan sampai terlewat jadwal ustadz favorit kalian, ya! Klik selengkapnya untuk zoom jadwal.</p>
+            </div>
+        </article>
+
+         <article class="card-berita">
+            <a href="../img/jadwalterawih3.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/jadwalterawih3.jpeg" alt="Judul Berita">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Klik Selengkapnya</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">27 Februari 2026</span>
+                <h3>Jadwal Imam Shalat Tarawih Malam ke-10, 14, & 16: Ustadz Hanif Azhar L.c di Masjid Al-Amanah</h3>
+                <p>Sampai jumpa di shaf terdepan! Berikut adalah jadwal Asatidzah yang akan mengimami Shalat Tarawih kita tahun ini. Dari malam pertama hingga malam kemenangan, mari kita ramaikan masjid dengan ibadah dan dzikir. Jangan sampai terlewat jadwal ustadz favorit kalian, ya! Klik selengkapnya untuk zoom jadwal.</p>
+            </div>
+        </article>
+
+        <article class="card-berita" id="sholattarawih3">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/sampultarawih03.png" style="border-radius: 12px;">
+            <source src="../img/suasanatarawih03.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">27 Februari 2026</span>
+        <h3>Suasana Shalat Tarawih ke-9 Bersama Ustadz Hanif Azhar Lc MA Hafidzohulloh</h3>
+        <p>Alhamdulillah, suasana Tarawih malam ini terasa sangat teduh dan khusyuk. Lantunan ayat suci dari Ustadz Hanif Azhar Lc MA benar-benar menenangkan hati. Sayang banget kalau momen ibadah seperti ini dilewatkan sendirian di rumah. Yuk, mumpung masih ada waktu, kita ramaikan lagi shaf Masjid Al-Amanah di malam-malam berikutnya. Ajak keluarga dan tetangga juga ya, biar makin berkah bareng-bareng!</p>
+    </div>
+        </article>
+
+         <article class="card-berita" id="sholattarawih2">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/sampultarawih02.png" style="border-radius: 12px;">
+            <source src="../img/suasanatarawih02.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">26 Februari 2026</span>
+        <h3>Suasana Shalat Tarawih Bersama Ustadz Sholihin Tasman S.Pd</h3>
+        <p>Alhamdulillah, pelaksanaan ibadah Shalat Tarawih di Masjid Al-Amanah pada malam ke-9 Ramadhan ini berlangsung dengan penuh kekhusyukan. Diimami oleh <strong>Ustadz Sholihin Tasman S.Pd Hafidzahullah</strong>, jamaah tampak memadati area utama hingga selasar. Barisan shaf yang rapat dan tertata rapi mencerminkan semangat ukhuwah kaum muslimin dalam menghidupkan malam suci ini...</p>
+    </div>
+        </article>
+
+
+        <article class="card-berita" id="sholattarawih">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/sampultarawih01.png" style="border-radius: 12px;">
+            <source src="../img/suasanatarawih1.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">24 Februari 2026</span>
+        <h3>Suasana Sholat Tarawih Bersama Khotib Ustadz Deni Malik Hafidzhohullah</h3>
+        <p>Alhamdulillah, pelaksanaan ibadah Sholat Tarawih di Masjid Al-Amanah pada malam ini berlangsung dengan penuh kekhusyukan dan ketertiban. Dokumentasi ini memperlihatkan antusiasme kaum muslimin yang memadati setiap jengkal shaf hingga area selasar, mencerminkan semangat ukhuwah serta ketaatan jamaah dalam menghidupkan malam-malam di bulan suci Ramadhan tahun ini dengan barisan yang rapat dan tertata rapi.</p>
+    </div>
+        </article>
+
+
+
+        <article class="card-berita" id="sholattarawih">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/sampultarawih01.png" style="border-radius: 12px;">
+            <source src="../img/suasanatarawih1.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">24 Februari 2026</span>
+        <h3>Suasana Sholat Tarawih Bersama Khotib Ustadz Deni Malik Hafidzhohullah</h3>
+        <p>Alhamdulillah, pelaksanaan ibadah Sholat Tarawih di Masjid Al-Amanah pada malam ini berlangsung dengan penuh kekhusyukan dan ketertiban. Dokumentasi ini memperlihatkan antusiasme kaum muslimin yang memadati setiap jengkal shaf hingga area selasar, mencerminkan semangat ukhuwah serta ketaatan jamaah dalam menghidupkan malam-malam di bulan suci Ramadhan tahun ini dengan barisan yang rapat dan tertata rapi.</p>
+    </div>
+        </article>
+
+        <article class="card-berita">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/sampulsebelumterawih1.png" style="border-radius: 12px;">
+            <source src="../img/terawihvideo5.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">23 Februari 2026</span>
+        <h3>Suasana sholat maghrib dengan Akh Faruq Hafidzohullah Mari raih keberkahan malam Ramadan bersama kami.</h3>
+        <p>Dokumentasi pelaksanaan sholat Maghrib malam ini memperlihatkan antusiasme jamaah yang luar biasa. Barisan shaf terlihat sangat rapat dan tertib, memenuhi setiap sudut ruang utama masjid. Dipimpin oleh <strong>Akh Faruq Hafidzohullah</strong>, suasana ibadah terasa sangat syahdu dan menenangkan hati.</p>
+    </div>
+        </article>
+
+
+        <article class="card-berita">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/sampultarawih7.png" style="border-radius: 12px;">
+            <source src="../img/terawihvideo7.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">23 Februari 2026</span>
+        <h3>Suasana Sholat Tarawih Bersama Akh Faruq Hafidzhohullah</h3>
+        <p>Dokumentasi suasana sholat Tarawih di Masjid Al-Amanah. Terlihat jamaah memenuhi masjid dengan barisan shaf yang rapat dan tertib saat melaksanakan ibadah bersama Akh Faruq Hafidzhohullah.</p>
+    </div>
+        </article>
+
+        <article class="card-berita">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/sampulsebelumterawih1.png" style="border-radius: 12px;">
+            <source src="../img/terawihvideo5.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">23 Februari 2026</span>
+        <h3>Suasana sholat maghrib dengan Akh Faruq Hafidzohullah Mari raih keberkahan malam Ramadan bersama kami.</h3>
+        <p>Dokumentasi pelaksanaan sholat Maghrib malam ini memperlihatkan antusiasme jamaah yang luar biasa. Barisan shaf terlihat sangat rapat dan tertib, memenuhi setiap sudut ruang utama masjid. Dipimpin oleh <strong>Akh Faruq Hafidzohullah</strong>, suasana ibadah terasa sangat syahdu dan menenangkan hati.</p>
+    </div>
+        </article>
+
+        <article class="card-berita" id="suasanabukber">
+    <a href="../img/bukber1.jpeg" target="_blank">
+        <div class="image-container">
+            <img src="../img/bukber1.jpeg" alt="Suasana Buka Puasa Bersama Al-Amanah">
+            <div class="zoom-overlay">
+                <i class="fas fa-search-plus"></i>
+                <span class="zoom-text">Klik Selengkapnya</span>
+            </div>
+        </div>
+    </a>
+    <div class="content-area">
+        <span class="date-badge">21 Februari 2026</span>
+        <h3>Hangatnya Kebersamaan: Buka Puasa Bersama & Silaturahmi Akbar Jamaah</h3>
+        <p>
+            Alhamdulillah, kegiatan Iftor Jama'i atau buka puasa bersama di Masjid Al-Amanah Taruma Jaya berlangsung dengan penuh khidmat dan rasa kekeluargaan. Program ini merupakan agenda rutin yang bertujuan untuk mempererat tali ukhuwah islamiyah antar jamaah, warga sekitar, serta para musafir yang sedang melintas. 
+        </p>
+    </div>
+</article>
+
+        <article class="card-berita">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/logo-al-amanah.jpeg" style="border-radius: 12px;">
+            <source src="../img/terawihvideo6.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">22 Februari 2026</span>
+        <h3>Suasana Terawih Khidmat Bersama Ustadz Dimas Pirdi, S.Pd. </h3>
+        <p>Dokumentasi pelaksanaan sholat Tarawih malam ini memperlihatkan antusiasme jamaah yang luar biasa. Barisan shaf terlihat sangat rapat dan tertib, memenuhi setiap sudut ruang utama masjid. Dipimpin oleh <strong>Ustadz Dimas Pirdi, S.Pd.</strong>, suasana ibadah terasa sangat syahdu dan menenangkan hati.</p>
+    </div>
+        </article>
+
+        <article class="card-berita">
+    <a href="../img/jadwalterawih2.jpeg" target="_blank">
+        <div class="image-container">
+            <img src="../img/jadwalterawih2.jpeg" alt="Jadwal Tarawih Ustadz Dimas Pirdi">
+            <div class="zoom-overlay">
+                <i class="fas fa-search-plus"></i>
+                <span class="zoom-text">Klik Selengkapnya</span>
+            </div>
+        </div>
+    </a>
+    <div class="content-area">
+        <span class="date-badge">21 Februari 2026</span>
+        <h3>Jadwal Imam Tarawih 04 - 06 Ramadan</h3>
+        <p>Simpan dan catat jadwalnya! Berikut jadwal Sholat Tarawih di Masjid Al-Amanah bersama Ustadz Dimas Pirdi, S.Pd. Mari raih keberkahan malam Ramadan bersama kami.</p>
+    </div>
+</article>
+
+        <article class="card-berita">
+    <a href="../img/jadwalterawih1.jpeg" target="_blank">
+        <div class="image-container">
+            <img src="../img/jadwalterawih1.jpeg" alt="Jadwal Tarawih Ustadz Ilham Ma'ruf">
+            <div class="zoom-overlay">
+                <i class="fas fa-search-plus"></i>
+                <span class="zoom-text">Klik Selengkapnya</span>
+            </div>
+        </div>
+    </a>
+    <div class="content-area">
+        <span class="date-badge">21 Februari 2026</span>
+        <h3>Jadwal Imam Tarawih 01 - 03 Ramadan</h3>
+        <p>Awal Ramadan penuh berkah! Hadiri sholat berjamaah bersama Ustadz Ilham Ma'ruf hafizhahullah di malam-malam pertama Ramadan 1447 H di Masjid Al-Amanah.</p>
+    </div>
+</article>
+
+        <article class="card-berita">
+            <a href="../img/terawih4.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/terawih4.jpeg" alt="Judul Kajian">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Klik Selengkapnya</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">19 Februari 2026</span>
+                <h3>Mencari Ridho di Sela Rakaat</h3>
+                <p>Suasana sholat Tarawih di Masjid Al-Amanah Taruma Jaya. Dari shaf depan hingga belakang, terlihat kekhusyukan jamaah dalam menghidupkan malam-malam penuh ampunan.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/terawih1.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/terawih1.jpeg" alt="Judul Kajian">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Klik Selengkapnya</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">19 Februari 2026</span>
+                <h3>Indahnya Kebersamaan dalam Ibadah</h3>
+                <p>Pemandangan dari sisi depan dan belakang masjid menunjukkan antusiasme jamaah Al-Amanah.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/terawih2.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/terawih2.jpeg" alt="Judul Kajian">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Klik Selengkapnya</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">19 Februari 2026</span>
+                <h3>Update Suasana Tarawih Malam Ini</h3>
+                <p>Dokumentasi persiapan dan pelaksanaan sholat Tarawih di Masjid Al-Amanah Taruma Jaya.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/logo-al-amanah.jpeg" style="border-radius: 12px;">
+            <source src="../img/terawihvideo3.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">19 Februari 2026</span>
+        <h3>Update Suasana Malam Ramadhan ini</h3>
+        <p>Momen syahdu saat jamaah beristirahat sejenak setelah menunaikan 2 rakaat pertama. Masya Allah, shaf terisi penuh dan tertib, menciptakan suasana ibadah yang begitu tenang dan khusyuk di Masjid Al-Amanah.</p>
+    </div>
+</article>
+
+        <article class="card-berita">
+    <div class="image-container">
+        <video controls width="100%" poster="../img/logo-al-amanah.jpeg" style="border-radius: 12px;">
+            <source src="../img/persiapanterawih.mp4" type="video/mp4">
+            Yah, browser lu gak support video, bray.
+        </video>
+    </div>
+    <div class="content-area">
+        <span class="date-badge">16 Februari 2026</span>
+        <h3>Persiapan Tarawih di Masjid Al-Amanah</h3>
+        <p>Dokumentasi dari sisi depan dan belakang shaf Masjid Al-Amanah. Alhamdulillah, persiapan sarana dan prasarana sudah maksimal untuk kenyamanan jamaah Tarawih malam ini.</p>
+    </div>
+</article>
+
+    <div class="section-header" style="text-align: center; margin: 40px 0 30px 0;">
+    <h2 style="color: #0f3d2e; font-size: 28px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+        <i class="fas fa-mosque"></i> IDUL FITRI 2025 1446 H - MASJID AL-AMANAH TARUMA JAYA
+    </h2>
+    <p style="color: #666; font-size: 16px; text-align: center;">Tarumajaya, Bekasi</p>
+    <hr style="width: 80px; border: 2px solid #27ae60; margin: 10px auto;">
+</div>
+
+    <article class="card-berita">
+            <a href="../ramadhan2025/" style="text-decoration: none;">
+                <div class="image-container">
+                    <img src="../img/sampulidulfitriramadhan2025.png" alt="Judul Kajian">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Klik Selengkapnya</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">19 Februari 2026</span>
+                <h3>Mencari Ridho di Sela Rakaat</h3>
+                <p>Suasana sholat Tarawih di Masjid Al-Amanah Taruma Jaya. Dari shaf depan hingga belakang, terlihat kekhusyukan jamaah dalam menghidupkan malam-malam penuh ampunan.</p>
+            </div>
+        </article>
+
+        </div>
+</div>
+
+
+</div> </div> 
+
+
+<!--FOOTER-->
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        <section class="footer-insight">
+            <div class="insight-wrapper">
+                 <div class="insight-col brand-column-salman">
+    <div class="footer-brand-logo">
+        <img src="/img/logo-al-amanah.jpeg" alt="Logo Masjid Al Amanah" style="border-radius: 50px;">
+        <div class="logo-divider-text">
+            <span class="nama-masjid-text">MASJID AL-AMANAH<br>TARUMA JAYA</span>
+        </div>
+    </div>
+    <p class="masjid-address-text">
+        V2QH+MGX, Kp keramat, RT.003 RW006, <br>
+        Samudra Jaya, Kec. Tarumajaya, Bekasi Utara, Jawa Barat
+    </p>
+    <div class="footer-social-links">
+        <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" aria-label="X"><i class="fab fa-threads"></i></a>
+    </div>
+</div>
+                 <div class="insight-col">
+                    <h3>PEMBAHASAN</h3>
+                    <div class="tag-cloud">
+                        <a href="/kajian">KAJIAN SUNNAH</a>
+                        <a href="/ramadhan">RAMADHAN</a>
+                        <a href="/berita">BERITA</a>
+                    </div>
+                </div>
+
+                <div class="insight-col">
+                    <h3>LIHAT JUGA</h3>
+                    <ul class="quick-links">
+                        <li><a href="/infaq">Infaq Masjid Al-Amanah</a></li>
+                        <li><a href="/hasildonasi">Laporan Infaq Masjid Al-Amanah</a></li>
+                        <li><a href="/#jadwalsholat">Jadwal Sholat</a></li>
+                        <li><a href="/#about">Tentang Masjid Al-Amanah</a></li>
+                        <li><a href="/programrenovasi">Program Renovasi</a></li>
+                         <li><a href="/galerimasjid">Galeri Masjid</a></li>
+                    </ul>
+                </div>
+
+                <div class="insight-col">
+                    <h3>Referensi Islami</h3>
+                    <ul class="quick-links">
+                        <li><a href="https://www.radiorodja.com/" target="_blank">Radio Rodja TV</a></li>
+                        <li><a href="https://ypia.or.id/geliat-media-dakwah/" target="_blank">Geliat Media Dakwah</a></li>
+                        <li><a href="https://salmanitb.com/">Salman ITB</a></li>
+                        <li><a href="https://alfurqonbekasi.id/">Al-Furqon Bekasi</a></li>
+                    </ul>
+                </div> 
+            </div>
+        </section>
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+   <footer>
+      <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+    </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+</script>
+<script>
+    const btnAgenda = document.getElementById('btnAgenda');
+
+    window.addEventListener('scroll', function() {
+        // Ambil jarak scroll saat ini
+        let scrollPos = window.scrollY;
+
+        // Jika scroll lebih dari 300px ke bawah, hilangkan tombol
+        if (scrollPos > 600) {
+            btnAgenda.classList.add('hidden');
+        } 
+        // Jika balik lagi ke atas (kurang dari 300px), munculkan lagi
+        else {
+            btnAgenda.classList.remove('hidden');
+        }
+    });
+
+    // Tetep kasih fungsi klik biar dia meluncur halus ke target
+    btnAgenda.addEventListener('click', function(e) {
+        e.preventDefault(); // Mencegah loncatan kasar
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+</script>
+
+<script src="../script.js"></script>
+</body>
+</html>

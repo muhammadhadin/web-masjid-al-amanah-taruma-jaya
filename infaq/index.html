@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infaq & Donasi - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   <style>
+    /* --- BANNER SLIDER TRANSISI (TRANSPARAN) --- */
+    .banner-container {
+        width: 100%;
+        max-width: 850px; 
+        margin: 0 auto; /* Margin atas bawah gue ilangin biar nggak ada space putih */
+        position: relative;
+        height: 350px; /* Sesuaikan tinggi asli gambarnya */
+        overflow: hidden;
+        /* Background, border, radius, dan shadow dibuang semua sesuai request */
+    }
+
+    .banner-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Penting biar gambar nggak kepotong */
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent; /* Pastikan background img transparan */
+    }
+
+    /* Gambar 1 (Ijo) */
+    .banner-container img:nth-child(1) {
+        animation: fade1 6s infinite; /* Gue saranin 6s biar orang sempet baca */
+    }
+
+    /* Gambar 2 (Biru) */
+    .banner-container img:nth-child(2) {
+        animation: fade2 6s infinite;
+    }
+
+    @keyframes fade1 {
+        0%, 45% { opacity: 1; z-index: 2; }
+        55%, 95% { opacity: 0; z-index: 1; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes fade2 {
+        0%, 45% { opacity: 0; z-index: 1; }
+        55%, 95% { opacity: 1; z-index: 2; }
+        100% { opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+        .banner-container { height: 180px; } /* Sesuaikan buat layar HP */
+    }
+/* --- CSS PROGRAM DONASI--- */
+.program-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.row-program {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Konten di tengah */
+    gap: 20px; /* Jarak antar kotak */
+}
+
+.card-program {
+    /* Desktop: 3 kolom (100% / 3 minus gap) */
+    flex: 1 1 calc(33.333% - 20px); 
+    min-width: 280px;
+    box-sizing: border-box;
+}
+
+.box.style1 {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 5px solid #0f3d2e; /* Garis hiasan atas */
+}
+
+.box.style1:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Kotak sempurna */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #f8f8f8;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box.style1 h3 {
+    color: #0f3d2e;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.box.style1 p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.rekening-box {
+    background: #e9f7ec;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: auto; /* Maksa box rekening di paling bawah */
+}
+
+/* --- RESPONSIVE SETTINGS --- */
+@media (max-width: 768px) {
+    .card-program {
+        /* HP: 2 kolom */
+        flex: 1 1 calc(50% - 20px);
+        min-width: 150px;
+    }
+    .program-wrapper {
+        margin: 20px auto;
+    }
+    .box.style1 {
+        padding: 15px;
+    }
+    .box.style1 h3 {
+        font-size: 1rem;
+    }
+    .box.style1 p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Layar sangat kecil: 1 kolom aja biar gak sesek */
+    .card-program {
+        flex: 1 1 100%;
+    }
+}
+/* Pastiin icon featured tampilannya rapi dan di tengah */
+.box.style1 .icon.featured {
+    display: block;
+    margin: 0 auto 20px auto;
+    font-size: 3rem;
+    color: #0f3d2e; /* Warna ijo masjid */
+}
+
+/* Biar 4 kotak tetep rapi di desktop */
+@media (min-width: 981px) {
+    #operasional .card-program {
+        flex: 1 1 calc(25% - 20px); /* 4 kolom */
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
+    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
+  </div>
+
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+
+  <ul id="nav-list">
+   <li class="nav-search">
+    <form onsubmit="return jalankanCari(event)">
+        <input type="text" placeholder="Cari..." id="search-input">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+     <li><a href="../">Beranda</a></li>
+    <li><a href="../#jadwalsholat">Jadwal Sholat</a></li>
+    <li><a href="../infaq">Infaq</a></li>
+    <li><a href="../hasildonasi">Hasil Donasi</a></li>
+    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
+   <li><a href="../ramadhan">Ramadhan</a></li>
+    <li><a href="../berita">Berita</a></li>
+    <li><a href="../kajian">Kajian</a></li>
+     <li><a href="../galerimasjid">Galeri</a></li>
+    <li><a href="../kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+
+
+<div class="marquee-info">
+    <div class="marquee-content">
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+    </div>
+</div>
+
+
+<section class="banner-berita">
+    <img src="../img/fotodepanmasjid.png" alt="Infaq Masjid Al-Amanah" class="banner-img">
+
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1 class="title-main blue-gradient">Infaq & Shadaqah</h1>
+            <div class="title-sub">
+                <i class="fas fa-heart"></i> Tanam Kebaikan, Tuai Keberkahan di Akhirat
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="breadcrumb-container">
+    <div class="container-inner">
+        <ul class="breadcrumb-list">
+            <li><a href="../index.html">Beranda</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            <li class="current">Infaq</li>
+            
+            <li class="link-arsip">
+                <a href="../hasildonasi/">Lihat Laporan Penyaluran</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>
+
+<section class="about" id="about">
+    <div class="about-container">
+        <div class="about-image-circle">
+    <img src="../img/logoalamanah2.png" alt="Masjid Al Amanah Taruma Jaya">
+</div>
+        <div class="about-text">
+            <h2 style="text-align: left; font-size: 30px;">Ahlan wa Sahlan</h2>
+            <p style="font-size: 20px;">
+                Kami mengajak kepada kaum muslimin dan muslimat untuk ikut berperan aktif dalam memakmurkan Masjid Al-Amanah Taruma Jaya.
+                Melalui partisipasi dan dukungan infaq dari sebagian rezeki yang Allah ﷻ anugerahkan.
+            </p>
+             <a href="#operasional" class="operasional">Operasional Masjid</a>
+        </div>
+    </div>
+</section>
+
+<div class="wrapper style2">
+  <article id="operasional">
+    <header>
+      <h2 style="text-align: center;">Program Infaq Masjid</h2>
+      <p style="text-align: center;">Infaq digunakan sepenuhnya untuk dakwah, fasilitas, dan sosial</p>
+      <br>
+    </header>
+    
+    <div class="program-wrapper" style="margin-top: 0;">
+      <div class="row-program">
+        
+        <div class="card-program">
+          <section class="box style1">
+            <span class="icon featured fa-solid fa-mosque"></span>
+            <h3>Ibadah</h3>
+            <p>Sholat berjamaah, kajian rutin, dan dakwah sunnah.</p>
+          </section>
+        </div>
+
+        <div class="card-program">
+          <section class="box style1">
+            <span class="icon featured fa-solid fa-tools"></span>
+            <h3>Renovasi</h3>
+            <p>Pembangunan dan perawatan fasilitas masjid.</p>
+          </section>
+        </div>
+
+        <div class="card-program">
+          <section class="box style1">
+            <span class="icon featured fa-solid fa-lightbulb"></span>
+            <h3>Operasional</h3>
+            <p>Listrik, air, kebersihan, dan kebutuhan rutin.</p>
+          </section>
+        </div>
+
+        <div class="card-program">
+          <section class="box style1">
+            <span class="icon featured fa-solid fa-hand-holding-heart"></span>
+            <h3>Sosial</h3>
+            <p>Santunan yatim, sembako, dan bantuan warga membutuhkan.</p>
+          </section>
+        </div>
+
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="wrapper style2">
+  <article id="program-infaq">
+    <header>
+      <h2 style="text-align: center; color: #0f3d2e; font-weight: bold; margin-bottom: 10px;">Program Infaq & Donasi</h2>
+      <p style="text-align: center; color: #666;">Salurkan amal jariyah Anda untuk kemakmuran Masjid Al-Amanah</p>
+    </header>
+    
+    <div class="program-wrapper">
+      <div class="row-program">
+        
+        <div class="card-program">
+          <section class="box style1">
+            <div class="image-container">
+               <img src="../img/reno8.jpeg" alt="Donasi Operasional">
+            </div>
+            <h3>Donasi Operasional</h3>
+            <p>Infaq rutin untuk kebutuhan listrik, air, kebersihan, serta biaya operasional dakwah harian masjid.</p>
+            <div class="rekening-box">
+              <p style="margin: 0;">BCA Syariah<br><b style="font-size: 1.1rem; color: #0f3d2e;">007-9900-999</b><br>a.n. Masjid Al Amanah</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="card-program">
+          <section class="box style1">
+            <div class="image-container">
+               <img src="../img/donasisosial5.jpeg" alt="Donasi Anak Yatim">
+            </div>
+            <h3>Donasi Anak Yatim</h3>
+            <p>Penyaluran santunan rutin, bantuan biaya pendidikan, dan kesejahteraan bagi anak-anak yatim.</p>
+            <div class="rekening-box">
+              <p style="margin: 0;">BCA Syariah<br><b style="font-size: 1.1rem; color: #0f3d2e;">007-9900-999</b><br>a.n. Masjid Al Amanah</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="card-program">
+          <section class="box style1">
+            <div class="image-container">
+               <img src="../img/pembagiansembako3.jpeg" alt="Donasi Sembako">
+            </div>
+            <h3>Donasi Sembako</h3>
+            <p>Penyaluran paket bantuan pangan dan kebutuhan pokok bagi jamaah serta warga yang membutuhkan.</p>
+            <div class="rekening-box">
+              <p style="margin: 0;">BCA Syariah<br><b style="font-size: 1.1rem; color: #0f3d2e;">007-9900-999</b><br>a.n. Masjid Al Amanah</p>
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="max-w-md mx-auto p-4 bg-white rounded-[32px] shadow-lg border border-gray-100 mt-6">
+    
+    <div class="mb-5 px-2">
+    <h3 class="font-black text-gray-800 text-sm uppercase tracking-tight text-center">
+        Metode Infaq QRIS
+    </h3>
+    <div class="w-10 h-1 bg-emerald-500 rounded-full mx-auto mt-1"></div>
+</div>
+
+    <div class="grid grid-cols-2 gap-4">
+        
+        <div class="flex flex-col">
+            <div class="bg-red-50 py-2 px-1 rounded-t-2xl border-x border-t border-red-100 text-center">
+                <p class="text-[9px] font-black text-red-600 uppercase tracking-widest">QRIS All Payment</p>
+            </div>
+            <div class="bg-white p-2 border-x border-b border-gray-100 rounded-b-2xl shadow-sm cursor-pointer active:scale-95 transition-transform" onclick="window.open('/img/qrisalamanah1.jpeg', '_blank')">
+                <img src="/img/qrisalamanah1.jpeg" class="w-full aspect-square object-cover rounded-xl shadow-inner" alt="QRIS Merah">
+                <p class="text-[8px] text-gray-400 mt-2 text-center font-bold italic">Tap to Zoom</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <div class="bg-blue-50 py-2 px-1 rounded-t-2xl border-x border-t border-blue-100 text-center">
+                <p class="text-[9px] font-black text-blue-800 uppercase tracking-widest">QRIS BCA Syariah</p>
+            </div>
+            <div class="bg-white p-2 border-x border-b border-gray-100 rounded-b-2xl shadow-sm cursor-pointer active:scale-95 transition-transform" onclick="window.open('/img/qrisalamanahbcasyariah1.jpeg', '_blank')">
+                <img src="/img/qrisalamanahbcasyariah1.jpeg" class="w-full aspect-square object-cover rounded-xl shadow-inner" alt="QRIS BCA">
+                <p class="text-[8px] text-gray-400 mt-2 text-center font-bold italic">Tap to Zoom</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5 p-3 bg-emerald-50 rounded-2xl border border-emerald-100">
+        <p class="text-[10px] text-emerald-700 text-center leading-relaxed font-medium">
+            <i class="fas fa-info-circle mr-1"></i> Scan melalui aplikasi Bank atau E-Wallet (Dana, GoPay, OVO, dll).
+        </p>
+    </div>
+</div>
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin.%20Perkenalkan%20saya%20..........%20dari%20..........%20mau%20konfirmasi" class="konfirmasi">Konfirmasi Melalui WhatsApp</a>
+
+
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        
+        <section class="footer-confirmation" style="margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div class="box style1" style="background: rgba(255,255,255,0.03); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: left;">
+                
+                <h3 style="color: #ffffff; margin-bottom: 20px; font-size: 1.6rem; letter-spacing: 1px;">Prosedur Konfirmasi Infaq & Shadaqah</h3>
+                
+                <div class="row">
+                    <div class="12u">
+                        <p style="color: #cccccc; line-height: 1.8; font-size: 1rem; margin-bottom: 20px; text-align: justify;">
+                            Kami ucapkan <i>Jazaakumullahu Khayran</i> atas kepercayaan Antum dalam menyalurkan sebagian harta melalui Masjid Al-Amanah Taruma Jaya. Perlu kami sampaikan bahwa secara hukum asal, Antum <b>tidak berkewajiban</b> untuk melakukan konfirmasi atas setiap transaksi transfer yang dilakukan. 
+                        </p>
+                        <p style="color: #cccccc; line-height: 1.8; font-size: 1rem; margin-bottom: 25px; text-align: justify;">
+                            Namun demikian, pengurus menyediakan sarana konfirmasi guna memudahkan proses administrasi, pendataan peruntukan dana (khususnya untuk zakat atau santunan yatim), serta transparansi pelaporan keuangan. Dengan melampirkan konfirmasi, kami juga dapat menyertakan nomor kontak Antum ke dalam sistem diseminasi informasi resmi masjid untuk mendapatkan update jadwal kajian, laporan perkembangan pembangunan, serta warta dakwah lainnya.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 12px; border-left: 4px solid #28a745;">
+                    <h4 style="color: #28a745; margin-bottom: 15px; font-size: 1.1rem; text-transform: uppercase; font-weight: bold;">
+                        <i class="fab fa-whatsapp"></i> Layanan Konfirmasi Mandiri
+                    </h4>
+                    <p style="color: #ffffff; margin-bottom: 15px;">
+                        Silakan mengirimkan pesan konfirmasi melalui layanan WhatsApp atau SMS ke nomor Pusat Informasi Masjid Al-Amanah:
+                    </p>
+                    <div style="margin-bottom: 20px;">
+                        <span style="font-size: 1.8rem; font-weight: bold; color: #ffffff; display: block; margin-bottom: 10px;">0855 8009 990</span>
+                    </div>
+                    
+                    <p style="color: #ffffff; font-size: 0.9rem; margin-bottom: 10px;">Mohon sertakan data dengan format sebagai berikut:</p>
+                    <div style="background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #333; font-family: 'Courier New', Courier, monospace;">
+                        <span style="color: #28a745; font-weight: bold;">KONFIRMASI # NAMA LENGKAP # NOMINAL # PERUNTUKAN</span>
+                        <br>
+                        <span style="color: #888; font-size: 0.8rem;">Contoh: KONFIRMASI # Fulan Bin Fulan # 1.000.000 # Infaq Sembako</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-insight">
+            <div class="insight-wrapper">
+                 <div class="insight-col brand-column-salman">
+    <div class="footer-brand-logo">
+        <img src="/img/logo-al-amanah.jpeg" alt="Logo Masjid Al Amanah" style="border-radius: 50px;">
+        <div class="logo-divider-text">
+            <span class="nama-masjid-text">MASJID AL-AMANAH<br>TARUMA JAYA</span>
+        </div>
+    </div>
+    <p class="masjid-address-text">
+        V2QH+MGX, Kp keramat, RT.003 RW006, <br>
+        Samudra Jaya, Kec. Tarumajaya, Bekasi Utara, Jawa Barat
+    </p>
+    <div class="footer-social-links">
+        <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" aria-label="X"><i class="fab fa-threads"></i></a>
+    </div>
+</div>
+                <div class="insight-col">
+                    <h3>PEMBAHASAN</h3>
+                    <div class="tag-cloud">
+                        <a href="../kajian/">KAJIAN SUNNAH</a>
+                        <a href="../ramadhan/">RAMADHAN</a>
+                        <a href="/berita/">BERITA</a>
+                    </div>
+                </div>
+
+                <div class="insight-col">
+                    <h3>LIHAT JUGA</h3>
+                    <ul class="quick-links">
+                        <li><a href="../infaq/">Infaq Masjid Al-Amanah</a></li>
+                        <li><a href="../hasildonasi/">Laporan Infaq Masjid Al-Amanah</a></li>
+                        <li><a href="../#jadwalsholat">Jadwal Sholat</a></li>
+                        <li><a href="../#about">Tentang Masjid Al-Amanah</a></li>
+                        <li><a href="../programrenovasi/">Program Renovasi</a></li>
+                        <li><a href="../galerimasjid/">Galeri Masjid</a></li>
+                    </ul>
+                </div>
+
+                <div class="insight-col">
+                    <h3>Referensi Islami</h3>
+                    <ul class="quick-links">
+                        <li><a href="https://www.radiorodja.com/" target="_blank">Radio Rodja TV</a></li>
+                        <li><a href="https://ypia.or.id/geliat-media-dakwah/" target="_blank">Geliat Media Dakwah</a></li>
+                         <li><a href="https://salmanitb.com/">Salman ITB</a></li>
+                        <li><a href="https://alfurqonbekasi.id/">Al-Furqon Bekasi</a></li>
+                    </ul>
+                </div> 
+            </div>
+        </section>
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+        <footer>
+            <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+        </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+</script><script src="../script.js"></script>
+</body>
+</html>

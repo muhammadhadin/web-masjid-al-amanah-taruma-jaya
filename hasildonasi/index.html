@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Donasi - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   
+<style>
+   body { font-family: 'Montserrat', sans-serif !important; background: #f4f4f4; }
+    
+    .judul-tengah {
+        text-align: center; color: #0f3d2e; font-weight: 700;
+        margin: 40px 0 20px; text-transform: uppercase; font-size: 1.2rem;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    /* CONTAINER FEED BERITA */
+    .news-feed-container {
+        max-width: 800px; margin: 0 auto; padding: 0 15px;
+    }
+
+    .berita-item {
+        display: flex; gap: 20px; background: white;
+        padding: 15px; border-radius: 12px; margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05); align-items: center;
+    }
+
+    .berita-thumb {
+        flex: 0 0 250px; /* Ukuran foto kecil kotak */
+        height: 300px; border-radius: 8px; overflow: hidden;
+    }
+
+    .berita-thumb img, .berita-thumb video {
+        width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .berita-info { flex: 1; }
+    .berita-info h3 { margin: 0 0 8px; font-size: 16px; color: #333; font-family: 'Montserrat', sans-serif;}
+    .berita-info p { margin: 0 0 12px; font-size: 13px; color: #666; line-height: 1.5; font-family: 'Montserrat', sans-serif;}
+
+    .btn-selengkapnya {
+        font-size: 12px; color: #008444; text-decoration: none;
+        font-weight: bold; border: 1px solid #008444;
+        padding: 4px 12px; border-radius: 4px; transition: 0.3s;
+    }
+
+    .btn-selengkapnya:hover { background: #008444; color: white; }
+
+    /* RESPONSIVE HP */
+@media (max-width: 600px) {
+    .berita-item { 
+        flex-direction: column; /* Biar fotonya di atas, teks di bawah */
+        align-items: flex-start; 
+        padding: 10px;
+    }
+    
+    .berita-thumb { 
+        flex: 0 0 auto; 
+        width: 100%; /* Foto jadi selebar layar */
+        height: 280px; /* Kita tinggiin dikit biar jelas */
+        margin-bottom: 15px; 
+    }
+
+    .berita-info h3 { 
+        font-size: 16px; /* Ukuran judul lebih proporsional */
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .berita-info p { 
+        display: block; /* Hapus pembatasan baris biar teks keluar semua */
+        -webkit-line-clamp: none; 
+        line-clamp: 2;
+        overflow: visible;
+        font-size: 14px;
+        margin-bottom: 15px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .btn-selengkapnya {
+        display: inline-block;
+        width: 100%; /* Tombol jadi panjang biar gampang diklik jempol */
+        text-align: center;
+        padding: 8px 0;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
+    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
+  </div>
+
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+
+  <ul id="nav-list">
+   <li class="nav-search">
+    <form onsubmit="return jalankanCari(event)">
+        <input type="text" placeholder="Cari..." id="search-input">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+     <li><a href="../">Beranda</a></li>
+    <li><a href="../#jadwalsholat">Jadwal Sholat</a></li>
+    <li><a href="../infaq">Infaq</a></li>
+    <li><a href="../hasildonasi">Hasil Donasi</a></li>
+    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
+   <li><a href="../ramadhan">Ramadhan</a></li>
+    <li><a href="../berita">Berita</a></li>
+    <li><a href="../kajian">Kajian</a></li>
+     <li><a href="../galerimasjid">Galeri</a></li>
+    <li><a href="../kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+
+
+<div class="marquee-info">
+    <div class="marquee-content">
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+    </div>
+</div>
+
+<section class="banner-berita">
+    <img src="../img/flyerhasildonasi1.png" alt="Laporan Hasil Donasi Masjid Al-Amanah" class="banner-img">
+    
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1 class="title-main green-gradient">Hasil Donasi</h1>
+            <div class="title-sub">
+                <i class="fas fa-hand-holding-heart"></i> Laporan Transparansi Dana Umat
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="breadcrumb-container">
+    <div class="container-inner">
+        <ul class="breadcrumb-list">
+            <li><a href="/index.html">Beranda</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            <li class="current">Hasil Donasi</li>
+
+            <li class="link-arsip">
+                <a href="../infaq/index.html" class="btn-text-infaq">
+                    Ingin Berinfaq? Klik <i class="fas fa-hand-holding-heart" style="font-size: 10px; margin-left: 5px;"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>
+
+
+<section class="about" style="padding: 50px 20px; background: white;">
+    <div class="about-container" style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
+        <div class="about-image" style="flex: 1; min-width: 300px;">
+            <img src="../img/flyerhasildonasi1.png" alt="Flyer" style="width: 100%; border-radius: 10px;">
+        </div>
+        <div class="about-text" style="flex: 1.2; min-width: 300px;">
+            <h2 style="font-size: 24px; color: #0f3d2e; margin-bottom: 15px; font-family: 'Montserrat', sans-serif;">Laporan Donasi Operasional, Santunan Dhuafa, Anak Yatim Piatu, dan Fakir Miskin</h2>
+            <p style="text-align: justify; color: #444; font-family: 'Montserrat', sans-serif;">
+                Ahlan wa Sahlan, kami mengucapkan <b>jazakumullahu khairan katsiran</b> kepada seluruh jamaah atas kedermawanannya. 
+    Melalui halaman ini, kami menyajikan laporan pemanfaatan dana sebagai bentuk transparansi dalam mengelola amanah Anda. 
+    Donasi yang terkumpul disalurkan secara berkala untuk <b>santunan rutin anak yatim piatu, bantuan pangan dhuafa, serta perlindungan bagi fakir miskin</b> di lingkungan sekitar masjid, di samping untuk menjaga keberlangsungan operasional dan kegiatan dakwah Masjid Al-Amanah. 
+    Semoga setiap rupiah yang disedekahkan menjadi pahala jariyah dan pembuka pintu rezeki bagi kita semua.transparan untuk menunjang operasional masjid serta program sosial kemaslahatan umat.
+            </p>
+        </div>
+    </div>
+</section>
+<br>
+
+<!--Banner Infaq-->
+<section style="text-align: center; padding: 20px;">
+    <div class="banner-container">
+        <a href="/infaq/">
+        <img src="/img/bannergerak01.gif" alt="Infaq Masjid Al Amanah Biru">
+        </a>
+    </div>
+</section>
+
+<div class="news-feed-container">
+    
+    <div class="berita-item" id="terbarusantunanyatim01">
+    <div class="berita-thumb">
+        <img src="../img/santunandhuafa01.jpeg" alt="Penyaluran Santunan Yatim & Dhuafa">
+    </div>
+    <div class="berita-info">
+        <span class="badge-proses">
+    <i class="fas fa-sync-alt fa-spin"></i> SEDANG DIPROSES
+</span>
+        <h3>Laporan Santunan Anak Yatim, Dhuafa, & Fakir Miskin</h3>
+        <p style="text-align: justify; line-height: 1.8;">
+            Sebagai bentuk pertanggungjawaban amanah, pengurus Masjid Al-Amanah menyusun laporan komprehensif terkait penyaluran donasi bagi anak yatim piatu dan fakir miskin. Program ini mencakup pemenuhan kebutuhan pokok dan santunan pendidikan guna meringankan beban saudara kita. Seluruh data dikelola secara transparan demi menjaga kepercayaan jamaah dan para muhsinin.
+        </p>
+
+        <div style="margin-top: 20px; padding: 25px; background: #f8fbf9; border-radius: 15px; border: 1px solid #e9f5ed; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <small style="color: #666; text-transform: uppercase; font-size: 11px; font-weight: bold; letter-spacing: 1.5px;">Realisasi Dana Amanah:</small>
+                <div style="color: #198754; font-size: 26px; font-weight: 800; margin-top: 5px;">Rp 7.500.000 <span style="font-size: 12px; background: #198754; color: white; padding: 3px 10px; border-radius: 50px; vertical-align: middle; margin-left: 10px; border: 2px solid #fff;">TERPENUHI</span></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+                <a href="/listdonasisantunandhuafa2026" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #0f3d2e; color: #ffffff; padding: 15px; border-radius: 10px; font-size: 14px; font-weight: bold; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 12px rgba(15,61,46,0.2);">
+                    <i class="fas fa-list-check"></i> TELUSURI DAFTAR MUHSININ & RINCIAN DANA
+                </a>
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #ffffff; color: #198754; padding: 15px; border-radius: 10px; font-size: 14px; font-weight: bold; border: 2px dashed #198754;">
+                   DOKUMENTASI VISUAL SEDANG DALAM PROSES (MENDATANG)
+                </div>
+            </div>
+            
+            <p style="font-size: 11px; color: #888; margin-top: 15px; text-align: center; line-height: 1.5;">
+                <i class="fas fa-shield-halved"></i> <i>Laporan foto dan video dokumentasi sedang dalam tahap pengeditan oleh tim media masjid dan akan dipublikasikan segera setelah penyaluran rampung.</i>
+            </p>
+        </div>
+    </div>
+</div>
+
+    <div class="berita-item" id="sinergi-pama">
+    <div class="berita-thumb">
+         <span class="badge-terbaru"><i class="fas fa-bullhorn"></i> TERBARU</span>
+        <img src="../img/ptpama02.jpeg" alt="Sinergi PT PAMA">
+    </div>
+    <div class="berita-info">
+       
+        <h3>Sinergi Santunan PT PAMA & Yayasan Cahaya Sunnah</h3>
+        <p style="text-align: justify; line-height: 1.7;">
+            Dokumentasi koordinasi tim panitia PT PAMA bersama Yayasan Cahaya Sunnah Ummah di Masjid Al-Amanah. Kegiatan ini merupakan bentuk kolaborasi strategis dalam rangka persiapan penyaluran santunan bagi anak yatim dan dhuafa di lingkungan Tarumajaya. Sinergi ini bertujuan mempererat ukhuwah serta memastikan bantuan tersampaikan dengan tepat sasaran.
+        </p>
+        <a href="/tim-kegiatan-berbagi-pt-pama-dan-masjid-al-amanah/" class="btn-selengkapnya" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            LIHAT DOKUMENTASI KEGIATAN <i class="fa fa-external-link-alt"></i>
+        </a>
+<br>
+         <p style="font-size: 11px; color: #198754; text-align: center; font-weight: 600; margin: 0;">
+                <i class="fas fa-check-double"></i> Update Foto & Video: Penyaluran 5 Maret 2026
+            </p>
+    </div>
+    
+</div>
+
+    <div class="berita-item" id="beras-berdikari">
+    <div class="berita-thumb">
+        <span class="badge-terbaru"><i class="fas fa-bullhorn"></i> TERBARU</span>
+        <img src="../img/laporanberas10karung01.jpeg" alt="Sedekah Beras CV Berdikari">
+    </div>
+    <div class="berita-info">
+        
+        <h3>Laporan Sedekah Beras CV Berdikari Mitra Abadi</h3>
+        <p style="text-align: justify; line-height: 1.7;">
+            Alhamdulillah, telah diterima sedekah beras sebanyak 10 karung (Total 500kg) dari Bapak H. Muin selaku owner CV Berdikari Mitra Abadi. Bantuan logistik ini dialokasikan untuk santunan dhuafa dan kebutuhan berkah Ramadhan di Masjid Al-Amanah. Semoga Allah SWT memberikan keberkahan rezeki, kesehatan, serta kelancaran usaha bagi Bapak sekeluarga. Aamiin.
+        </p>
+        <a href="/cv-berdikari-mitra-abadi-10-karung-beras/" class="btn-selengkapnya" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            LIHAT DOKUMENTASI <i class="fa fa-external-link-alt"></i>
+        </a>
+        <br>
+        <p style="font-size: 11px; color: #198754; text-align: center; font-weight: 600; margin: 0;">
+                <i class="fas fa-check-double"></i> Update Foto: Penyaluran 5 Maret 2026
+            </p>
+    </div>
+</div>
+
+
+<div class="berita-item" id="donasirenovasi01">
+    <div class="berita-thumb">
+        <img src="../img/renovasi7.jpeg" alt="Operasional">
+    </div>
+    <div class="berita-info">
+        <h3>Penyaluran Donasi Operasional & Sarana</h3>
+        <p style="text-align: justify; line-height: 1.7;">
+            Laporan penggunaan dana operasional untuk pemeliharaan fasilitas utama Masjid Al-Amanah. Mencakup biaya utilitas (listrik/air), pemeliharaan kebersihan gedung, hingga perawatan sistem tata suara guna mendukung kekhusyukan jamaah dalam beribadah. Kami berkomitmen untuk menyediakan rumah ibadah yang nyaman dan bersih bagi umat.
+        </p>
+        <a href="/donasioperasional/" class="btn-selengkapnya" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            LIHAT FOTO DOKUMENTASI <i class="fa fa-external-link-alt"></i>
+        </a>
+    </div>
+</div>
+
+<div class="berita-item" id="donasifototerbaru01">
+    <div class="berita-thumb">
+        <img src="../img/donasianak2.jpeg" alt="Dokumentasi Penyaluran Santunan">
+    </div>
+    <div class="berita-info">
+        <h3>Galeri Foto Penyaluran Santunan & Sembako</h3>
+        <p style="text-align: justify; line-height: 1.7;">
+            Halaman ini menyajikan dokumentasi foto autentik dari kegiatan penyaluran paket sembako dan santunan tunai bagi anak yatim serta keluarga tidak mampu. Setiap foto merupakan bukti nyata bahwa amanah sedekah Anda telah tersampaikan langsung kepada mereka yang berhak menerima. Komitmen kami adalah menjaga transparansi melalui bukti visual yang dapat dipertanggungjawabkan.
+        </p>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+             <a href="/donasisosial/" class="btn-selengkapnya" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            LIHAT FOTO DOKUMENTASI <i class="fa fa-external-link-alt"></i>
+        </a>
+            
+            <p style="font-size: 11px; color: #198754; text-align: center; font-weight: 600; margin: 0;">
+                <i class="fas fa-check-double"></i> Update Foto: Penyaluran Maret 2026
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="berita-item" id="donasivideoterbaru01">
+    <div class="berita-thumb">
+        <img src="../img/pembagiansembako3.jpeg" alt="Dokumentasi Penyaluran">
+    </div>
+    <div class="berita-info">
+        <h3>Arsip Dokumentasi Kegiatan Sosial & Dakwah</h3>
+        <p style="text-align: justify; line-height: 1.7;">
+            Kumpulan dokumentasi visual penyaluran bantuan pakaian layak, perlengkapan sekolah, dan pendistribusian Mushaf Al-Qur'an. Laporan ini merupakan bukti fisik nyata dari aliran sedekah Anda yang telah sampai ke tangan penerima manfaat di berbagai pelosok. Transparansi adalah prioritas utama kami dalam menjaga amanah setiap donatur.
+        </p>
+       <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+             <a href="/donasisembako/" class="btn-selengkapnya" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            LIHAT VIDEO DOKUMENTASI <i class="fa fa-external-link-alt"></i>
+        </a>
+            
+            <p style="font-size: 11px; color: #198754; text-align: center; font-weight: 600; margin: 0;">
+                <i class="fas fa-check-double"></i> Update Video: Penyaluran Maret 2026
+            </p>
+        </div>
+    </div>
+    
+</div>
+</div>
+
+<div style="text-align: center; padding: 50px 20px; background: #fdfdfd; border-top: 1px solid #eee;">
+    <div style="max-width: 600px; margin: 0 auto 25px auto;">
+        <h4 style="color: #0f3d2e; margin-bottom: 10px; font-size: 18px; font-family: 'Montserrat', sans-serif;">Layanan Infaq & Donasi</h4>
+        <p style="color: #555; line-height: 1.6; font-size: 15px; text-align: center; font-family: 'Montserrat', sans-serif;">
+            Bagi Antum yang memiliki kelapangan rezeki dan keinginan untuk turut serta dalam mendukung kemakmuran Masjid Al-Amanah, kami membuka pintu kebaikan melalui donasi operasional. 
+        </p>
+        <p style="color: #888; font-size: 13px; font-style: italic; margin-top: 10px; text-align: center; font-family: 'Montserrat', sans-serif;">
+            *Partisipasi ini bersifat sukarela (tidak wajib) dan disesuaikan dengan keikhlasan serta kemampuan masing-masing jamaah.
+        </p>
+    </div>
+    
+    <a href="../infaq/" class="konfirmasi" style="text-decoration: none; padding: 12px 30px; background: #0f3d2e; color: white; border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; box-shadow: 0 4px 15px rgba(15, 61, 46, 0.2); border: none; cursor: pointer; font-family: sans-serif;">
+    <span style="font-family: 'Montserrat', sans-serif;">Ayo Berdonasi!</span>
+</a>
+</div>
+
+<!--FOOTER-->
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        <section class="footer-insight">
+            <div class="insight-wrapper">
+                 <div class="insight-col brand-column-salman">
+    <div class="footer-brand-logo">
+        <img src="/img/logo-al-amanah.jpeg" alt="Logo Masjid Al Amanah" style="border-radius: 50px;">
+        <div class="logo-divider-text">
+            <span class="nama-masjid-text">MASJID AL-AMANAH<br>TARUMA JAYA</span>
+        </div>
+    </div>
+    <p class="masjid-address-text">
+        V2QH+MGX, Kp keramat, RT.003 RW006, <br>
+        Samudra Jaya, Kec. Tarumajaya, Bekasi Utara, Jawa Barat
+    </p>
+    <div class="footer-social-links">
+        <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" aria-label="X"><i class="fab fa-threads"></i></a>
+    </div>
+</div>
+                <div class="insight-col">
+                    <h3>PEMBAHASAN</h3>
+                    <div class="tag-cloud">
+                        <a href="../kajian/">KAJIAN SUNNAH</a>
+                        <a href="../ramadhan/">RAMADHAN</a>
+                        <a href="/berita/">BERITA</a>
+                    </div>
+                </div>
+
+                <div class="insight-col">
+                    <h3>LIHAT JUGA</h3>
+                    <ul class="quick-links">
+                        <li><a href="../infaq/">Infaq Masjid Al-Amanah</a></li>
+                        <li><a href="../hasildonasi/">Laporan Infaq Masjid Al-Amanah</a></li>
+                        <li><a href="../#jadwalsholat">Jadwal Sholat</a></li>
+                        <li><a href="../#about">Tentang Masjid Al-Amanah</a></li>
+                        <li><a href="../programrenovasi/">Program Renovasi</a></li>
+                         <li><a href="../galerimasjid/">Galeri Masjid</a></li>
+                    </ul>
+                </div>
+
+                <div class="insight-col">
+                    <h3>Referensi Islami</h3>
+                    <ul class="quick-links">
+                        <li><a href="https://www.radiorodja.com/" target="_blank">Radio Rodja TV</a></li>
+                        <li><a href="https://ypia.or.id/geliat-media-dakwah/" target="_blank">Geliat Media Dakwah</a></li>
+                         <li><a href="https://salmanitb.com/">Salman ITB</a></li>
+                        <li><a href="https://alfurqonbekasi.id/">Al-Furqon Bekasi</a></li>
+                    </ul>
+                </div> 
+            </div>
+        </section>
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+   <footer>
+      <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+    </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+</script><script src="../script.js"></script>
+</body>
+</html>
