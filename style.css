@@ -3786,3 +3786,36 @@ html {
     opacity: 0;
     pointer-events: none; /* Biar klikan langsung kena ke kontrol video (Timeline/Fullscreen) */
 }
+
+.btn-dokumentasi {
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 10px; 
+        background: #ffffff; 
+        padding: 0; /* Padding dipindah ke <a> agar area klik luas */
+        border-radius: 10px; 
+        border: 2px dashed #198754;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .btn-dokumentasi:hover {
+        background: #f0fff4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(25, 135, 84, 0.2);
+    }
+
+    .btn-dokumentasi a {
+        text-decoration: none; 
+        color: #198754; 
+        font-size: 14px; 
+        font-weight: bold;
+        padding: 15px; /* Area klik seluas kotak */
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
