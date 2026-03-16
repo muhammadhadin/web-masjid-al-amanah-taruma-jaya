@@ -1,8 +1,0 @@
-node_modules/
-npm
-npx
-corepack
-corepack.cmd
-node.exe
-install_tools.bat
-*.db
