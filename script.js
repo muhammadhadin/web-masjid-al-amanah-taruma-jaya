@@ -191,18 +191,7 @@ function scrollToTop() {
     });
 }
 
-function playVideo(container) {
-    const video = container.querySelector('.video-element');
-    
-    // Tambah class biar CSS berubah jadi lebar
-    container.classList.add('playing');
-    
-    // Munculin kontrol asli (pause, volume, dll)
-    video.setAttribute('controls', 'true');
-    
-    // Jalanin videonya
-    video.play();
-}
+
 document.addEventListener("DOMContentLoaded", function() {
     // Angka awal biar gak kelihatan 0 banget (opsional)
     const baseView = 158; 

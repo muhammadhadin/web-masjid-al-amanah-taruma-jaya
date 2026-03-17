@@ -2559,7 +2559,7 @@ html {
 .back-to-top {
     position: fixed;
     /* Jarak bottom: 20px (WA) + 60px (Tinggi WA) + 15px (Jarak) = 95px */
-    bottom: 105px; 
+    bottom: 175px; 
     right: 20px; /* Samain sama right WA desktop */
     width: 60px; /* Lebar samain sama WA */
     height: 60px; /* Tinggi samain sama WA */
@@ -2599,7 +2599,7 @@ html {
         width: 55px;  /* Samain lebar WA di HP */
         height: 55px; /* Samain tinggi WA di HP */
         /* Jarak bottom: 28px (WA HP) + 55px (Tinggi WA HP) + 12px (Jarak) = 95px */
-        bottom: 105px; 
+        bottom: 173px; 
         right: 28px;  /* Samain right WA di HP */
         font-size: 20px;
     }
@@ -2634,21 +2634,27 @@ html {
 /* Tooltip teks (muncul di samping tombol kalau di desktop) */
 .wa-text-tooltip {
     position: absolute;
-    right: 70px;
+    right: 50px; /* Posisi awal agak di dalem */
     background: #333;
     color: #fff;
-    padding: 5px 12px;
-    border-radius: 5px;
-    font-size: 12px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
+    transform: translateX(10px); /* Efek awal geser ke kanan dikit */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Biar ada efek pegas/bounce */
+    pointer-events: none; /* Biar gak ganggu klik */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .whatsapp-float:hover .wa-text-tooltip {
-    opacity: 1;
+   opacity: 1;
     visibility: visible;
+    right: 75px; /* Geser keluar ke kiri */
+    transform: translateX(0); /* Balik ke posisi normal */
 }
 
 /* Penyesuaian untuk HP */
@@ -2661,7 +2667,85 @@ html {
         font-size: 25px;
     }
     .wa-text-tooltip {
-        display: none; /* Sembunyikan tooltip di HP biar gak menuhin layar */
+        display: block !important; /* Kita paksa muncul di HP */
+        right: 45px;
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    .whatsapp-float:hover .wa-text-tooltip {
+        right: 65px; /* Jarak di HP jangan terlalu jauh biar gak kena layar kiri */
+    }
+}
+
+/* Tombol Portal Masjid */
+.portal-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 100px; /* Di atas tombol WA (20px + 60px + jarak) */
+    right: 20px;
+    background-color: #333; /* Abu-abu gelap biar gak nyentreng */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Pas Hover: Berubah jadi Hijau Nyala */
+.portal-float:hover {
+    background-color: #15803d; /* Hijau Masjid */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(21, 128, 61, 0.5);
+    color: white;
+}
+
+/* Tooltip Teks buat Portal */
+.portal-text-tooltip {
+    position: absolute;
+    right: 50px;
+    background: #15803d;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.portal-float:hover .portal-text-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+    transform: translateX(0);
+}
+
+/* Penyesuaian HP */
+@media (max-width: 768px) {
+    .portal-float {
+        width: 55px;
+        height: 55px;
+        bottom: 100px; /* Tetap di atas WA walau di HP */
+        right: 28px;
+        font-size: 20px;
+    }
+    .portal-text-tooltip {
+        right: 45px;
+        font-size: 11px;
+    }
+    .portal-float:hover .portal-text-tooltip {
+        right: 65px;
     }
 }
 
@@ -3819,3 +3903,57 @@ html {
         justify-content: center;
         gap: 8px;
     }
+    /* Container Utama Konten Berita */
+.max-w-2xl {
+    max-width: 680px; /* Lebar ideal buat baca berita, gak kepanjangan */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* Biar Video & Gambar Selalu Full Width di dalem Container */
+.group div {
+    width: 100%;
+    display: block;
+}
+
+video.aspect-video, 
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Biar gak gepeng */
+}
+
+/* Styling Paragraf biar enak dibaca */
+p {
+    margin-bottom: 1.5rem;
+    text-align: justify; /* Biar rapi kanan kiri kayak koran */
+    line-height: 1.8;
+}
+
+/* Gaya Kutipan (Quote) di bagian bawah */
+.border-l-4 {
+    border-left-width: 4px;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+}
+
+/* Jarak antar elemen biar gak nempel-nempel */
+.space-y-8 > * + * {
+    margin-top: 2rem;
+}
+
+/* Responsif buat HP */
+@media (max-width: 768px) {
+    .max-w-2xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    p {
+        text-align: left; /* Di HP mending rata kiri biar gak renggang-renggang banget */
+        font-size: 0.95rem;
+    }
+}
