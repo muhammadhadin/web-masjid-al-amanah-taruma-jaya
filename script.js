@@ -71,7 +71,7 @@ function jalankanCari(event) {
     else if (['ramadhan', 'puasa', 'proposal', 'romadon', 'romadhon', 'teraweh', 'terawih', 'tarawih', 'takjil', 'bukber', 'buka puasa', 'sahur', 'imsakiyah', 'itikaf'].some(key => kataKunci.includes(key))) {
         window.location.href = '/ramadhan/' + kado;
     } 
-    else if (['laporan', 'transparansi', 'hasil', 'hasil infaq'].some(key => kataKunci.includes(key))) {
+    else if (['hasil', 'hasil infaq'].some(key => kataKunci.includes(key))) {
         window.location.href = '/hasildonasi/' + kado;   
     } 
     else if (['kajian', 'ustadz', 'dakwah', 'tabligh', 'ceramah', 'ilmu', 'tafsir', 'hadits', 'fiqih', 'rutin', 'ngaji', 'murottal', 'ustad'].some(key => kataKunci.includes(key))) {
@@ -89,6 +89,9 @@ function jalankanCari(event) {
     else if (['kontak', 'lokasi', 'lokasinya', 'tempat', 'lokasi masjid', 'masjid', 'masjidnya'].some(key => kataKunci.includes(key))) {
         window.location.href = '/kontak/' + kado;
     } 
+    else if (['laporan', 'keuangan', 'kas', 'rekap', 'transparansi', 'audit'].some(key => kataKunci.includes(key))) {
+    window.location.href = '/laporan-keuangan/' + kado;
+}
     else {
         window.location.href = '/search/' + kado;
     }

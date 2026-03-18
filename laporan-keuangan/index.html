@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Keuangan - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   
+<style>
+  /* Efek Loading Muter-muter */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #1d4ed8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hide-loader { opacity: 0; pointer-events: none; }
+
+        /* Style Tabel Bersih */
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #e5e7eb; padding: 12px; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
+    </style>
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
+    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
+  </div>
+
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+
+  <ul id="nav-list">
+   <li class="nav-search">
+    <form onsubmit="return jalankanCari(event)">
+        <input type="text" placeholder="Cari..." id="search-input">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+     <li><a href="../">Beranda</a></li>
+    <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+    <li><a href="../infaq">Infaq</a></li>
+    <li><a href="../hasildonasi">Hasil Donasi</a></li>
+    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
+   <li><a href="../ramadhan">Ramadhan</a></li>
+    <li><a href="../berita">Berita</a></li>
+    <li><a href="../kajian">Kajian</a></li>
+     <li><a href="../galerimasjid">Galeri</a></li>
+    <li><a href="../kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+
+
+<div class="marquee-info">
+    <div class="marquee-content">
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+    </div>
+</div>
+
+<section class="banner-berita">
+    <img src="../img/totebagsantunandhuafa01.jpeg" alt="Laporan Hasil Donasi Masjid Al-Amanah" class="banner-img">
+    
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1 class="title-main green-gradient">Laporan Keuangan</h1>
+            <div class="title-sub">
+                Data Sinkronisasi Keseluruhan
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="breadcrumb-container">
+    <div class="container-inner">
+        <ul class="breadcrumb-list">
+            <li><a href="/index.html">Beranda</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            <li class="current">Laporan Keuangan</li>
+
+            <li class="link-arsip">
+                <a href="../infaq/index.html" class="btn-text-infaq">
+                    Ingin Berinfaq? Klik <i class="fas fa-hand-holding-heart" style="font-size: 10px; margin-left: 5px;"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>
+
+
+
+<!--Banner Infaq-->
+<section style="text-align: center; padding: 20px;">
+    <div class="banner-container">
+        <a href="/infaq/">
+        <img src="/img/bannergerak01.gif" alt="Infaq Masjid Al Amanah Biru">
+        </a>
+    </div>
+</section>
+
+
+<div id="loader">
+        <div class="text-center">
+            <div class="spinner mx-auto mb-4"></div>
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-400">Memuat Data Laporan</p>
+        </div>
+    </div>
+
+   <main class="bg-white min-h-screen py-8 px-4 font-sans text-gray-900">
+    <div class="max-w-6xl mx-auto">
+        
+        
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+    <div class="bg-gradient-to-br from-[#064e3b] to-[#065f46] p-6 rounded-xl text-white shadow-md border border-white/10">
+        <p class="text-[10px] uppercase font-bold opacity-70 tracking-widest">Total Pemasukan</p>
+        <p class="text-2xl font-black mt-1" id="val-masuk">Rp55.706.000</p>
+    </div>
+
+    <div class="bg-gradient-to-br from-[#450a0a] to-[#7f1d1d] p-6 rounded-xl text-white shadow-md border border-white/10">
+        <p class="text-[10px] uppercase font-bold opacity-70 tracking-widest">Total Pengeluaran</p>
+        <p class="text-2xl font-black mt-1" id="val-keluar">Rp60.199.250</p>
+    </div>
+
+    <div class="bg-gradient-to-br from-[#020617] to-[#1e1b4b] p-6 rounded-xl text-white shadow-md border border-white/10">
+        <p class="text-[10px] uppercase font-bold opacity-70 tracking-widest">Saldo Akhir</p>
+        <p class="text-2xl font-black mt-1" id="val-saldo">-Rp4.493.250</p>
+    </div>
+</div>
+
+        <div class="mb-16">
+    <h2 class="text-lg font-bold mb-4 border-l-4 border-gray-900 pl-3">1. Laporan Januari - Februari 2026</h2>
+    <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <div class="overflow-x-auto overflow-y-auto max-h-[300px]">
+            <table class="w-full text-sm text-left border-collapse">
+                <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm">
+                    <tr class="border-b border-gray-300 text-[11px] uppercase font-bold text-gray-600">
+                        <th class="px-4 py-3 border-r border-gray-300 bg-gray-50">Tgl</th>
+                        <th class="px-4 py-3 border-r border-gray-300 bg-gray-50">Keterangan</th>
+                        <th class="px-4 py-3 text-right border-r border-gray-300 bg-gray-50">Pengeluaran</th>
+                        <th class="px-4 py-3 text-right border-r border-gray-300 bg-gray-50">Pemasukan</th>
+                        <th class="px-4 py-3 bg-gray-50">Kategori</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak wahono</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">5.000.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Ustd firdi</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">100.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak sutrisno</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">500.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak fadhil</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">500.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak adil archman</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">250.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak suyanto</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">300.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Ibu sheila helena</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">200.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Ustadz heru prasetyo</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">400.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">13/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Hamba allah via ustad heru</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">200.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak untung purwadi</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">2.000.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak sugiri</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">1.000.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Saka fadhil</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">200.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold">14/01/2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold">Pak untung via ustad heru</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">5.000.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Hamba allah via ustad heru</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">1.000.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Hamba allah via ustad heru</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">300.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Ibu seli via bca</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">500.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Hamba allah bca ustad heru</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">500.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak mulyadi bca</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">500.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Bu dian indah c bca</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">200.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Hamba allah bca ustad heru</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">100.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Hamba allah bca ustad heru</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">500.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold">Bpk muhammad ruslin bca</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">1.000.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak nesky hafur bca</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">100.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Ibu ratna wati bca</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">100.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">15/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Bpk agus trisasmita bca</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">300.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">16/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak nesky hafur</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">100.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">16/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Ibu ratna wati</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">100.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">16/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak agus trisasmita</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">300.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">16/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak muhammad ruslin</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">1.000.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold underline">17/01/2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold underline">Pak untung wahyudi</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">10.000.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">17/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak riyan dimansyah</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">500.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold underline">17/01/2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold underline">Pak sutoro</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">2.500.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">17/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak nesky hafur</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">15.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">17/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak teguh purwanto</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">100.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">17/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Ibu dian indah c</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">100.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">18/01/2026</td><td class="px-4 py-2 border-r border-gray-200">Pak avif permana</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">40.000</td><td class="px-4 py-2">Transfer</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">19/01/2026</td><td class="px-4 py-2 border-r border-gray-200 italic">Transfer untuk material</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">7.006.500</td><td class="px-4 py-2 text-right">0</td><td class="px-4 py-2">Material</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold underline">19/01/2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold">Qris</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">250.000</td><td class="px-4 py-2">Transfer</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="mb-16">
+    <h2 class="text-lg font-bold mb-4 border-l-4 border-gray-900 pl-3">2. Buku Kas Renovasi (Februari 2026)</h2>
+    <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <div class="overflow-x-auto overflow-y-auto max-h-[300px]">
+            <table class="w-full text-sm text-left border-collapse">
+                <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm">
+                    <tr class="border-b border-gray-300 text-[11px] uppercase font-bold text-gray-600">
+                        <th class="px-4 py-3 border-r border-gray-300 bg-gray-50">Tanggal</th>
+                        <th class="px-4 py-3 border-r border-gray-300 bg-gray-50">Catatan Belanja</th>
+                        <th class="px-4 py-3 text-right border-r border-gray-300 bg-gray-50">Keluar (Rp)</th>
+                        <th class="px-4 py-3 text-right bg-gray-50">Saldo</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200">Konsumsi</td><td class="px-4 py-2 text-right border-r border-gray-200">42.000</td><td class="px-4 py-2 text-right">-42.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200">Jasa bongkar</td><td class="px-4 py-2 text-right border-r border-gray-200">14.000</td><td class="px-4 py-2 text-right">-56.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold">Upah tukang+kenek</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">1.000.000</td><td class="px-4 py-2 text-right font-bold">-1.056.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200">1/2kbk hebel</td><td class="px-4 py-2 text-right border-r border-gray-200">250.000</td><td class="px-4 py-2 text-right">-1.306.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200">1 carry pasir bangka</td><td class="px-4 py-2 text-right border-r border-gray-200">400.000</td><td class="px-4 py-2 text-right">-1.706.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200">5 sak semen</td><td class="px-4 py-2 text-right border-r border-gray-200">300.000</td><td class="px-4 py-2 text-right">-2.006.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200">1 sak mu</td><td class="px-4 py-2 text-right border-r border-gray-200">115.000</td><td class="px-4 py-2 text-right">-2.121.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 italic">1 roskan</td><td class="px-4 py-2 text-right border-r border-gray-200">10.000</td><td class="px-4 py-2 text-right">-2.131.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">14-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 italic">2btng holo 2x4</td><td class="px-4 py-2 text-right border-r border-gray-200">34.000</td><td class="px-4 py-2 text-right">-2.165.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">21-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200">Upah abah kenek</td><td class="px-4 py-2 text-right border-r border-gray-200">150.000</td><td class="px-4 py-2 text-right">-7.721.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold">21-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold uppercase underline">Upah tukang+kenek (Tgl 21)</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">1.000.000</td><td class="px-4 py-2 text-right font-bold">-8.721.000</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">21-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 italic">Snack kopi</td><td class="px-4 py-2 text-right border-r border-gray-200">167.500</td><td class="px-4 py-2 text-right">-9.038.500</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold">21-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold underline">6 lembar pintu alumunium</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">7.500.000</td><td class="px-4 py-2 text-right font-bold">-16.538.500</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold">22-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold">3 truk sirtu</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">9.000.000</td><td class="px-4 py-2 text-right font-bold">-25.538.500</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">22-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 italic">4 carry sirtu</td><td class="px-4 py-2 text-right border-r border-gray-200">1.000.000</td><td class="px-4 py-2 text-right">-26.538.500</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold">22-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 font-bold underline">4 carry pasir hitam</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">2.000.000</td><td class="px-4 py-2 text-right font-bold">-28.538.500</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">22-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 italic">1 buah gerobak sorong</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">380.000</td><td class="px-4 py-2 text-right">-28.918.500</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">22-Jan-2026</td><td class="px-4 py-2 border-r border-gray-200 italic">10 sak semen</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">600.000</td><td class="px-4 py-2 text-right">-29.518.500</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="mb-16">
+    <h2 class="text-lg font-bold mb-4 border-l-4 border-gray-900 pl-3">3. Laporan Keuangan Desember 2024</h2>
+    <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <div class="overflow-x-auto overflow-y-auto max-h-[300px]">
+            <table class="w-full text-sm text-left border-collapse">
+                <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm">
+                    <tr class="border-b border-gray-300 text-[11px] uppercase font-bold text-gray-600">
+                        <th class="px-4 py-3 border-r border-gray-300 bg-gray-50">Tgl</th>
+                        <th class="px-4 py-3 border-r border-gray-300 bg-gray-50">Keterangan</th>
+                        <th class="px-4 py-3 text-right border-r border-gray-300 bg-gray-50">Masuk</th>
+                        <th class="px-4 py-3 text-right border-r border-gray-300 bg-gray-50">Keluar</th>
+                        <th class="px-4 py-3 bg-gray-50">Kategori</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr><td class="px-4 py-2 border-r border-gray-200">01/12/24</td><td class="px-4 py-2 border-r border-gray-200 font-bold italic">Wakaf toa masjid</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">8.000.000</td><td class="px-4 py-2 text-right">0</td><td class="px-4 py-2 italic">Wakaf</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">01/12/24</td><td class="px-4 py-2 border-r border-gray-200 font-bold">Pembelian toa</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">4.770.000</td><td class="px-4 py-2">Barang</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">01/12/24</td><td class="px-4 py-2 border-r border-gray-200 italic">Kabel + isolasi + batre</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">582.000</td><td class="px-4 py-2">Barang</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">01/12/24</td><td class="px-4 py-2 border-r border-gray-200">Pembelian matrial</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">550.000</td><td class="px-4 py-2">Sarana</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold underline">01/12/24</td><td class="px-4 py-2 border-r border-gray-200 font-bold">Pembelian etoll</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">208.000</td><td class="px-4 py-2">Operasional</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic font-bold">01/12/24</td><td class="px-4 py-2 border-r border-gray-200 italic font-bold">Pembelian bensin kijang</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">200.000</td><td class="px-4 py-2">Operasional</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">01/12/24</td><td class="px-4 py-2 border-r border-gray-200 italic text-gray-500">Operasional</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right italic font-bold">20.000</td><td class="px-4 py-2">Operasional</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">01/12/24</td><td class="px-4 py-2 border-r border-gray-200 italic">Pembuatan proposal</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right">28.000</td><td class="px-4 py-2">Operasional</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic underline">03/12/24</td><td class="px-4 py-2 border-r border-gray-200 font-bold italic underline">Patungan karpet</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">200.000</td><td class="px-4 py-2 text-right font-bold">0</td><td class="px-4 py-2">Wakaf</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200">03/12/24</td><td class="px-4 py-2 border-r border-gray-200">Teman pak efendri</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold text-gray-700 underline">100.000</td><td class="px-4 py-2 text-right font-bold">0</td><td class="px-4 py-2">Infaq</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 underline">06/12/24</td><td class="px-4 py-2 border-r border-gray-200 font-bold italic underline">Transport ustad</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold">300.000</td><td class="px-4 py-2 italic">Jum'at</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">06/12/24</td><td class="px-4 py-2 border-r border-gray-200 italic">Pembuatan stiker celengan</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-bold underline">104.000</td><td class="px-4 py-2">Barang</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">06/12/24</td><td class="px-4 py-2 border-r border-gray-200 font-bold">Pembelian gembok & grandle</td><td class="px-4 py-2 text-right border-r border-gray-200 font-bold">0</td><td class="px-4 py-2 text-right font-bold underline">47.250</td><td class="px-4 py-2">Barang</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 font-bold underline">06/12/24</td><td class="px-4 py-2 border-r border-gray-200 font-bold underline italic">Pembelian gembok & grandle</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-black">220.000</td><td class="px-4 py-2 italic font-bold text-gray-500">Barang</td></tr>
+                    <tr><td class="px-4 py-2 border-r border-gray-200 italic">08/12/24</td><td class="px-4 py-2 border-r border-gray-200 font-bold underline tracking-tighter italic text-gray-700">Pembelian jam digital</td><td class="px-4 py-2 text-right border-r border-gray-200">0</td><td class="px-4 py-2 text-right font-black underline">1.470.000</td><td class="px-4 py-2 italic">Barang</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+        <div class="max-w-4xl mx-auto mt-16 pb-12 border-t border-gray-200 pt-10 text-center">
+    <div class="flex flex-col items-center">
+        <h3 class="text-sm font-bold text-gray-800 uppercase tracking-[0.2em] mb-3">
+            Pernyataan Transparansi
+        </h3>
+        
+        <p class="text-xs text-gray-500 leading-relaxed max-w-xl mb-8 px-4">
+            Seluruh data keuangan di atas telah diverifikasi sesuai dengan catatan kas fisik dan bukti transaksi material. 
+            Kami menjunjung tinggi amanah dan kejujuran dalam pengelolaan dana jamaah Masjid Al Amanah.
+        </p>
+
+        <div class="flex flex-col items-center">
+            <p class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-1">
+                Status Laporan
+            </p>
+            <p class="text-sm font-semibold text-gray-700">
+                Laporan Keuangan — Update 19 Maret 2026
+            </p>
+        </div>
+    </div>
+    
+    <div class="mt-10">
+        <div class="inline-block w-10 h-[1px] bg-gray-300"></div>
+    </div>
+</div>
+    </div>
+</main>
+
+<style>
+    /* Clean Minimalist Scrollbar */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 20px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 640px) {
+        td, th { padding-left: 0.5rem !important; padding-right: 0.5rem !important; font-size: 10px !important; }
+        .grid-cols-1 { gap: 0.5rem !important; }
+    }
+</style>
+  
+
+<!--FOOTER-->
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        <section class="footer-insight" style="background: #333; color: #fff; padding: 50px 20px;">
+    <div class="insight-wrapper" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; max-width: 1200px; margin: 0 auto;">
+
+        <div class="insight-col brand-column-salman" style="flex: 1; min-width: 280px;">
+            <div class="footer-brand-logo" style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <img src="/img/logo-al-amanah.jpeg" alt="Logo Masjid Al Amanah" style="border-radius: 50px; width: 60px; height: 60px; object-fit: cover;">
+                <div class="logo-divider-text">
+                    <span class="nama-masjid-text" style="font-weight: 800; line-height: 1.2; display: block; font-size: 17px;">MASJID AL-AMANAH<br>TARUMA JAYA</span>
+                </div>
+            </div>
+            <p class="masjid-address-text" style="font-size: 13px; opacity: 0.8; margin-bottom: 25px; line-height: 1.6;">
+                V2QH+MGX, Kp keramat, RT.003 RW006, <br>
+                Samudra Jaya, Kec. Tarumajaya, Bekasi Utara, Jawa Barat
+            </p>
+            
+            <div class="footer-social-links" style="display: flex; gap: 18px; font-size: 22px;">
+                <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-threads"></i></a>
+            </div>
+        </div>
+
+        <div class="insight-col" style="flex: 1; min-width: 280px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 18px; letter-spacing: 1px;">REKENING DONASI</h3>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li style="font-size: 16px; opacity: 0.9;">BCA Syariah</li>
+                <li style="font-size: 24px; font-weight: 900; color: #f57224; letter-spacing: 2px; margin: 5px 0;">0079900999</li>
+                <li style="font-size: 15px; font-weight: bold;">An. Masjid Al-Amanah</li>
+            </ul>
+            
+            <div style="border: 1px dashed rgba(255,255,255,0.3); padding: 15px; display: flex; gap: 12px; align-items: flex-start; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                <span style="font-size: 18px;">⚠️</span>
+                <p style="font-size: 11px; opacity: 0.8; margin: 0; line-height: 1.5; text-align: justify;">
+                    Seluruh dana yang didonasikan melalui kanal Masjid Al-Amanah dipastikan bukan bersumber dari dan bukan digunakan untuk tujuan pencucian uang (money laundering), pendanaan aktivitas terorisme, maupun tindak kejahatan lainnya sesuai regulasi NKRI.
+                </p>
+            </div>
+        </div>
+
+        <div class="insight-col" style="flex: 1; min-width: 280px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 18px; letter-spacing: 1px;">DONASI LANGSUNG</h3>
+            <div style="display: inline-block; padding: 10px; background: #fff; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <img src="/img/qrisalamanah1.jpeg" alt="QRIS Masjid Al-Amanah" style="width: 160px; height: auto; display: block;">
+            </div>
+
+            <p style="font-size: 11px; opacity: 0.8; line-height: 1.6; text-align: justify;">
+                <span style="font-weight: bold; color: #f57224;">Disclaimer:</span> Setiap donasi dan infaq yang masuk melalui QRCode (QRIS) maupun Rekening resmi ini akan dikelola secara amanah untuk mendukung operasional dakwah, renovasi fasilitas masjid, serta berbagai program pemberdayaan umat lainnya di lingkungan Masjid Al-Amanah.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+   <footer>
+      <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+    </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+    <a href="https://yayasan-cahaya-sunnah-ummah.com/" class="portal-float" target="_blank">
+    <i class="fa fa-hands-holding-child"></i>
+    <span class="portal-text-tooltip">Ke Yayasan Cahaya Sunnah Ummah</span>
+</a>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // 1. Logic Loading Screen
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hide-loader');
+                initDashboard(); // Mulai animasi setelah loading selesai
+            }, 1000); // Durasi loading 1 detik
+        });
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+</script><script src="../script.js"></script>
+</body>
+</html>
