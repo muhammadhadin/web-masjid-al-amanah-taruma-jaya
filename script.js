@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+
 function jalankanCari(event) {
     event.preventDefault(); 
     const input = document.getElementById('search-input');
