@@ -141,31 +141,73 @@
 <body>
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="logo">
-    <img src="img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
-    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
-  </div>
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
 
-  <div class="menu-toggle" id="mobile-menu">☰</div>
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
 
-  <ul id="nav-list">
-    <li class="nav-search">
-    <form onsubmit="return jalankanCari(event)">
-        <input type="text" placeholder="Cari..." id="search-input">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
-    <li><a href="/">Beranda</a></li>
-    <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
-    <li><a href="/infaq">Infaq</a></li>
-    <li><a href="/hasildonasi">Hasil Donasi</a></li>
-    <li><a href="/programrenovasi">Program Renovasi Masjid</a></li>
-   <li><a href="/ramadhan">Ramadhan</a></li>
-    <li><a href="/berita">Berita</a></li>
-    <li><a href="/kajian">Kajian</a></li>
-     <li><a href="/galerimasjid">Galeri</a></li>
-    <li><a href="/kontak">Kontak</a></li>
-  </ul>
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+          <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
 </nav>
 
 
@@ -287,80 +329,95 @@
     </div>
 
     <div class="agenda-grid">
-       <div class="agenda-card pinned">
-    <a href="/berita/#kajianiftorjamai" class="main-card-link"></a>
+       <div class="agenda-card">
+    <!-- Link Utama Langsung ke Section Idul Fitri -->
+    <a href="/ramadhan/#idulfitri1447h" class="main-card-link"></a>
     
     <div class="agenda-img">
         <div class="badge-wrapper">
             <div class="agenda-date-badge">
-                <span class="day">15</span>
+                <!-- Estimasi 1 Syawal 1447H -->
+                <span class="day">20/21</span>
                 <span class="month">Mar</span>
             </div>
         </div>
 
-        <img src="img/kajianiftor.jpeg" alt="Kajian Iftor">
+        <img src="img/sholat-&-khutbah-ied-fithri-ustadz-heru-abu-hanin-spd-1447-H.jpeg" alt="Shalat Idul Fitri 1447H">
     </div>
 
     <div class="agenda-content">
-        <span class="agenda-tag">Kajian Iftor & Iftor Jama’i</span>
-        <h4>Undangan Iftor Jama'i (Buka Puasa Bersama) dan Kajian Menjelang Maghrib</h4>
+        <span class="agenda-tag">Agenda Utama Syawal</span>
+        <h4>Shalat & Khutbah Idul Fitri 1447H Bersama Ustadz Heru Abu Hanin S.Pd</h4>
+        
         <div class="agenda-info">
-            <span><i class="far fa-clock"></i> 16:30 - Menjelang Maghrib</span>
+            <span><i class="far fa-clock"></i> 06:30 - Selesai</span>
+            <span style="margin-left: 10px;"><i class="fas fa-map-marker-alt"></i> Masjid Al Amanah</span>
         </div>
+
         <div class="hadits-item">
-            <span class="teks-arab" style="display: block; font-size: 1.2rem; margin-bottom: 10px; text-align: right;">مَنْ فَطَّرَ صَائِمًا كَانَ لَهُ مِثْلُ أَجْرِهِ</span>
-            <p class="arti-hadits">“Siapa memberi makan orang yang berpuasa, maka baginya pahala seperti orang yang berpuasa tersebut.” (HR. Tirmidzi no. 807)</p>
+            <span class="teks-arab" style="display: block; font-size: 1.2rem; margin-bottom: 10px; text-align: right;">لِلصَّائِمِ فَرْحَتَانِ فَرْحَةٌ عِنْدَ فِطْرِهِ</span>
+            <p class="arti-hadits">“Bagi orang yang berpuasa ada dua kegembiraan, salah satunya adalah kegembiraan ketika berbuka (Idul Fitri).” (HR. Bukhari & Muslim)</p>
         </div>  
     </div>
 </div>
 
     <div class="agenda-card">
-    <a href="/hasildonasi/#terbarusantunanyatim01" class="main-card-link"></a>
+    <!-- Link Utama Ke Section Ucapan di Halaman Ramadhan -->
+    <a href="/ramadhan/#ucapan-eid-mubarak" class="main-card-link"></a>
     
     <div class="agenda-img">
-        <img src="img/santunandhuafa01.jpeg" alt="Laporan Santunan Dhuafa Al-Amanah">
+        <img src="img/eid-mubarak-dkm-masjid-al-amanah.jpeg" alt="Ucapan Idul Fitri 1447H Masjid Al Amanah">
         
-        <div class="agenda-date-badge" style="background: #198754;">
-            <span class="day">13</span>
-            <span class="month">Mar</span>
+        <div class="agenda-date-badge" style="background: #0f3d2e;">
+            <span class="day">01</span>
+            <span class="month">Syawal</span>
         </div>
     </div>  
     
     <div class="agenda-content">
-        <span class="agenda-tag" style="background: #f0fdf4; color: #198754;">Santunan Dhuafa</span>
+        <span class="agenda-tag" style="background: #f0fdf4; color: #0f3d2e;">Ucapan Hari Raya</span>
         
-        <h4 style="color: #0f3d2e;">Penyaluran 50 Paket Sembako & Santunan Tunai 150 Dhuafa</h4>
+        <h4 style="color: #0f3d2e;">Selamat Hari Raya Idul Fitri 1447 H - Mohon Maaf Lahir & Batin</h4>
         
         <p>
-            Sinergi Masjid Al-Amanah bersama PLN Indonesia Power (LAZIS) dan CV Berdikari. Amanah telah disalurkan kepada 150 penerima manfaat guna mencukupi kebutuhan pokok menjelang Idul Fitri 1447 H.
+            Segenap DKM Masjid Al Amanah & Pengurus Yayasan Cahaya Sunnah Ummah mengucapkan: 
+            <em>"Taqabbalallahu minna wa minkum"</em>. Semoga Allah menerima amal ibadah kita dan menjadikan kita hamba yang bertakwa.
         </p>
         
-        <div style="margin-top: 10px; font-size: 12px; color: #198754; font-weight: bold;">
-            <i class="fas fa-check-circle"></i> Laporan Selesai Disalurkan
+        <div style="margin-top: 10px; font-size: 12px; color: #0f3d2e; font-weight: bold;">
+            Dari DKM & Yayasan untuk Jamaah
         </div>
     </div>
 </div>
 
     <div class="agenda-card">
-    <a href="/tim-kegiatan-berbagi-pt-pama-dan-masjid-al-amanah/" class="main-card-link"></a>
+    <!-- Link Utama Ke Section I'tikaf di Halaman Ramadhan -->
+    <a href="/berita/#program-itikaf-1447h" class="main-card-link"></a>
     
     <div class="agenda-img">
-        <img src="img/sampulptpama.png" alt="Sinergi PT PAMA & Masjid Al-Amanah">
-        
-        <div class="agenda-date-badge">
-            <span class="day">05</span>
-            <span class="month">Mar</span>
+        <div class="badge-wrapper">
+            <div class="agenda-date-badge">
+                <!-- Estimasi Malam ke-21 Ramadhan -->
+                <span class="day">21</span>
+                <span class="month">Mar</span>
+            </div>
         </div>
+
+        <img src="img/program-i'tikaf-10-hari-akhir-ramadhan-1447-h-al-amanah-taruma-jaya.jpeg" alt="Program I'tikaf Masjid Al-Amanah">
     </div>
-    
+
     <div class="agenda-content">
-        <span class="agenda-tag" style="background: #e6f7ed; color: #198754;">Sinergi Kebajikan</span>
+        <span class="agenda-tag">Agenda Utama I'tikaf</span>
+        <h4>Program I'tikaf 10 Hari Terakhir Ramadhan 1447H - Raih Lailatul Qadr</h4>
         
-        <h4 style="color: #0f3d2e;">Sinergi Penyaluran Santunan Yatim & Dhuafa Bersama PT PAMA & YIMP</h4>
-        
-        <p>
-            Alhamdulillah, telah terlaksana penyaluran santunan paket sembako dan santunan tunai hasil sinergi Masjid Al-Amanah bersama PT PAMA dan Yayasan Insan Mulia Pama (YIMP) untuk masyarakat sekitar Tarumajaya.
-        </p>
+        <div class="agenda-info">
+            <span><i class="far fa-clock"></i> Menetap di Masjid (24 Jam)</span>
+        </div>
+
+        <div class="hadits-item">
+            <span class="teks-arab" style="display: block; font-size: 1.2rem; margin-bottom: 10px; text-align: right;">تَحَرَّوْا لَيْلَةَ الْقَدْرِ فِى الْعَشْرِ الأَوَاخِرِ</span>
+            <p class="arti-hadits">“Carilah Lailatul Qadr pada sepuluh malam terakhir dari bulan Ramadhan.” (HR. Bukhari)</p>
+        </div>  
     </div>
 </div>
 
@@ -619,40 +676,37 @@
     <i class="fab fa-whatsapp my-float"></i>
     <span class="wa-text-tooltip">Hubungi Kami</span>
 </a>
+
+
 <div id="ramadhanModal" class="modal-overlay">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div class="modal-content" style="max-width: 400px; border-radius: 15px; overflow: hidden;">
+        <span class="close-btn" onclick="closeModal()" style="z-index: 10;">&times;</span>
 
         <div class="modal-body">
-            <div style="width: 100%; height: 200px; overflow: hidden; background: #0f3d2e; border-radius: 12px 12px 0 0;">
-                <img src="img/zakatfitrah01.jpeg" loading="lazy" alt="Info Zakat Fitrah" class="modal-header-img" style="width: 100%; height: 100%; object-fit: cover;">
+            <!-- Header Image: Poster Shalat Id -->
+            <div style="width: 100%; height: 180px; background: #0f3d2e;">
+                <img src="img/sholat-&-khutbah-ied-fithri-ustadz-heru-abu-hanin-spd-1447-H.jpeg" 
+                     alt="Info Shalat Idul Fitri" 
+                     style="width: 100%; height: 100%; object-fit: cover;">
             </div>
 
-            <div class="modal-text-area" style="padding: 20px;">
-                <h2 class="modal-title" style="margin-bottom: 5px; color: #0f3d2e; font-weight: 800;">Zakat Fitrah 1447H</h2>
-                <p class="modal-subtitle" style="font-size: 14px; color: #444; line-height: 1.5;">
-                    Mari tunaikan kewajiban Zakat Fitrah Anda melalui <span style="font-weight: 700; color: #007744;">Masjid Al-Amanah</span>. Tersedia layanan transfer via BCA Syariah untuk kemudahan Anda.
+            <div style="padding: 25px; text-align: center;">
+                <h2 style="margin: 0 0 10px; color: #0f3d2e; font-size: 20px;">Shalat Idul Fitri 1447H</h2>
+                <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 20px;">
+                    Hadirilah Shalat & Khutbah Idul Fitri di <strong>Masjid Al-Amanah</strong> bersama Ustadz Heru Abu Hanin S.Pd. Klik tombol di bawah untuk detail jadwal dan lokasi.
                 </p>
 
-                <div style="background: #f0fdf4; border-left: 4px solid #007744; padding: 15px; border-radius: 8px; margin: 20px 0;">
-                    <p style="margin: 0; font-size: 13px; color: #007744; font-weight: 600;">
-                        <i class="fas fa-university"></i> BCA Syariah: 007-9900-999
-                    </p>
-                    <p style="margin: 5px 0 0; font-size: 12px; color: #555;">
-                        A.n Masjid AL Amanah
-                    </p>
-                </div>
+                <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 20px; text-align: center;">Al Amanah Taruma Jaya & Yayasan Cahaya Sunnah Ummah</p>
 
-                <div class="modal-actions" style="display: flex; flex-direction: column; gap: 10px;">
-                    <a href="/berita/#zakat-fitrah-al-amanah-taruma-jaya" onclick="closeModal()" 
-                    style="background: #007744; color: #ffffff; border: none; padding: 14px; border-radius: 12px; text-decoration: none; font-weight: bold; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,119,68,0.3);">
-                        Lihat Detail & Konfirmasi
-                    </a>
+                <!-- Action Button -->
+                <a href="/ramadhan/#idulfitri1447h" onclick="closeModal()" 
+                   style="display: block; background: #0f3d2e; color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
+                   Lihat Detail Acara
+                </a>
 
-                    <button onclick="closeModal()" style="background: transparent; border: none; color: #bbb; cursor: pointer; font-size: 12px; margin-top: 5px;">
-                        Nanti Saja
-                    </button>
-                </div>
+                <button onclick="closeModal()" style="background: none; border: none; color: #aaa; cursor: pointer; font-size: 12px; margin-top: 15px;">
+                    Tutup
+                </button>
             </div>
         </div>
     </div>

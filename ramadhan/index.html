@@ -571,32 +571,75 @@ a.konfirmasi:hover {
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="logo">
-    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
-    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
-  </div>
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="/img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
 
-  <div class="menu-toggle" id="mobile-menu">☰</div>
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
 
-  <ul id="nav-list">
-   <li class="nav-search">
-    <form onsubmit="return jalankanCari(event)">
-        <input type="text" placeholder="Cari..." id="search-input">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
-    <li><a href="../">Beranda</a></li>
-    <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
-    <li><a href="../infaq">Infaq</a></li>
-    <li><a href="../hasildonasi">Hasil Donasi</a></li>
-    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
-   <li><a href="../ramadhan">Ramadhan</a></li>
-    <li><a href="../berita">Berita</a></li>
-    <li><a href="../kajian">Kajian</a></li>
-     <li><a href="../galerimasjid">Galeri</a></li>
-    <li><a href="../kontak">Kontak</a></li>
-  </ul>
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+          <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
 </nav>
+
 
 
 <div class="marquee-info">
@@ -611,17 +654,13 @@ a.konfirmasi:hover {
     
     <div class="banner-overlay">
         <div class="banner-content">
-            <h1 class="title-main gold-gradient">Ramadhan 1447H</h1>
+            <h1 class="title-main gold-gradient">Ramadhan - 1447H</h1>
             <div class="title-sub">
-                <i class="fas fa-moon"></i> Marhaban Ya Ramadhan - Kp. Samudra Jaya
+                    Marhaban Ya Ramadhan - Kp. Samudra Jaya
             </div>
         </div>
     </div>
 </section>
-
-<a href="#agendaramadhan" class="floating-agenda-btn" id="btnAgenda">
-    <i class="fas fa-calendar-alt"></i> Lihat Agenda Ramadhan
-</a>
 
 <nav class="breadcrumb-container">
     <div class="container-inner">
@@ -629,10 +668,10 @@ a.konfirmasi:hover {
             <li><a href="../index.html">Beranda</a></li>
             <li class="separator"><i class="fas fa-chevron-right"></i></li>
             
-            <li class="current">Ramadhan</li>
+            <li class="current">Ramadhan - 1447 H</li>
             
             <li class="link-arsip">
-                <a href="/ramadhan2025/">Lihat Idul Adha 2025 - 1446 H</a>
+                <a href="/idul-adha-al-amanah-taruma-jaya-2025/">Lihat Idul Adha 2025 - 1446 H</a>
             </li>
         </ul>
     </div>
@@ -643,80 +682,85 @@ a.konfirmasi:hover {
     <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
     <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
 </div>
-       <div class="banner-ramadhan-wrapper">
-    <div class="banner-ramadhan-content">
-        <img src="../img/bannerproposal2.png" alt="Banner Ramadhan 1447H" class="img-fluid-banner">
-                                                                                                                                
-        <div class="banner-action-area">
-          <a href="../proposal_masjid_alamanah_tarumajaya.pdf" download="Proposal_Ramadhan_Masjid_Al_Amanah.pdf" class="btn-download-proposal" target="_blank">
-    <i class="fa fa-file-pdf"></i> Download Proposal Lengkap (PDF)
-</a>
-        </div>
-    </div>
-</div>
-
-       <div style="width: 100%; display: flex; justify-content: center;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; width: 100%;">
-        
-        <h2 style="text-align: center; color: #0f3d2e; margin: 40px 0;">Agenda & Anggaran Kegiatan</h2>
-        
-        <div class="ramadhan-grid">
-    <div class="card-program">
-        <h3>Buka & Sahur Harian</h3>
-        <p>Penyediaan makanan untuk 20 orang setiap hari selama bulan Ramadhan.</p>
-        <span class="nominal">Rp 15.000.000</span>
-    </div>
-
-    <div class="card-program">
-        <h3>Ifthor Jama’i</h3>
-        <p>Buka puasa bersama akbar untuk 70 orang jemaah setiap pekan (4x).</p>
-        <span class="nominal">Rp 8.400.000</span>
-    </div>
-
-    <div class="card-program">
-        <h3>Santunan 40 Yatim</h3>
-        <p>Pemberian santunan, bingkisan, dan konsumsi untuk anak yatim & dhuafa.</p>
-        <span class="nominal">Rp 20.000.000</span>
-    </div>
-
-    <div class="card-program">
-        <h3>Syiar Ibadah</h3>
-        <p>Akomodasi Imam Tarawih, Qiyamulail, dan Kajian rutin Sabtu sore.</p>
-        <span class="nominal">Rp 8.500.000</span>
-    </div>
-
-    <div class="card-program">
-        <h3>Gema Idul Fitri</h3>
-        <p>Pelaksanaan Shalat Idul Fitri, Khotib, dan Konsumsi Hari Raya.</p>
-        <span class="nominal">Rp 3.500.000</span>
-    </div>
-
-    <div class="card-program total-card">
-        <h3>Total Kebutuhan</h3>
-        <p>Estimasi total biaya operasional Ramadhan 1447H.</p>
-        <span class="nominal">Rp 55.400.000</span>
-    </div>
-</div>
-<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin.%20Perkenalkan%20saya%20..........%20dari%20..........%20mau%20konfirmasi" class="konfirmasi">Konfirmasi Melalui WhatsApp</a>
-
-<!--Banner Infaq-->
-<section style="text-align: center; padding: 20px;">
-    <div class="banner-container">
-        <a href="/infaq/">
-        <img src="/img/bannergerak01.gif" alt="Infaq Masjid Al Amanah Biru">
-        </a>
-    </div>
-</section>
+    
 
 <div class="container-content" id="agendaramadhan">
    
 
     <div class="kajian-wrapper">
 
-        <article class="card-berita">
-            <div style="position: relative;"> <div class="pinned-badge">
-            <i class="fas fa-thumbtack"></i> Disematkan
+
+        <article class="card-berita" id="idulfitri1447h">
+    <!-- Link Gambar ke File yang Nama Barunya -->
+    <a href="../img/sholat-&-khutbah-ied-fithri-ustadz-heru-abu-hanin-spd-1447-H.jpeg" target="_blank">
+        <div class="image-container">
+            <img src="../img/sholat-&-khutbah-ied-fithri-ustadz-heru-abu-hanin-spd-1447-H.jpeg" alt="Shalat dan Khutbah Idul Fitri 1447H Masjid Al Amanah">
+            <div class="zoom-overlay">
+                <i class="fas fa-search-plus"></i>
+                <span class="zoom-text">Klik Selengkapnya</span>
+            </div>
         </div>
+    </a>
+    
+    <div class="content-area">
+        <span class="date-badge">1 Syawal 1447H</span>
+        <h3>Shalat & Khutbah Idul Fitri 1447H Bersama Ustadz Heru Abu Hanin S.Pd</h3>
+        
+        <p>
+            Mari raih kemenangan di hari yang fitri! Masjid Al Amanah Tarumajaya mengundang seluruh jamaah untuk hadir dalam Shalat Idul Fitri pukul 06:30 WIB. 
+            Khutbah akan disampaikan oleh <strong>Ustadz Heru Abu Hanin S.Pd</strong>.
+        </p>
+
+        <p style="font-size: 13px; margin-top: 10px; color: #666;">
+            <i class="fas fa-map-marker-alt" style="color: #e74c3c;"></i> 
+            <strong>Lokasi:</strong> <a href="https://share.google/4xGdNZtJzEeLHvDlg" target="_blank" style="color: #0f3d2e; text-decoration: underline;">Masjid Al Amanah Tarumajaya</a>
+        </p>
+
+        <p style="font-size: 13px; color: #666;">
+            <i class="fas fa-video" style="color: #e74c3c;"></i> 
+            <strong>Info Live:</strong> Tersedia di kanal resmi Masjid Al Amanah.
+        </p>
+        
+        <p style="font-size: 13px; color: #666;">
+            <i class="fas fa-phone-alt" style="color: #27ae60;"></i> 
+            <strong>WA:</strong> 085716616232
+        </p>
+    </div>
+</article>
+
+<article class="card-berita" id="ucapan-eid-mubarak">
+    <a href="../img/eid-mubarak-dkm-masjid-al-amanah.jpeg" target="_blank">
+        <div class="image-container">
+            <img src="../img/eid-mubarak-dkm-masjid-al-amanah.jpeg" alt="Ucapan Idul Fitri DKM Masjid Al Amanah">
+            <div class="zoom-overlay">
+                <i class="fas fa-envelope-open-text"></i>
+                <span class="zoom-text">Lihat Ucapan Lengkap</span>
+            </div>
+        </div>
+    </a>
+    
+    <div class="content-area">
+        <span class="date-badge">Eid Mubarak 1447H</span>
+        <h3>Keluarga Besar Masjid Al Amanah Mengucapkan Selamat Idul Fitri</h3>
+        
+        <blockquote style="font-style: italic; border-left: 4px solid #0f3d2e; padding-left: 15px; margin: 15px 0; color: #444;">
+            "Taqabbalallahu minna wa minkum. Selamat Hari Raya Idulfitri. Semoga Allah menerima seluruh amal ibadah kita di bulan Ramadhan dan menjadikan kita hamba-Nya yang bertakwa. Mohon maaf lahir dan batin."
+        </blockquote>
+
+        <p style="font-size: 14px; line-height: 1.6;">
+            <strong>DKM Masjid Al Amanah</strong> dan <strong>Pengurus Yayasan Cahaya Sunnah Ummah</strong> mengucapkan selamat merayakan kemenangan bagi seluruh jamaah dan umat muslim, khususnya di wilayah Tarumajaya.
+        </p>
+
+        <div style="margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 10px;">
+            <p style="font-size: 12px; color: #888; margin: 0;">
+                <i class="fas fa-mosque"></i> Al Amanah Taruma Jaya
+            </p>
+        </div>
+    </div>
+</article>
+
+        <article class="card-berita">
+            <div style="position: relative;">
             <a href="../img/jadwalterawihterbaru.jpeg" target="_blank">
                 <div class="image-container">
                     <img src="../img/jadwalterawihterbaru.jpeg" alt="Judul Berita">
@@ -732,6 +776,8 @@ a.konfirmasi:hover {
                 <p>Berikut adalah daftar para Asatidzah yang akan mengimami shalat Tarawih di Masjid Al-Amanah selama bulan suci Ramadhan. Kami mengajak seluruh jamaah untuk hadir tepat waktu dan meraih keutamaan shalat malam berjamaah. Klik gambar untuk melihat atau Screenshot jadwalnya.</p>
             </div>
         </article>
+
+
 
           <article class="card-berita" id="jadwaltarawih001">
             <a href="../img/jadwaltarawih01.jpeg" target="_blank">
@@ -1165,35 +1211,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-<script>
-    const btnAgenda = document.getElementById('btnAgenda');
-
-    window.addEventListener('scroll', function() {
-        // Ambil jarak scroll saat ini
-        let scrollPos = window.scrollY;
-
-        // Jika scroll lebih dari 300px ke bawah, hilangkan tombol
-        if (scrollPos > 600) {
-            btnAgenda.classList.add('hidden');
-        } 
-        // Jika balik lagi ke atas (kurang dari 300px), munculkan lagi
-        else {
-            btnAgenda.classList.remove('hidden');
-        }
-    });
-
-    // Tetep kasih fungsi klik biar dia meluncur halus ke target
-    btnAgenda.addEventListener('click', function(e) {
-        e.preventDefault(); // Mencegah loncatan kasar
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-</script>
-
 <script src="../script.js"></script>
 </body>
 </html>

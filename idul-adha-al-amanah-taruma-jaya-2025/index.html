@@ -15,355 +15,7 @@
     <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
 
    <style>
-        /* --- VIDEO SECTION (2 VIDEO BERJEJER) --- */
-    .video-section {
-        background: white;
-        padding: 40px 20px;
-        max-width: 900px; /* Ukuran container diperkecil biar video gak kegedean */
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    /* Wadah buat videonya aja */
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 Kolom di desktop */
-        gap: 20px;
-        margin-bottom: 25px;
-    }
-
-    .video-wrapper {
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        background: #ffffff;
-    }
-
-    .video-wrapper video {
-        width: 100%;
-        display: block;
-    }
-
-    /* Judul & Penjelasan tetap di bawah */
-    .video-info-text {
-        color: #0f3d2e;
-        font-weight: bold;
-        font-size: 18px;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-    }
-
-    .video-description {
-        color: #444;
-        font-size: 15px;
-        line-height: 1.6;
-        max-width: 700px;
-        margin: 0 auto;
-    }
-
-    /* RESPONSIVE HP */
-    @media (max-width: 600px) {
-        .video-grid {
-            grid-template-columns: 1fr; /* Di HP otomatis ke bawah */
-        }
-        .video-section {
-            padding: 30px 15px;
-        }
-    }
-        .card-berita {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-        .image-container {
-            width: 100%;
-            aspect-ratio: 1 / 1; 
-            overflow: hidden;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-        }
-
-        .content-area {
-            padding: 20px;
-        }
-
-        .content-area h3 {
-            font-size: 20px;
-            color: #0f3d2e;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .content-area p {
-            font-size: 15px;
-            color: #555;
-            text-align: justify;
-        }
-        /* Konten Utama */
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #0f3d2e;
-        }
-
-
-        /* --- KAJIAN SECTION --- */
-.container-content {
-    max-width: 1200px; /* Lebarin containernya biar kartu punya ruang */
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-.kajian-wrapper {
-    display: flex;
-    flex-direction: row; /* Wajib ke samping */
-    flex-wrap: wrap;    /* Biar kalau gak muat dia turun, tapi kita atur lebarnya */
-    gap: 30px;          /* Jarak antar kartu biar gak dempet */
-    justify-content: center;
-}
-
-.card-berita {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     
-    /* Desktop: Kita set lebarnya mantap (sekitar 450px - 500px) */
-    flex: 1 1 450px; 
-    max-width: 500px; /* Batasi biar gak kegedean banget di layar ultra-wide */
-    
-    display: flex;
-    flex-direction: column;
-}
-
-.image-container {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* Balikin ke kotak (1:1) sesuai request awal lu biar gambar gede */
-    overflow: hidden;
-}
-
-/* --- RESPONSIVE UNTUK HP --- */
-@media (max-width: 768px) {
-    .kajian-wrapper {
-        flex-direction: column; /* HP tetep tumpuk ke bawah */
-        align-items: center;
-    }
-
-    .card-berita {
-        flex: 1 1 100%;
-        max-width: 100%; /* Full lebar di HP */
-    }
-}
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-        }
-
-        .content-area {
-            padding: 20px;
-        }
-
-        .content-area h3 {
-            font-size: 20px;
-            color: #0f3d2e;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .content-area p {
-            font-size: 15px;
-            color: #555;
-            text-align: justify;
-        }
-
-        .date-badge {
-            display: inline-block;
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 4px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        /* Desain Card Modern */
-    .ramadhan-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        max-width: 1100px;
-        margin: 30px auto;
-        padding: 0 20px;
-    }
-
-    .card-program {
-        background: #ffffff;
-        border-radius: 15px;
-        padding: 25px;
-        text-align: center;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        border-top: 5px solid #0f3d2e;
-        transition: transform 0.3s ease;
-    }
-
-    .card-program:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-
-    .card-program h3 {
-        color: #0f3d2e;
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-    }
-
-    .card-program p {
-        color: #666;
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin-bottom: 20px;
-    }
-
-    .card-program .nominal {
-        color: #27ae60;
-        font-weight: 800;
-        font-size: 1.3rem;
-        display: block;
-    }
-
-    .total-card {
-        background: #0f3d2e !important;
-        color: white !important;
-        border-top: none;
-    }
-
-    .total-card h3, .total-card p, .total-card .nominal {
-        color: white !important;
-    }
-
-    /* Container pembungkus utama */
-.banner-ramadhan-wrapper {
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 0 15px;
-}
-
-/* Wadah relatif agar tombol bisa diposisikan absolute */
-.banner-ramadhan-content {
-    position: relative;
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    line-height: 0; /* Menghilangkan gap kecil di bawah gambar */
-}
-
-/* Gambar biar auto-resize mengikuti lebar layar */
-.img-fluid-banner {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Area tombol melayang */
-.banner-action-area {
-    position: absolute;
-    bottom: 7%; /* Jarak 12% dari bawah gambar */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    text-align: center;
-}
-
-/* Style Tombol PDF */
-.btn-download-proposal {
-    background: #f1c40f !important; /* Warna kuning emas */
-    color: #000 !important;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.btn-download-proposal:hover {
-    background: #d4ac0d !important;
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-/* Responsive Mobile */
-@media (max-width: 768px) {
-    .btn-download-proposal {
-        font-size: 0.8rem;
-        padding: 8px 16px;
-        border-radius: 6px;
-        /* Tambahin ini bray buat ngatur posisi tombol di HP */
-    }
-    .banner-ramadhan-content {
-        border-radius: 12px;
-    }
-}
-
-/* --- BANNER SLIDER TRANSISI (TRANSPARAN) --- */
-    .banner-container {
-        width: 100%;
-        max-width: 850px; 
-        margin: 0 auto; /* Margin atas bawah gue ilangin biar nggak ada space putih */
-        position: relative;
-        height: 350px; /* Sesuaikan tinggi asli gambarnya */
-        overflow: hidden;
-        /* Background, border, radius, dan shadow dibuang semua sesuai request */
-    }
-
-    .banner-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Penting biar gambar nggak kepotong */
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: transparent; /* Pastikan background img transparan */
-    }
-
-    /* Gambar 1 (Ijo) */
-    .banner-container img:nth-child(1) {
-        animation: fade1 6s infinite; /* Gue saranin 6s biar orang sempet baca */
-    }
-
-    /* Gambar 2 (Biru) */
-    .banner-container img:nth-child(2) {
-        animation: fade2 6s infinite;
-    }
-
-    @keyframes fade1 {
-        0%, 45% { opacity: 1; z-index: 2; }
-        55%, 95% { opacity: 0; z-index: 1; }
-        100% { opacity: 1; }
-    }
-
-    @keyframes fade2 {
-        0%, 45% { opacity: 0; z-index: 1; }
-        55%, 95% { opacity: 1; z-index: 2; }
-        100% { opacity: 0; }
-    }
-
-    @media (max-width: 600px) {
-        .banner-container { height: 180px; } /* Sesuaikan buat layar HP */
-    }
     /* TOMBOL KONFIRMASI WHATSAPP */
 a.konfirmasi {
   display: block;
@@ -660,31 +312,73 @@ a.konfirmasi:hover {
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="logo">
-    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
-    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
-  </div>
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="/img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
 
-  <div class="menu-toggle" id="mobile-menu">☰</div>
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
 
-  <ul id="nav-list">
-   <li class="nav-search">
-    <form onsubmit="return jalankanCari(event)">
-        <input type="text" placeholder="Cari..." id="search-input">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
-     <li><a href="../">Beranda</a></li>
-    <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
-    <li><a href="../infaq">Infaq</a></li>
-    <li><a href="../hasildonasi">Hasil Donasi</a></li>
-    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
-   <li><a href="../ramadhan">Ramadhan</a></li>
-    <li><a href="../berita">Berita</a></li>
-    <li><a href="../kajian">Kajian</a></li>
-     <li><a href="../galerimasjid">Galeri</a></li>
-    <li><a href="../kontak">Kontak</a></li>
-  </ul>
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+           <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
 </nav>
 
 
@@ -715,7 +409,7 @@ a.konfirmasi:hover {
             <li><a href="../../index.html">Beranda</a></li>
             <li class="separator"><i class="fas fa-chevron-right"></i></li>
             
-            <li><a href="/ramadhan/">Ramadhan</a></li>
+            <li><a href="/ramadhan/">Ramadhan - 1447 H</a></li>
             <li class="separator"><i class="fas fa-chevron-right"></i></li>
             
             <li class="current">Idul Adha 2025 - 1446 H</li>

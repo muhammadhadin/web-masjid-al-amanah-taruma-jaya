@@ -30,31 +30,73 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="logo">
-    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
-    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
-  </div>
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="/img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
 
-  <div class="menu-toggle" id="mobile-menu">☰</div>
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
 
-  <ul id="nav-list">
-   <li class="nav-search">
-    <form onsubmit="return jalankanCari(event)">
-        <input type="text" placeholder="Cari..." id="search-input">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
-     <li><a href="../">Beranda</a></li>
-    <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
-    <li><a href="../infaq">Infaq</a></li>
-    <li><a href="../hasildonasi">Hasil Donasi</a></li>
-    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
-   <li><a href="../ramadhan">Ramadhan</a></li>
-    <li><a href="../berita">Berita</a></li>
-    <li><a href="../kajian">Kajian</a></li>
-     <li><a href="../galerimasjid">Galeri</a></li>
-    <li><a href="../kontak">Kontak</a></li>
-  </ul>
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+           <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
 </nav>
 
 
@@ -94,6 +136,92 @@
 
 <div class="container-content" id="berita">
     <div class="kajian-wrapper">
+
+        <article class="card-berita" id="program-itikaf-1447h">
+    <a href="../img/program-i'tikaf-10-hari-akhir-ramadhan-1447-h-al-amanah-taruma-jaya.jpeg" target="_blank" style="text-decoration: none; display: block;">
+        <div class="image-container">
+            <img src="../img/program-i'tikaf-10-hari-akhir-ramadhan-1447-h-al-amanah-taruma-jaya.jpeg" alt="Program I'tikaf Masjid Al-Amanah">
+            <div class="zoom-overlay" style="opacity: 0.8; background: rgba(15, 61, 46, 0.4);">
+                <i class="fas fa-search-plus"></i> <span class="zoom-text">Klik untuk Perbesar</span>
+            </div>
+        </div>
+    </a>
+
+    <div class="content-area">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span class="date-badge" style="background: #0f3d2e; color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px;">
+                <i class="fas fa-moon"></i> 10 Malam Terakhir
+            </span>
+            <span style="font-size: 11px; color: #007744; font-weight: 800; text-transform: uppercase;">
+                <i class="fas fa-mosque"></i> Info I'tikaf
+            </span>
+        </div>
+
+        
+        <h3 style="margin: 0 0 10px; color: #0f3d2e; font-size: 19px; line-height: 1.3; font-weight: 800;">
+            Raih Keutamaan Lailatul Qadr di 10 Malam Terakhir Ramadhan
+        </h3>
+        
+              <!-- Tombol Share -->
+        <div class="share-container" style="border-top: 1px dashed #ddd; padding-top: 15px;">
+            <p style="font-size: 11px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Bagikan:</p>
+           <div class="share-buttons-grid" style="display: flex; gap: 8px; flex-wrap: wrap;">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/?text=*INFO I'TIKAF 1447H*%0A*Masjid Al-Amanah Taruma Jaya*%0A%0AMari raih Lailatul Qadr bersama di 10 malam terakhir Ramadhan.%0ACek info lengkapnya di sini:%0Ahttps://web-alamanah.com/#program-itikaf-1447h" 
+       target="_blank" class="share-btn wa" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://web-alamanah.com/#program-itikaf-1447h" 
+       target="_blank" class="share-btn fb" title="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <!-- Threads -->
+    <a href="https://www.threads.net/intent/post?text=Mari i'tikaf di Masjid Al-Amanah Taruma Jaya. Raih Lailatul Qadr! Detail: https://web-alamanah.com/#program-itikaf-1447h" 
+       target="_blank" class="share-btn threads" title="Threads">
+        <i class="fa-solid fa-at"></i>
+    </a>
+
+    <!-- Instagram (Salin Link) -->
+    <button onclick="shareKonten('ig', 'program-itikaf-1447h')" class="share-btn ig" title="Salin Link Instagram">
+        <i class="fab fa-instagram"></i>
+    </button>
+
+    <!-- Salin Link Umum -->
+    <button onclick="shareKonten('umum', 'program-itikaf-1447h')" class="share-btn link" title="Salin Link">
+        <i class="fas fa-link"></i>
+    </button>
+</div>
+        </div>
+        <br>
+        
+        <div style="background: #f0fdf4; border-radius: 10px; padding: 12px; margin-bottom: 15px; border: 1px dashed #007744;">
+            <p style="font-size: 13px; color: #333; margin: 0; line-height: 1.8;">
+                <i class="fas fa-calendar-alt" style="color: #007744; width: 20px;"></i> <strong>Waktu:</strong> Malam ke-21 s/d Malam Kemenangan<br>
+                <i class="fas fa-clock" style="color: #007744; width: 20px;"></i> <strong>Fasilitas:</strong> Sahur & Buka Puasa (Terbatas)<br>
+                <i class="fas fa-map-marker-alt" style="color: #007744; width: 20px;"></i> <strong>Lokasi:</strong> Masjid Al-Amanah Taruma Jaya
+            </p>
+        </div>
+
+        <p style="font-size: 12.5px; color: #444; line-height: 1.6; margin-bottom: 15px;">
+            Mari maksimalkan ibadah di penghujung Ramadhan 1447H. Program I'tikaf tahun ini meliputi Kajian Subuh, Qiyamul Lail berjamaah, dan bimbingan ibadah lainnya.
+        </p>
+
+        <!-- Tombol Daftar/WA -->
+        <div style="margin-bottom: 20px;">
+            <a href="https://wa.me/628558009990?text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah%2C%20saya%20ingin%20bertanya/mendaftar%20Program%20I'tikaf%20Ramadhan%201447H." 
+               target="_blank" 
+               style="background: #25d366; color: white; border: none; padding: 10px 12px; border-radius: 8px; font-size: 13px; font-weight: bold; width: 100%; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fab fa-whatsapp"></i> Tanya Info I'tikaf
+            </a>
+        </div>
+
+  
+    </div>
+</article>
+
 
         <article class="card-berita" id="zakat-fitrah-al-amanah-taruma-jaya">
     <a href="../img/zakatfitrah01.jpeg" target="_blank" style="text-decoration: none; display: block;">

@@ -32,15 +32,53 @@ if (prevBtn && slides.length > 0) {
     };
 }
 
-const toggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector("#nav-list");
 
-if (toggle && nav) {
-    toggle.onclick = () => {
-        nav.classList.toggle("active");
-        toggle.innerHTML = nav.classList.contains("active") ? "✖" : "☰";
-    };
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("#nav-list");
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    // 1. Toggle Menu Utama (Hamburger)
+    if (toggle && nav) {
+        toggle.onclick = (e) => {
+            e.stopPropagation();
+            const isActive = nav.classList.toggle("active");
+            toggle.innerHTML = isActive ? "✖" : "☰";
+        };
+    }
+
+    // 2. Klik Dropdown (Berlaku di Desktop & Mobile)
+    dropdowns.forEach(drop => {
+        const btn = drop.querySelector('.dropbtn');
+        
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const parent = this.parentElement;
+                const isAlreadyActive = parent.classList.contains('active');
+
+                // Tutup dropdown lain yang mungkin lagi kebuka
+                dropdowns.forEach(d => {
+                    if (d !== parent) d.classList.remove('active');
+                });
+
+                // Toggle dropdown yang diklik
+                parent.classList.toggle('active');
+            });
+        }
+    });
+
+    // 3. Klik di luar area navbar bakal nutup semua
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            if (nav) nav.classList.remove('active');
+            if (toggle) toggle.innerHTML = "☰";
+            dropdowns.forEach(d => d.classList.remove('active'));
+        }
+    });
+});
 
 function jalankanCari(event) {
     event.preventDefault(); 
@@ -318,3 +356,12 @@ function shareKonten(tipe, idTarget) {
         console.error('Gagal menyalin: ', err);
     });
 }
+
+document.querySelectorAll('.dropdown').forEach(drop => {
+    drop.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            // Biar gak loncat ke link utama kalau ada submenu
+            this.classList.toggle('active');
+        }
+    });
+});

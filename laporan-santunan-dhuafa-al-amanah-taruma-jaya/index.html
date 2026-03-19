@@ -270,31 +270,73 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="logo">
-    <img src="../img/logo-al-amanah.jpeg" style="width: 40px; border-radius: 50%;">
-    <h3 style="color: white; margin: 0;">Masjid Al Amanah Taruma Jaya</h3>
-  </div>
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="/img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
 
-  <div class="menu-toggle" id="mobile-menu">☰</div>
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
 
-  <ul id="nav-list">
-   <li class="nav-search">
-    <form onsubmit="return jalankanCari(event)">
-        <input type="text" placeholder="Cari..." id="search-input">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
-     <li><a href="../">Beranda</a></li>
-    <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
-    <li><a href="../infaq">Infaq</a></li>
-    <li><a href="../hasildonasi">Hasil Donasi</a></li>
-    <li><a href="../programrenovasi">Program Renovasi Masjid</a></li>
-   <li><a href="../ramadhan">Ramadhan</a></li>
-    <li><a href="../berita">Berita</a></li>
-    <li><a href="../kajian">Kajian</a></li>
-     <li><a href="../galerimasjid">Galeri</a></li>
-    <li><a href="../kontak">Kontak</a></li>
-  </ul>
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+           <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
 </nav>
 
 <div class="marquee-info">
