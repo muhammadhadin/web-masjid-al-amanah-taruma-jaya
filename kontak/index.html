@@ -321,40 +321,45 @@
             </div>
 
             <!-- KOLOM KANAN: FORM PESAN -->
-            <div class="pesan-wrapper">
-                <form action="https://formspree.io/f/mkoqebll" method="POST" class="form-pesan-modern">
-                    <input type="hidden" name="_subject" value="Pesan Baru: Web Masjid Al Amanah">
-                    <input type="hidden" name="_next" value="https://alamanah-tarumajaya.com/kontak/terimakasih-pesan-anda-telah-terkirim/index.html">
-                    <input type="text" name="_gotcha" style="display:none">
+<div class="pesan-wrapper">
+    <!-- Tambahin id="my-form" buat dikontrol JavaScript -->
+    <form id="my-form" action="https://formspree.io/f/mkoqebll" method="POST" class="form-pesan-modern">
+        
+        <!-- Subject email tetep ada biar inbox rapi -->
+        <input type="hidden" name="_subject" value="Pesan Baru: Web Masjid Al Amanah">
+        
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none">
 
-                    <div class="input-baris">
-                        <div class="input-grup">
-                            <label>Nama Lengkap *</label>
-                            <input type="text" name="nama" placeholder="Contoh: Abdullah" required>
-                        </div>
-                        <div class="input-grup">
-                            <label>Email Aktif *</label>
-                            <input type="email" name="email" placeholder="nama@email.com" required>
-                        </div>
-                    </div>
-
-                    <div class="input-grup">
-                        <label>Nomor Telepon / WhatsApp</label>
-                        <input type="tel" name="telepon" placeholder="+62 812 3456 7890">
-                    </div>
-
-                    <div class="input-grup">
-                        <label>Pesan atau Pertanyaan *</label>
-                        <textarea name="pesan" rows="6" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
-                    </div>
-
-                    <div class="tombol-area">
-                        <button type="submit" class="btn-kirim">
-                            Kirim Pesan Sekarang
-                        </button>
-                    </div>
-                </form>
+        <div class="input-baris">
+            <div class="input-grup">
+                <label>Nama Lengkap *</label>
+                <input type="text" name="nama" placeholder="Contoh: Abdullah" required>
             </div>
+            <div class="input-grup">
+                <label>Email Aktif *</label>
+                <input type="email" name="email" placeholder="nama@email.com" required>
+            </div>
+        </div>
+
+        <div class="input-grup">
+            <label>Nomor Telepon / WhatsApp</label>
+            <input type="tel" name="telepon" placeholder="+62 812 3456 7890">
+        </div>
+
+        <div class="input-grup">
+            <label>Pesan atau Pertanyaan *</label>
+            <textarea name="pesan" rows="6" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+        </div>
+
+        <div class="tombol-area">
+            <!-- Tambahin id="my-form-status" di button biar bisa berubah teksnya pas loading -->
+            <button type="submit" class="btn-kirim" id="my-form-status">
+                Kirim Pesan Sekarang
+            </button>
+        </div>
+    </form>
+</div>
 
         </div> <!-- End of info-grid -->
     </div> <!-- End of info-container -->
@@ -477,5 +482,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script><script src="../script.js"></script>
+
+<form id="my-form" action="https://formspree.io/f/mkoqebll" method="POST" class="form-pesan-modern">
+    <!-- Inputan lo yang lain tetep sama (nama, email, pesan, dll) -->
+    <!-- ... -->
+    <button type="submit" class="btn-kirim" id="my-form-status">Kirim Pesan Sekarang</button>
+</form>
+
+<script>
+  var form = document.getElementById("my-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+    
+    status.innerHTML = "Sedang Mengirim...";
+
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        // INI KUNCINYA JON: Paksa pindah ke halaman terimakasih lo
+        window.location.href = "https://alamanah-tarumajaya.com/kontak/terimakasih-pesan-anda-telah-terkirim/index.html";
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            alert(data["errors"].map(error => error["message"]).join(", "));
+          } else {
+            alert("Waduh, ada masalah pas ngirim!");
+          }
+        })
+      }
+    }).catch(error => {
+      alert("Oops! Ada masalah koneksi.");
+    });
+  }
+  
+  form.addEventListener("submit", handleSubmit)
+</script>
 </body>
 </html>
