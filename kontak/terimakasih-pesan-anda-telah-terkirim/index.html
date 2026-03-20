@@ -3,160 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak - Masjid Al Amanah Taruma Jaya</title>
-    <link rel="stylesheet" href="../style.css">
-<link rel="manifest" href="../manifest.json">
-<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
-<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+    <title>Terima Kasih - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="manifest" href="../../manifest.json">
+<link rel="icon" type="image/png" href="/../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="/../img/logo-al-amanah.png">
 
 <meta name="theme-color" content="#008444">
 <meta name="mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZJQQ5XGWF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-   <style>
-/* Biar konten gak ketutupan navbar */
-#search-status-global {
-    margin-top: 20px !important; /* Sesuaikan angka ini (80px - 100px biasanya pas) */
-    position: relative;
-    z-index: 10; /* Biar dia di atas background tapi di bawah navbar dropdown */
+  gtag('config', 'G-YZJQQ5XGWF');
+</script>
+<style>
+
+        .success-card {
+    /* --- PAKE CARA AMAN INI JON --- */
+    margin: 100px auto;      /* 100px jarak dari atas, 'auto' buat nengahin kiri-kanan */
+    display: block;          /* Biar margin auto-nya jalan */
+    /* ----------------------------- */
+
+    background: white;
+    padding: 50px 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    animation: slideUp 0.6s ease-out;
 }
 
-/* Kalau di HP navigasinya lebih tinggi, kita sesuaikan lagi */
-@media (max-width: 768px) {
-    #search-status-global {
-        margin-top: 80px !important;
-    }
-}
+        /* Animasi Centang CSS Murni */
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: #eefdf5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            position: relative;
+            border: 2px solid #198754;
+        }
 
-/* Container Luar Form */
-.pesan-wrapper {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid #edf2f7;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    max-width: 800px; /* Batas lebar biar gak gepeng banget */
-    margin: 20px auto;
-    font-family: 'Poppins', sans-serif;
-}
+        .checkmark {
+            width: 40px;
+            height: 20px;
+            border-left: 5px solid #198754;
+            border-bottom: 5px solid #198754;
+            transform: rotate(-45deg);
+            margin-top: -5px;
+            animation: checkAppear 0.4s 0.6s both;
+        }
 
-/* Row untuk Nama & Email (Kanan-Kiri) */
-.input-baris {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
+        h1 {
+            color: #0f3d2e;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
 
-.input-grup {
-    margin-bottom: 25px;
-}
+        p {
+            color: #718096;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
 
-.input-grup label {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #0f3d2e;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+        .btn-back {
+            display: inline-block;
+            background: #0f3d2e;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-.input-grup input, 
-.input-grup textarea {
-    width: 100%;
-    padding: 14px 18px;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 12px;
-    font-size: 1rem;
-    color: #2d3748;
-    transition: all 0.3s ease;
-    outline: none;
-    background-color: #fdfdfd;
-}
+        .btn-back:hover {
+            background: #198754;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(25, 135, 84, 0.2);
+        }
 
-/* Efek pas diklik (Fokus) */
-.input-grup input:focus, 
-.input-grup textarea:focus {
-    border-color: #198754;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.08);
-}
+        /* Animations */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-/* Styling Area Tombol */
-.tombol-area {
-    text-align: center; /* Kunci biar tombol ke tengah di Desktop */
-    margin-top: 10px;
-}
-
-.btn-kirim {
-    background-color: #0f3d2e;
-    color: white;
-    border: none;
-    padding: 16px 50px; /* Gue lebarin dikit biar lebih gagah di tengah */
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
-    display: inline-block; /* Pastiin dia inline biar nurut sama text-align */
-    width: auto;
-}
-
-.btn-kirim:hover {
-    background-color: #198754;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(25, 135, 84, 0.2);
-}
-
-/* Responsif buat HP */
-@media (max-width: 768px) {
-    .pesan-wrapper { padding: 30px 20px; }
-    .input-baris { grid-template-columns: 1fr; gap: 0; }
-    
-    /* Di HP tetep Full Width biar gampang diklik jempol */
-    .btn-kirim { 
-        width: 100%; 
-        display: block; 
-    }
-}
-
-/* Container Pembatas */
-.pembatas-kontak {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-/* Garis Vertikalnya */
-.garis-v {
-    width: 2px;
-    flex-grow: 1;
-    background: linear-gradient(to bottom, transparent, #cbd5e0, transparent);
-    min-height: 100px;
-}
-
-/* Tulisan di Tengah Garis */
-.pembatas-kontak span {
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: #a0aec0;
-    letter-spacing: 2px;
-    background: #f8faf9; /* Samain sama warna background section lo */
-    padding: 5px 0;
-}
-
-/* MATIKAN GARIS DI HP (Biar gak aneh) */
-@media (max-width: 768px) {
-    .pembatas-kontak {
-        display: none;
-    }
-}
-</style>
-
-
+        @keyframes checkAppear {
+            from { opacity: 0; transform: scale(0.5) rotate(-45deg); }
+            to { opacity: 1; transform: scale(1) rotate(-45deg); }
+        }
+    </style>
 </head>
 <body>
 
@@ -234,6 +183,9 @@
   </div> <!-- END nav-container -->
 </nav>
 
+
+
+
 <div class="marquee-info">
     <div class="marquee-content">
         <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
@@ -241,31 +193,16 @@
     </div>
 </div>
 
-<section class="banner-berita">
-    <img src="../img/slide01.png" alt="Kontak Masjid Al-Amanah" class="banner-img">
-    
-    <div class="banner-overlay">
-        <div class="banner-content">
-            <h1 class="title-main contact-gradient">Kontak Al Amanah</h1>
-            <div class="title-sub">
-               Layanan Informasi & Pelayanan Jamaah Al-Amanah
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <nav class="breadcrumb-container">
     <div class="container-inner">
         <ul class="breadcrumb-list">
-            <li><a href="../index.html">Beranda</a></li>
+            <li><a href="../../index.html">Beranda</a></li>
             <li class="separator"><i class="fas fa-chevron-right"></i></li>
-            <li class="current">Kontak</li>
-
-            <li class="link-arsip">
-                <a href="https://wa.me/628558009990" target="_blank" class="btn-text-wa">
-                    Ada Pertanyaan? Chat WhatsApp <i class="fab fa-whatsapp"></i>
-                </a>
-            </li>
+            <li><a href="/kontak/">Kontak</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            <li class="current">Pesan Terkirim</li>
         </ul>
     </div>
 </nav>
@@ -277,88 +214,18 @@
 </div>
 
 
-<section class="info-section" id="kontak">
-    <div class="info-container">
-        <br>
-        <div class="info-grid">
-            
-            <!-- KOLOM KIRI: MAPS & DETAIL KONTAK -->
-            <div class="info-details-column">
-                <div class="map-frame" >
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d69165.82341347696!2d106.94745511795396!3d-6.108046402794488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a270053d84041%3A0xbdc66a861b6ac51a!2sMasjid%20Al-Amanah!5e0!3m2!1sid!2sid!4v1772446907195!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                
-                <a href="https://maps.app.goo.gl/cjzmJc6iKw9pLNC57" target="_blank" class="info-card">
-                    <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
-                    <div class="text-box">
-                        <h4>Alamat Masjid</h4>
-                        <p>Kp. Keramat, RT.003/RW.006, Samudra Jaya, Tarumajaya, Bekasi</p>
-                    </div>
-                </a>
+<div class="success-card">
+        <div class="icon-circle">
+            <div class="checkmark"></div>
+        </div>
+        
+        <h1>Jazakallahu Khairan!</h1>
+        <p>Pesan Anda telah kami terima dengan baik. Insha Allah akan segera kami respon melalui email atau WhatsApp.</p>
 
-                <a href="https://wa.me/628558009990" target="_blank" class="info-card">
-                    <div class="icon-box whatsapp"><i class="fab fa-whatsapp"></i></div>
-                    <div class="text-box">
-                        <h4>WhatsApp Center</h4>
-                        <p>0855-8009-990 (Respon Cepat)</p>
-                    </div>
-                </a>
+        <!-- Ganti index.html dengan nama file utama lo bray -->
+        <a href="../../index.html" class="btn-back">Kembali ke Beranda</a>
+    </div>
 
-                <a href="mailto:masjidalamanahtarumajaya24@gmail.com?subject=Tanya%20Seputar%20Masjid%20Al-Amanah" class="info-card">
-                    <div class="icon-box email"><i class="fas fa-envelope-open-text"></i></div>
-                    <div class="text-box">
-                        <h4>Email Resmi</h4>
-                        <p>masjidalamanahtarumajaya24@gmail.com</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- KOLOM TENGAH: GARIS PEMBATAS -->
-            <div class="pembatas-kontak">
-                <div class="garis-v"></div>
-                <span>ATAU</span>
-                <div class="garis-v"></div>
-            </div>
-
-            <!-- KOLOM KANAN: FORM PESAN -->
-            <div class="pesan-wrapper">
-                <form action="https://formspree.io/f/mkoqebll" method="POST" class="form-pesan-modern">
-                    <input type="hidden" name="_subject" value="Pesan Baru: Web Masjid Al Amanah">
-                    <input type="hidden" name="_next" value="https://alamanah-tarumajaya.com/kontak/terimakasih-pesan-anda-telah-terkirim/index.html">
-                    <input type="text" name="_gotcha" style="display:none">
-
-                    <div class="input-baris">
-                        <div class="input-grup">
-                            <label>Nama Lengkap *</label>
-                            <input type="text" name="nama" placeholder="Contoh: Abdullah" required>
-                        </div>
-                        <div class="input-grup">
-                            <label>Email Aktif *</label>
-                            <input type="email" name="email" placeholder="nama@email.com" required>
-                        </div>
-                    </div>
-
-                    <div class="input-grup">
-                        <label>Nomor Telepon / WhatsApp</label>
-                        <input type="tel" name="telepon" placeholder="+62 812 3456 7890">
-                    </div>
-
-                    <div class="input-grup">
-                        <label>Pesan atau Pertanyaan *</label>
-                        <textarea name="pesan" rows="6" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
-                    </div>
-
-                    <div class="tombol-area">
-                        <button type="submit" class="btn-kirim">
-                            Kirim Pesan Sekarang
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-        </div> <!-- End of info-grid -->
-    </div> <!-- End of info-container -->
-</section>
 <!--FOOTER-->
 <div class="wrapper style4">
     <article id="contact" class="container">
@@ -427,8 +294,8 @@
     <i class="fas fa-chevron-up"></i>
 </div>
 
-    <a href="https://yayasan-cahaya-sunnah-ummah.com/" class="portal-float" target="_blank">
-    <i class="fa fa-hands-holding-child"></i>
+<a href="https://yayasan-cahaya-sunnah-ummah.com/" class="portal-float" target="_blank">
+   <i class="fa fa-hands-holding-child"></i>
     <span class="portal-text-tooltip">Ke Yayasan Cahaya Sunnah Ummah</span>
 </a>
 
@@ -476,6 +343,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-</script><script src="../script.js"></script>
+</script><script src="/../script.js"></script>
 </body>
 </html>
