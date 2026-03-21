@@ -137,85 +137,98 @@ function jalankanCari(event) {
     }
     return false;
 }
-
 document.addEventListener('DOMContentLoaded', function() {
-    const checkElement = document.getElementById("subuh");
-    if (!checkElement) return; 
+    updateClock();
+    setInterval(updateClock, 1000);
 
     const date = new Date();
-    
-    // TAMPILKAN TANGGAL INDONESIA
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('today-date').innerText = date.toLocaleDateString('id-ID', options);
+    // Update Teks Tanggal
+    const dateEl = document.getElementById('today-date');
+    if(dateEl) {
+        dateEl.innerText = date.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    }
 
     const y = date.getFullYear();
     const m = String(date.getMonth() + 1).padStart(2, '0');
     const d = String(date.getDate()).padStart(2, '0');
 
+    // Fetch API Jadwal Sholat (ID Kota 1225 = Bekasi)
     fetch(`https://api.myquran.com/v2/sholat/jadwal/1225/${y}/${m}/${d}`)
     .then(res => res.json())
     .then(data => {
         if(data.status && data.data) {
             const j = data.data.jadwal;
-            document.getElementById("subuh").innerText = j.subuh;
-            document.getElementById("syuruq").innerText = j.terbit;
-            document.getElementById("dzuhur").innerText = j.dzuhur;
-            document.getElementById("ashar").innerText = j.ashar;
-            document.getElementById("maghrib").innerText = j.maghrib;
-            document.getElementById("isya").innerText = j.isya;
+            
+            // Simpan mapping ID untuk teks dan kartu
+            const times = [
+                { cardId: 'card-subuh', textId: 'subuh', t: j.subuh },
+                { cardId: 'card-syuruq', textId: 'syuruq', t: j.terbit },
+                { cardId: 'card-dzuhur', textId: 'dzuhur', t: j.dzuhur },
+                { cardId: 'card-ashar', textId: 'ashar', t: j.ashar },
+                { cardId: 'card-maghrib', textId: 'maghrib', t: j.maghrib },
+                { cardId: 'card-isya', textId: 'isya', t: j.isya }
+            ];
 
-            // Jalankan highlight setelah data API masuk
-            highlightNextPrayer(j);
+            // 1. Render teks jam sholat ke HTML
+            times.forEach(item => {
+                const el = document.getElementById(item.textId);
+                if(el) el.innerText = item.t;
+            });
+
+            // 2. Fungsi Logika Warna Ijo (Highlight)
+            const updateHighlight = () => {
+                const now = new Date();
+                const nowMin = (now.getHours() * 60) + now.getMinutes();
+
+                const toMin = (str) => {
+                    const [h, min] = str.split(':').map(Number);
+                    return (h * 60) + min;
+                };
+
+                // Hapus semua class ijo dulu
+                times.forEach(item => {
+                    const card = document.getElementById(item.cardId);
+                    if(card) card.classList.remove('active-prayer');
+                });
+
+                // Cari jadwal pertama yang waktunya LEBIH BESAR dari sekarang
+                let targetCardId = "";
+                for (let i = 0; i < times.length; i++) {
+                    if (toMin(times[i].t) > nowMin) {
+                        targetCardId = times[i].cardId;
+                        break; 
+                    }
+                }
+
+                // Jika sudah lewat Isya (gak ketemu target), balik ke Subuh
+                if (!targetCardId) {
+                    targetCardId = 'card-subuh';
+                }
+
+                // Pasang class ijo ke kartu yang terpilih
+                const activeCard = document.getElementById(targetCardId);
+                if(activeCard) activeCard.classList.add('active-prayer');
+            };
+
+            updateHighlight();
+            setInterval(updateHighlight, 30000); // Cek tiap 30 detik
         }
     })
-    .catch(err => console.log("API Error"));
+    .catch(err => console.error("Gagal ambil data jadwal sholat:", err));
 });
-
-function highlightNextPrayer(jadwal) {
-    const now = new Date();
-    const currentTime = now.getHours() * 60 + now.getMinutes();
-
-    // Mapping ID kartu dan waktu dari API
-    const times = [
-        { id: 'card-subuh', time: jadwal.subuh },
-        { id: 'card-syuruq', time: jadwal.terbit },
-        { id: 'card-dzuhur', time: jadwal.dzuhur },
-        { id: 'card-ashar', time: jadwal.ashar },
-        { id: 'card-maghrib', time: jadwal.maghrib },
-        { id: 'card-isya', time: jadwal.isya }
-    ];
-
-    // Hapus semua class highlight dulu
-    times.forEach(t => document.getElementById(t.id).classList.remove('next-prayer'));
-
-    // Cari jadwal selanjutnya
-    let found = false;
-    for (let t of times) {
-        const [h, m] = t.time.split(':');
-        const prayerTime = parseInt(h) * 60 + parseInt(m);
-
-        if (prayerTime > currentTime) {
-            document.getElementById(t.id).classList.add('next-prayer');
-            found = true;
-            break; 
-        }
-    }
-
-    // Jika sudah lewat Isya, highlight Subuh (buat besok)
-    if (!found) {
-        document.getElementById('card-subuh').classList.add('next-prayer');
-    }
-}
 
 function updateClock() {
     const el = document.getElementById('clock');
     if (!el) return;
     const n = new Date();
-    el.textContent = `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')}`;
+    // Format jam:menit:detik (HH:mm:ss)
+    el.textContent = n.toLocaleTimeString('id-ID', { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit', 
+        hour12: false 
+    }).replace(/\./g, ':');
 }
-setInterval(updateClock, 1000);
-updateClock();
-
 // Fungsi Munculin Tombol Pas Scroll
 window.onscroll = function() {
     const btn = document.getElementById("backToTop");

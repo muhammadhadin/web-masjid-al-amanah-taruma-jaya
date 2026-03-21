@@ -878,162 +878,141 @@ a.konfirmasi:hover {
 }
 
 /* ============================================================
-   SECTION: JADWAL SHOLAT MODERN
+   SECTION: BENTO SHOLAT PREMIUM (ANTI-BENTROK)
    ============================================================ */
 .prayer-modern {
-    padding: 30px 20px 70px 20px; 
-    background: radial-gradient(circle at top, #ffffff, #f4fbf8);
-    text-align: center;
+    padding: 80px 20px;
+    background: #f8fafc;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-.container-minimal {
+.bento-container-full {
+    width: 100%;
     max-width: 1100px;
-    margin: 0 auto;
 }
 
-/* Header Central (Lokasi, Jam, Tanggal) */
-.prayer-header-central {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 40px;
+/* KOTAK PUTIH UTAMA */
+.bento-main-card {
+    background: #ffffff;
+    padding: 60px 40px;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.03);
 }
 
-.location-badge {
-    background: #eef5f2;
+.bento-header-area {
+    margin-bottom: 50px;
+}
+
+.bento-location-tag {
+    background: #f1f5f9;
     color: #0f3d2e;
-    padding: 8px 18px;
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 700;
-    display: flex;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid rgba(15, 61, 46, 0.05);
+    margin-bottom: 30px;
 }
 
-.clock-wrapper {
+/* FIX JAM MEPET */
+#clock {
+    font-size: clamp(50px, 12vw, 90px);
+    font-weight: 900;
+    color: #0f3d2e; /* Gue samain ijonya biar senada */
+    line-height: 1.1;
+    letter-spacing: 2px; /* Dikasih jarak biar gak tabrakan */
+    font-variant-numeric: tabular-nums; /* Angka gak goyang */
     margin: 10px 0;
 }
 
-.label-jam {
-    display: block;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 11px;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-#clock {
-    font-size: clamp(45px, 10vw, 75px); /* Font responsif: kecil di HP, besar di Desktop */
-    font-weight: 900;
-    line-height: 1;
-    font-family: 'Arial Black', 'Arial', sans-serif;
-    background: linear-gradient(180deg, #0f3d2e, #198754);
-    -webkit-background-clip: text;
-    background-clip: text; /* Versi standar buat kompatibilitas */
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
-}
-.date-display {
-    font-size: 18px;
-    color: #555;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Prayer Grid */
-.prayer-flex {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
-.p-item {
-    background: #ffffff;
-    border: 1px solid rgba(15, 61, 46, 0.08);
-    padding: 25px 15px;
-    border-radius: 22px;
-    min-width: 145px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-}
-
-.p-item i {
-    font-size: 24px;
-    color: #198754;
-    margin-bottom: 12px;
-    display: block;
-}
-
-.p-item label {
+.bento-label-small {
     display: block;
     font-size: 11px;
-    color: #aaa;
     font-weight: 700;
+    color: #94a3b8;
     text-transform: uppercase;
+    letter-spacing: 4px;
     margin-bottom: 5px;
 }
 
-.p-item span {
-    font-size: 26px;
-    font-weight: 800;
-    color: #0f3d2e;
+.bento-date-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #64748b;
+    margin-top: 15px;
+}
+
+/* GRID KOTAK JADWAL */
+.bento-prayer-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.bento-item-box {
+    background: #ffffff;
+    padding: 40px 15px;
+    border-radius: 30px;
+    border: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bento-item-box label {
     display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
 }
 
-/* Highlight Waktu Sholat Berikutnya (Next Prayer) */
-.p-item.next-prayer {
-    background: #0f3d2e;
-    border-color: #0f3d2e;
+.bento-item-box span {
+    font-size: 26px;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+/* HIGHLIGHT IJO (ACTIVE) */
+.bento-item-box.active-prayer {
+    background: #0f3d2e !important; /* Ijo Botol kayak gambar lo */
+    border-color: #0f3d2e !important;
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(15, 61, 46, 0.25);
+    box-shadow: 0 20px 40px rgba(15, 61, 46, 0.25);
 }
 
-.p-item.next-prayer i { color: #2ecc71; }
-.p-item.next-prayer label { color: rgba(255,255,255,0.5); }
-.p-item.next-prayer span { color: #ffffff; }
-
-/* ============================================================
-   RESPONSIVE LAYOUT (UNTUK HP)
-   ============================================================ */
-@media (max-width: 768px) {
-
-    .prayer-header-central {
-        margin-bottom: 30px;
-    }
-
-    #clock { 
-        font-size: 52px; 
-    }
-
-    .prayer-flex {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 Kolom sejajar di HP */
-        gap: 12px;
-        width: 100%;
-    }
-
-    .p-item {
-        min-width: unset;
-        padding: 20px 10px;
-        border-radius: 18px;
-    }
-    
-    .p-item span { 
-        font-size: 22px; 
-    }
-    
-    .p-item i {
-        font-size: 20px;
-    }
+.bento-item-box.active-prayer label { 
+    color: rgba(255,255,255,0.4); 
 }
+
+.bento-item-box.active-prayer span { 
+    color: #ffffff; 
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .bento-prayer-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .bento-prayer-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .bento-main-card { padding: 40px 20px; }
+    #clock { font-size: 55px; }
+}
+
 
 
 .menu-toggle {
