@@ -3160,10 +3160,25 @@ html {
 }
 
 .news-figure img, .video-wrapper video {
-    width: 100%;
+    width: 100% !important;
+    /* Kita paksa rasionya 1 banding 1 */
+    aspect-ratio: 1 / 1 !important; 
+    /* Kita suruh dia motong bagian yang lebih biar gak melar */
+    object-fit: cover !important; 
+    /* Penting: pastiin height-nya nggak dikunci angka tertentu */
+    height: auto !important; 
+    
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     display: block;
+    margin: 0 auto;
+}
+
+/* Opsional: Kalau di Desktop kegedean kalau 1:1 full width, kasih batesan */
+@media (min-width: 768px) {
+    .news-figure img {
+        max-width: 500px; /* Atur angka ini sesuai selera lo Jon */
+    }
 }
 
 .news-figure figcaption {
@@ -3174,6 +3189,7 @@ html {
     line-height: 1.5;
     padding: 0 10px;
     border-left: 3px solid #198754;
+    text-align: left; /* Biar teks keterangan tetep rapi di kiri */
 }
 
 /* Grouping Foto di Bawah */
