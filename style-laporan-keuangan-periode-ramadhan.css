@@ -1,0 +1,138 @@
+    /* Container Utama jadi Grid */
+    .report-grid-system {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 Kolom Sebelahan */
+        gap: 30px;
+        max-width: 1200px; /* Diperlebar biar muat 2 card */
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Biar Card-nya tingginya sama */
+    .report-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%; 
+        background: #ffffff;
+        border-radius: 24px;
+        border: 5px solid rgba(0,0,0,0.05);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        padding: 40px;
+    }
+
+    /* Dorong tombol ke paling bawah card */
+    .action-footer {
+        margin-top: auto;
+    }
+
+    /* Responsive: Kalau di HP, jadi 1 kolom (tumpuk) */
+    @media (max-width: 992px) {
+        .report-grid-system {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    .status-badge-mini {
+        background: #f1f5f9;
+        color: #475569;
+        font-size: 10px;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 20px;
+        letter-spacing: 1px;
+    }
+
+    .report-title-mini {
+        font-size: 20px;
+        font-weight: 700;
+        color: #334155;
+        margin: 15px 0 5px;
+    }
+
+    .report-location {
+        font-size: 13px;
+        color: #64748b;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    /* GRID ANGKA */
+    .stats-row {
+        display: flex;
+        justify-content: space-around;
+        border-top: 1px solid #f1f5f9;
+        border-bottom: 1px solid #f1f5f9;
+        padding: 20px 0;
+        margin-bottom: 25px;
+        gap: 10px;
+    }
+
+    .stat-mini, .stat-mini-highlight {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .label-mini {
+        font-size: 11px;
+        text-transform: uppercase;
+        color: #94a3b8;
+        margin-bottom: 5px;
+    }
+
+    .value-mini {
+        font-size: 14px;
+        font-weight: 700;
+        color: #334155;
+    }
+
+    .stat-mini-highlight .value-mini {
+        color: #0f3d2e; /* Hijau Masjid lo buat Saldo */
+    }
+
+    /* TOMBOL LIHAT LAPORAN */
+    .btn-lihat-laporan {
+        display: inline-block;
+        background: #0f3d2e;
+        color: #ffffff !important;
+        padding: 12px 30px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-lihat-laporan:hover {
+        background: #16523f;
+        transform: translateY(-2px);
+    }
+
+    /* Responsif HP */
+    @media (max-width: 600px) {
+        .stats-row {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+    
+    
+/* Gabungkan dengan CSS yang lo kasih tadi */
+
+.info-box {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.info-box p {
+    font-size: 13px;
+    color: #94a3b8; /* Warna pudar */
+    line-height: 1.5;
+    font-style: normal; /* No Italic */
+    margin: 0;
+}

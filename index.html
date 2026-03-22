@@ -173,6 +173,8 @@
         </button>
         <ul class="dropdown-content">
             <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+            <li><a href="/laporan-keuangan/laporan-keuangan-periode-ramadhan-2026-1447-h/">Laporan Keuangan Ramadhan 2026</a></li>
+            <li><a href="/laporan-keuangan/laporan-zakat-fitrah-1447-h/">Laporan Zakat Fitrah 1447 H</a></li>
            <li><a href="/hasildonasi">Laporan Donasi</a></li>
           <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
           <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
@@ -188,6 +190,7 @@
         <ul class="dropdown-content">
           <li><a href="/berita">Berita - Al Amanah</a></li>
           <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+          <li><a href="/cara-mengerjakan-puasa-6-hari-di-bulan-syawwal-yang-utama/">Puasa 6 Hari di Bulan Syawwal</a></li>
           <li><a href="/tim-kegiatan-berbagi-pt-pama-dan-masjid-al-amanah/">PT PAMA & YIMP</a></li>
           <li><a href="/cv-berdikari-mitra-abadi-10-karung-beras/">Owner Cv Berdikari Mitra Abadi</a></li>
           <li><a href="/donasi-santunan-dhuafa-50-paket/">PLN Indonesia Power LAZIS</a></li>
@@ -581,12 +584,12 @@
         <p style="text-align: center;">Ikuti informasi kegiatan masjid setiap hari</p>
 
         <div class="social-grid">
-            <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-card">
+            <a href="https://www.instagram.com/masjidalamanahtarumajaya" target="_blank" class="social-card">
                 <i class="fab fa-instagram instacolor"></i>
                 <span>Instagram</span>
             </a>
 
-            <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" target="_blank" class="social-card">
+            <a href="https://www.youtube.com/@MasjidalamanahTarumajaya" target="_blank" class="social-card">
                 <i class="fab fa-youtube" style="color: #FF0000;"></i>
                 <span>YouTube</span>
             </a>
@@ -599,6 +602,10 @@
             <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" target="_blank" class="social-card">
                 <i class="fab fa-threads" style="color: #000;"></i>
                 <span>Threads</span>
+            </a>
+            <a href="https://www.facebook.com/masjid.al.amanah.2025" target="_blank" class="social-card">
+                <i class="fab fa-facebook" style="color: #000;"></i>
+                <span>Facebook</span>
             </a>
         </div>
     </div>
@@ -704,7 +711,7 @@
 
         <div class="modal-body" style="padding: 0; line-height: 0; border-radius: 13px; overflow: hidden; background: #000;">
             <!-- Link Foto ke Dokumentasi Lengkap -->
-            <a href="/ramadhan/suasana-sholat-ied-idul-fitri-ramadhan-di-al-amanah-taruma-jaya-2026-1446-hijriyah" style="display: block;">
+            <a href="/ramadhan/suasana-sholat-ied-idul-fitri-ramadhan-di-al-amanah-taruma-jaya-2026-1446-hijriyah" onclick="closeModal()" style="display: block;">
                 <img src="img/poster-sholat-ied-ustadz-heru-abu-hanin-spd.png" 
                      alt="Dokumentasi Khutbah Ied Ustadz Heru Abu Hanin" 
                      style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;" loading="lazy">
@@ -715,48 +722,46 @@
 
 
 <script>
-// 1. Fungsi nutup modal + Kasih tanda di sesi ini
 function closeModal() {
     const modal = document.getElementById('ramadhanModal');
-    
-    if (modal) {
-        // Ambil elemen konten untuk animasi
-        const content = modal.querySelector('.modal-content');
-        
-        // Kasih class animasi keluar ke kontennya
-        if (content) {
-            content.classList.add('modal-exit');
-        }
-        
-        // Tunggu animasi kelar (250ms) baru bener-bener di-hidden
-        setTimeout(() => {
-            modal.classList.add('hidden');
-            if (content) {
-                content.classList.remove('modal-exit'); // Reset class biar pas muncul lagi aman
-            }
-        }, 250);
+    if (!modal || modal.classList.contains('hidden')) return;
 
-        sessionStorage.setItem('popUpShown', 'yes');
+    const content = modal.querySelector('.modal-content');
+    
+    // 1. Simpan tanda di session SEBELUM animasi/pindah halaman
+    sessionStorage.setItem('popUpShown', 'yes');
+
+    if (content) {
+        content.classList.add('modal-exit');
     }
+
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        if (content) content.classList.remove('modal-exit');
+    }, 250);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('ramadhanModal');
     if (!modal) return; 
 
-    // Ambil tanda dari session
     const isSeenInSession = sessionStorage.getItem('popUpShown');
 
-    // LOGIKA: Munculin kalau di sesi ini dia belum liat/tutup popup
-    // Begitu tab/browser ditutup, sessionStorage akan kereset otomatis.
-    // Jadi pas dia klik link lagi nanti, popup bakalan muncul lagi.
+    // Cek status session
     if (!isSeenInSession) {
         modal.classList.remove('hidden');
     } else {
         modal.classList.add('hidden');
     }
-});
 
+    // FIX: Klik di area hitam (overlay) langsung nutup + simpan session
+    modal.addEventListener('click', function(e) {
+        // Jika yang diklik adalah backgroundnya (bukan konten putih/emas)
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+});
 </script>
 <script src="script.js"></script>
 </body>

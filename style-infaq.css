@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    background: #f8fafc;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER */
+.infaq-header {
+    background: #ffffff;
+    padding: 80px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.header-logo img {
+    width: 1200px;      /* Ukuran ideal lo di desktop */
+    max-width: 100%;    /* KUNCI: Biar di HP dia otomatis ngecil ngikutin layar */
+    height: auto;       /* Biar nggak gepeng */
+    display: block;
+    margin: 0 auto;     /* Biar tetep di tengah */
+}
+
+/* Biar di HP nggak terlalu mepet pinggiran layar */
+@media (max-width: 600px) {
+    .header-logo img {
+        width: 80%;     /* Di HP kita set 80% aja biar manis, ada ruang kosong di kiri-kanan */
+        margin-bottom: 20px;
+    }
+}
+
+.header-text h1 {
+    font-size: 42px;
+    font-weight: 900;
+    color: #0f3d2e;
+    margin-bottom: 15px;
+}
+
+.header-text p {
+    font-size: 17px;
+    color: #64748b;
+}
+
+/* SECTION GLOBAL - CLEAN & FORMAL */
+.section-title {
+    text-align: center;
+    font-size: 26px; /* Sedikit dikecilkan biar proporsional */
+    font-weight: 700; /* Medium-Bold, tegas tapi nggak "berteriak" */
+    color: #334155; /* Slate gelap (sama kayak judul kartu rekening) */
+    margin-bottom: 50px;
+    text-transform: none; /* Buang Uppercase biar nggak kaku, atau biarkan kalau suka */
+    letter-spacing: -0.5px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+/* Opsional: Garis bawah tipis pudar (bukan ijo) kalau mau ada pemisah */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #e2e8f0; /* Abu-abu sangat pudar */
+    margin: 15px auto 0;
+}
+
+/* TOMBOL UTAMA (OPERASIONAL & KONFIRMASI) */
+.btn-utama {
+    display: inline-block; /* Supaya lebar ngikutin teks + padding */
+    margin-top: 25px;      /* Jarak dari paragraf di atasnya */
+    background: #0f3d2e;   /* Ijo Masjid Gelap */
+    color: #ffffff !important;
+    padding: 16px 45px;
+    border-radius: 4px;    /* Kotak tegas */
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;  
+    border: 1px solid #0f3d2e;
+    cursor: pointer;
+}
+
+.btn-utama:hover {
+    background: #16523f;   /* Ijo agak terang dikit pas di-hover */
+    border-color: #16523f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Biar rapi di HP */
+@media (max-width: 600px) {
+    .btn-utama {
+        display: block;    /* Full width di HP biar gampang diklik */
+        text-align: center;
+        padding: 14px 20px;
+        font-size: 13px;
+    }
+}
+
+/* AKTIVITAS CARDS */
+.aktivitas-section { padding: 80px 0; }
+
+.aktivitas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.aktivitas-card {
+    background: #ffffff;
+    padding: 50px 30px; /* Gue tambahin padding atas-bawah biar lebih lega */
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    border: 1px solid #f1f5f9;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.aktivitas-card:hover {
+    transform: translateY(-5px); /* Efek melayang dikit pas di-hover */
+}
+
+/* MODIFIKASI ICON GEDE & HIJAU PUDAR */
+.aktivitas-card i {
+    font-size: 80px; /* Ukuran icon gue bikin jumbo */
+    color: #a8d5ba; /* Warna hijau pudar (soft sage green) */
+    margin-bottom: 30px;
+    display: block;
+    opacity: 0.8; /* Bikin warnanya makin soft/pudar */
+}
+
+.aktivitas-card h3 {
+    font-weight: 800;
+    font-size: 22px;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.aktivitas-card p {
+    font-size: 14.5px;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.doa-penutup {
+    margin-top: 50px;
+    text-align: center;
+    padding: 0 50px; /* Jarak samping biar nggak terlalu lebar di layar gede */
+}
+
+.doa-penutup-p {
+    font-size: 15px;
+    font-weight: 500; /* Medium, biar tegas tapi nggak tebel */
+    font-style: normal; /* Paksa biar lurus (nggak italic) */
+    color: #94a3b8; /* Warna abu-abu pudar yang elegan (Slate 400) */
+    line-height: 1.8;
+    max-width: 800px; /* Biar baris kalimatnya nggak kepanjangan */
+    margin: 0 auto; /* Biar posisi di tengah */
+    letter-spacing: 0.2px; /* Biar agak renggang dikit ala desain modern */
+    text-align: center;
+}
+
+/* Responsif buat HP */
+@media (max-width: 600px) {
+    .doa-penutup {
+        padding: 0 10px;
+    }
+    .doa-penutup-p {
+        font-size: 13px;
+    }
+}   
+
+/* REKENING CARDS - CLEAN VERSION */
+.rekening-section {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.rekening-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px; /* Jarak antar kartu diperlebar biar lega */
+    margin-top: 30px;
+}
+
+.rek-card-v2 {
+    background: #ffffff;
+    border-radius: 8px; /* Sudut lebih tajam/sedikit melengkung biar formal */
+    overflow: hidden;
+    /* Shadow tipis banget biar bersih */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+    border: 1px solid #f0f0f0;
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+.rek-card-v2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.rek-image {
+    width: 100%;
+    height: 220px;
+    background: #eee;
+}
+
+.rek-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rek-content {
+    padding: 30px 20px;
+}
+
+/* Judul - Tegas tapi nggak Bold banget */
+.rek-content h3 {
+    font-size: 21px;
+    font-weight: 600; /* Turun dari 700/800 ke 600 biar lebih elegan */
+    color: #334155; /* Slate gelap yang lebih modern dari hitam pekat */
+    margin-bottom: 12px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: -0.3px;
+    text-align: center; /* Pastikan judul juga center */
+}
+
+/* Deskripsi - Pudar & Center */
+.rek-content p {
+    font-size: 14px;
+    color: #94a3b8; /* Warna abu-abu pudar (Slate 400) biar clean */
+    line-height: 1.7;
+    margin-bottom: 25px;
+    text-align: center; /* Teks jadi rata tengah */
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+}
+
+/* Nomor Rekening di dalam P tetap harus kebaca */
+.rek-content p strong {
+    color: #475569; /* Sedikit lebih gelap dari teks pudar biar tetep jelas angkanya */
+    font-weight: 700;
+}
+
+/* Tombol Salin - Minimalis Hitam/Abu Tua */
+.btn-copy-v2 {
+    background: #ffffff;
+    color: #444444;
+    border: 1px solid #dddddd;
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-copy-v2:hover {
+    background: #333333;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+/* Responsif buat mobile */
+@media (max-width: 600px) {
+    .rekening-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .rek-content h3 {
+        font-size: 18px;
+    }
+}
+/* RESPONSIVE */
+@media (max-width: 850px) {
+    .header-flex { flex-direction: column; text-align: center; }
+    .rekening-grid { grid-template-columns: 1fr; }
+    .doa-penutup { padding: 0; }
+}

@@ -798,26 +798,42 @@ a.operasional:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(25, 135, 84, 0.55);
 }
-/* TOMBOL KONFIRMASI WHATSAPP */
+/* TOMBOL KONFIRMASI WHATSAPP - DEEP GREEN SQUARE STYLE */
 a.konfirmasi {
-  display: block;
-  width: fit-content;
-  margin: 40px auto;            /* CENTER */
-  background: #198754;          /* hijau masjid */
-  color: #ffffff !important;
-  padding: 14px 36px;
-  border-radius: 30px;
-  font-weight: 700;
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(25, 135, 84, 0.45);
+    display: block;
+    width: fit-content;
+    margin: 60px auto;            /* Jarak atas-bawah */
+    background: #0f3d2e;          /* Ijo Masjid Gelap (Deep Green) */
+    color: #ffffff !important;    /* Tulisan Putih */
+    padding: 16px 50px;           /* Ukuran mantap, nggak kekecilan */
+    border-radius: 4px;           /* Kotak tegas, sudut tipis banget */
+    font-size: 14px;              /* Ukuran teks standar yang kebaca jelas */
+    font-weight: 700;             /* Tebal & Berwibawa */
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;    /* Tegas */
+    letter-spacing: 1px;          /* Spasi elegan */
+    transition: all 0.3s ease;
+    border: 1px solid #0f3d2e;    /* Border senada background */
+    box-shadow: none;             /* Clean tanpa bayangan */
 }
 
 a.konfirmasi:hover {
-  background: #157347;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(25, 135, 84, 0.6);
+    background: #16523f;          /* Sedikit lebih terang pas di-hover */
+    border-color: #16523f;
+    color: #ffffff !important;
+    transform: translateY(-2px);  /* Efek angkat dikit aja biar interaktif */
+}
+
+/* Responsif buat HP */
+@media (max-width: 600px) {
+    a.konfirmasi {
+        padding: 14px 30px;
+        font-size: 13px;
+        width: 85%;               /* Biar jempol gampang kliknya */
+        margin: 40px auto;
+    }
 }
 
 
@@ -1107,7 +1123,7 @@ a.konfirmasi:hover {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+
 }
 
 html, body {
@@ -3877,5 +3893,6 @@ p {
         font-size: 0.95rem;
     }
 }
+
 
 

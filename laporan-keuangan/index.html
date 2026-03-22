@@ -6,6 +6,7 @@
     <title>Laporan Keuangan - Masjid Al Amanah Taruma Jaya</title>
     <link rel="stylesheet" href="../style.css">
 <link rel="manifest" href="../manifest.json">
+<link rel="stylesheet" href="/style-laporan-keuangan-periode-ramadhan.css">
 <link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
 <link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -93,6 +94,8 @@
         </button>
         <ul class="dropdown-content">
             <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+              <li><a href="/laporan-keuangan/laporan-keuangan-periode-ramadhan-2026-1447-h/">Laporan Keuangan Ramadhan 2026</a></li>
+            <li><a href="/laporan-keuangan/laporan-zakat-fitrah-1447-h/">Laporan Zakat Fitrah 1447 H</a></li>
            <li><a href="/hasildonasi">Laporan Donasi</a></li>
           <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
            <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
@@ -108,6 +111,7 @@
         <ul class="dropdown-content">
           <li><a href="/berita">Berita - Al Amanah</a></li>
           <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+          <li><a href="/cara-mengerjakan-puasa-6-hari-di-bulan-syawwal-yang-utama/">Puasa 6 Hari di Bulan Syawwal</a></li>
           <li><a href="/tim-kegiatan-berbagi-pt-pama-dan-masjid-al-amanah/">PT PAMA & YIMP</a></li>
           <li><a href="/cv-berdikari-mitra-abadi-10-karung-beras/">Owner Cv Berdikari Mitra Abadi</a></li>
           <li><a href="/donasi-santunan-dhuafa-50-paket/">PLN Indonesia Power LAZIS</a></li>
@@ -189,195 +193,89 @@
    <main class="bg-white min-h-screen py-8 px-4 font-sans text-gray-900">
     <div class="max-w-6xl mx-auto">
         
-        <style>
-    :root {
-        --primary-dark: #0f3d2e;
-        --primary-green: #198754;
-        --bg-soft: #f8faf9;
-        --text-main: #2d3748;
-        --text-muted: #718096;
-    }
+        
 
-    .report-container {
-    max-width: 900px; 
-    margin: 0 auto 30px; /* Atas dibuat 0 biar gak dorong section atasnya */
-    padding: 0 20px;
-    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-}
-    /* Card Utama */
-    .report-card {
-        background: #ffffff;
-        border-radius: 24px;
-        border: 5px solid rgba(0,0,0,0.05);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-        padding: 40px;
-        position: relative;
-    }
+<div class="report-grid-system">
 
-    /* Badge Terkini - Simpel & Elegan */
-    .status-badge {
-        display: inline-flex;
-        align-items: center;
-        background: #eefdf5;
-        color: var(--primary-green);
-        padding: 6px 16px;
-        border-radius: 100px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        margin-bottom: 20px;
-        border: 1px solid rgba(25, 135, 84, 0.1);
-    }
-
-    /* Judul - Ukuran Pas (Gak kegedean) */
-    .report-title {
-        color: var(--primary-dark);
-        font-size: 1.8rem; /* Ukuran ideal */
-        font-weight: 800;
-        margin: 0 0 8px 0;
-        line-height: 1.3;
-    }
-
-    .report-subtitle {
-        color: var(--text-muted);
-        font-size: 1rem;
-        margin-bottom: 35px;
-    }
-
-    /* Stats Grid - Ala Dashboard */
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-bottom: 35px;
-    }
-
-    .stat-item {
-        background: var(--bg-soft);
-        padding: 20px;
-        border-radius: 16px;
-        transition: 0.3s;
-    }
-
-    .stat-item:hover {
-        background: #fff;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        transform: translateY(-2px);
-    }
-
-    .stat-label {
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        margin-bottom: 8px;
-        display: block;
-    }
-
-    .stat-value {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--primary-dark);
-        display: block;
-    }
-
-    .stat-item.highlight .stat-value {
-        color: var(--primary-green);
-    }
-
-    /* Box Catatan */
-    .info-box {
-        border-top: 1px solid #edf2f7;
-        padding-top: 30px;
-        margin-bottom: 35px;
-    }
-
-    .info-box h4 {
-        font-size: 1rem;
-        color: var(--primary-dark);
-        margin-bottom: 12px;
-    }
-
-    .info-box p {
-        font-size: 0.95rem;
-        color: #4a5568;
-        line-height: 1.6;
-        margin-bottom: 10px;
-    }
-
-    /* Tombol - Modern & Solid */
-    .btn-action {
-        display: inline-block;
-        background: var(--primary-dark);
-        color: #fff;
-        padding: 14px 32px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 600;
-        transition: 0.3s;
-        border: none;
-        cursor: pointer;
-    }
-
-    .btn-action:hover {
-        background: var(--primary-green);
-        box-shadow: 0 8px 15px rgba(25, 135, 84, 0.2);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .report-card { padding: 30px 20px; }
-        .stats-grid { grid-template-columns: 1fr; gap: 12px; }
-        .report-title { font-size: 1.5rem; }
-        .btn-action { display: block; text-align: center; }
-    }
-</style>
-
-<div class="report-container">
+    <!-- CARD 1: LAPORAN RAMADHAN (OPERASIONAL) -->
     <div class="report-card">
-        <!-- Badge Status -->
-        <div class="status-badge">LAPORAN TERKINI</div>
+        <div style="text-align: center;">
+            <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+            <h2 class="report-title-mini">Keuangan Kegiatan Ramadhan 1447 H</h2>
+            <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+        </div>
 
-        <!-- Header -->
-        <h2 class="report-title">Laporan Keuangan Ramadhan 1447 H</h2>
-        <p class="report-subtitle">Masjid Al Amanah Tarumajaya | Tahun 2026</p>
-
-        <!-- Angka-Angka -->
-        <div class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-label">Pendapatan</span>
-                <span class="stat-value">Rp 33.891.543</span>
+        <div class="stats-row">
+            <div class="stat-mini">
+                <span class="label-mini">Total Pendapatan</span>
+                <span class="value-mini">Rp 33.891.543</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-label">Pengeluaran</span>
-                <span class="stat-value">Rp 33.781.111</span>
+            <div class="stat-mini">
+                <span class="label-mini">Total Pengeluaran</span>
+                <span class="value-mini">Rp 33.781.111</span>
             </div>
-            <div class="stat-item highlight">
-                <span class="stat-label">Saldo Akhir</span>
-                <span class="stat-value">Rp 110.432</span>
+            <div class="stat-mini-highlight">
+                <span class="label-mini">Saldo Sisa</span>
+                <span class="value-mini">Rp 110.432</span>
             </div>
         </div>
 
-        <!-- Catatan Singkat -->
+        <!-- Teks Deskripsi Lebih Panjang -->
         <div class="info-box">
-            <h4>Catatan Keuangan:</h4>
-            <p>Seluruh kegiatan Ramadhan berjalan dengan lancar dan sesuai rencana. Dana tersisa sebesar Rp 110.432 akan dialokasikan untuk kas kegiatan sosial berikutnya.</p>
-            <p>Pengeluaran terbesar difokuskan pada kegiatan itikaf dan konsumsi jamaah, mencerminkan tingginya partisipasi masyarakat selama bulan suci Ramadhan.</p>
+            <p>Laporan ini mencakup seluruh biaya operasional selama bulan suci Ramadhan 1447 H, termasuk pengadaan konsumsi buka puasa (Iftar), kegiatan I'tikaf 10 malam terakhir, hingga santunan anak yatim dan dhuafa di wilayah Tarumajaya.</p>
+            <p style="margin-top: 10px;">Seluruh dana telah diaudit secara internal dan sisa saldo sebesar Rp 110.432 akan dialokasikan kembali sebagai modal awal kegiatan sosial Idul Adha mendatang. Terima kasih kepada seluruh donatur dan jamaah.</p>
         </div>
 
-        <!-- Tombol PDF -->
-        <div class="action-footer">
-            <a href="/laporan-keuangan-periode-ramadhan-1447-h.pdf" target="_blank" class="btn-action">
-                Lihat Laporan Lengkap (PDF)
+        <div class="action-footer" style="text-align: center;">
+            <a href="/laporan-keuangan/laporan-keuangan-periode-ramadhan-2026-1447-h/" class="btn-lihat-laporan">
+                Cek Rincian
             </a>
         </div>
     </div>
+
+    <!-- CARD 2: LAPORAN ZAKAT FITRAH -->
+    <div class="report-card">
+        <div style="text-align: center;">
+            <span class="status-badge-mini">ZAKAT & SOSIAL</span>
+            <h2 class="report-title-mini">Laporan Perolehan Zakat Fitrah 1447 H</h2>
+            <p class="report-location">Tahun 2026 | Total Partisipasi 154 Jiwa</p>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-mini">
+                <span class="label-mini">Zakat Tunai</span>
+                <span class="value-mini">Rp 3.100.000</span>
+            </div>
+            <div class="stat-mini">
+                <span class="label-mini">Zakat Beras</span>
+                <span class="value-mini">304,5 Liter</span>
+            </div>
+            <div class="stat-mini-highlight">
+                <span class="label-mini">Status</span>
+                <span class="value-mini">Tervalidasi</span>
+            </div>
+        </div>
+
+        <!-- Teks Deskripsi Lebih Panjang -->
+        <div class="info-box">
+            <p>Berdasarkan data terakhir, panitia zakat telah menerima titipan Zakat Fitrah dari total 154 muzakki (kepala/jiwa). Perolehan terkumpul dalam dua bentuk utama, yakni uang tunai (melalui transfer, kas, dan QRIS) serta beras berkualitas premium.</p>
+            <p style="margin-top: 10px;">Data rincian nama pembayar zakat telah kami arsipkan secara digital demi transparansi publik. Penyaluran zakat akan segera dilaksanakan kepada para mustahik yang berhak di lingkungan sekitar Masjid Al Amanah.</p>
+        </div>
+
+        <div class="action-footer" style="text-align: center;">
+            <a href="/laporan-keuangan/laporan-zakat-fitrah-1447-h/" class="btn-lihat-laporan">
+                Cek Rincian
+            </a>
+        </div>
+    </div>
+
 </div>
+
+
+
         
    <!-- DIVIDER ANTARA RAMADHAN & LAPORAN RUTIN -->
-<div style="display: flex; align-items: center; margin: 80px 0; gap: 20px;">
+<div style="display: flex; align-items: center; margin: 80px 0; gap: 20px;" id="laporan-keuangan-rutin">
     <!-- Garis Kiri -->
     <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, #cbd5e0);"></div>
     
@@ -566,7 +464,9 @@
     </div>
 </div>
     </div>
+    
 </main>
+
 
 
   
@@ -697,6 +597,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-</script><script src="../script.js"></script>
+</script>
+
+<script src="../script.js"></script>
 </body>
 </html>
