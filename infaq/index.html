@@ -330,51 +330,45 @@
         <div class="container">
             <h2 class="section-title">Rekening Penyaluran</h2>
             <div class="rekening-grid">
-    <!-- KARTU 1: OPERASIONAL -->
-    <article class="rek-card-v2">
-        <div class="rek-image">
-            <img src="/img/foto-depan-masjid-al-amanah-taruma-jaya-terbaru.webp" alt="Operasional Al-Amanah">
-        </div>
-        <div class="rek-content">
-            <h3>Operasional Al-Amanah</h3>
-            <p>Bank Syariah Indonesia (BSI)<br>
-            Nomor rekening: <strong id="rek-ops">7347155335</strong><br>
-            Atas nama: Yayasan Cahaya Sunnah Ummah<br>
-            Cabang: Tarumajaya</p>
-            <button class="btn-copy-v2" onclick="copyText('rek-ops')">SALIN NOMOR REKENING</button>
-        </div>
-    </article>
+    
+                <!-- Rekening Yayasan Cahaya Sunnah Ummah-->
+                <article class="rek-card-v2">
+    <div class="rek-image">
+        <img src="/img/santunandhuafa01.jpeg" alt="Yayasan Cahaya Sunnah Ummah">
+    </div>
+    <div class="rek-content">
+        <h3>Yayasan Cahaya Sunnah Ummah</h3>
+        <p>
+            <strong>Bank Syari'ah Indonesia (BSI)</strong><br>
+            No. Rek: <strong id="rek-yayasan">7347155335</strong><br>
+            A/N: Yayasan Cahaya Sunnah Ummah<br>
+            <span style="font-size: 12px; display: block; margin-top: 10px; color: #94a3b8;">
+                Peruntukan: Operasional Yayasan, Kegiatan Sosial, Sedekah Dhuafa, Janaiz, Wakaf Ambulans & Tanah Kuburan.
+            </span>
+        </p>
+        <button class="btn-copy-v2" onclick="copyText('rek-yayasan')">SALIN NOMOR REKENING</button>
+    </div>
+</article>
 
-    <!-- KARTU 2: SOSIAL & DHUAFA -->
-    <article class="rek-card-v2">
-        <div class="rek-image">
-            <img src="/img/santunandhuafa01.jpeg" alt="Santunan Dhuafa">
-        </div>
-        <div class="rek-content">
-            <h3>Santunan & Khidmat Sosial</h3>
-            <p>Bank Syariah Indonesia (BSI)<br>
-            Nomor rekening: <strong id="rek-sos">7347155335</strong><br>
-            Atas nama: Yayasan Cahaya Sunnah Ummah<br>
-            Cabang: Tarumajaya</p>
-            <button class="btn-copy-v2" onclick="copyText('rek-sos')">SALIN NOMOR REKENING</button>
-        </div>
-    </article>
+<!-- Rekening Masjid Al-Amanah Tarumajaya -->
 
-    <!-- KARTU 3: PEMBANGUNAN (SARAN) -->
-    <article class="rek-card-v2">
-        <div class="rek-image">
-            <!-- Nanti tinggal ganti foto pembangunan masjid lo disini -->
-            <img src="/img/renovasi-bagian-khotib-masjid-al-amanah-taruma-jaya.webp" alt="Pembangunan Masjid">
-        </div>
-        <div class="rek-content">
-            <h3>Pembangunan & Sarana</h3>
-            <p>BCA Syariah<br>
-            Nomor rekening: <strong id="rek-bangun">0079900999</strong><br>
-            Atas nama: Masjid Al-Amanah<br>
-            Cabang: Tarumajaya</p>
-            <button class="btn-copy-v2" onclick="copyText('rek-bangun')">SALIN NOMOR REKENING</button>
-        </div>
-    </article>
+<article class="rek-card-v2">
+    <div class="rek-image">
+        <img src="/img/renovasi-bagian-khotib-masjid-al-amanah-taruma-jaya.webp" alt="Masjid Al-Amanah">
+    </div>
+    <div class="rek-content">
+        <h3>Masjid Al-Amanah</h3>
+        <p>
+            <strong>BCA Syari'ah</strong><br>
+            No. Rek: <strong id="rek-masjid">0079900999</strong><br>
+            A/N: Masjid Al-Amanah<br>
+            <span style="font-size: 12px; display: block; margin-top: 10px; color: #94a3b8;">
+                Peruntukan: Operasional Masjid, Kajian Rutin, Operasional Jumat, Listrik & PDAM, Operasional Kebersihan.
+            </span>
+        </p>
+        <button class="btn-copy-v2" onclick="copyText('rek-masjid')">SALIN NOMOR REKENING</button>
+    </div>
+</article>
 </div>
         </div>
     </section>
@@ -485,6 +479,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+function copyText(elementId) {
+    // Ambil teksnya
+    const text = document.getElementById(elementId).innerText;
+    // Langsung salin ke clipboard
+    navigator.clipboard.writeText(text);
+    
+    // Opsional: Kasih alert kecil biar user tau udah berhasil
+    alert("Nomor Rekening " + text + " Berhasil Disalin!");
+}
 </script><script src="../script.js"></script>
 </body>
 </html>
