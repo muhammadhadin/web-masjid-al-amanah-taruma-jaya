@@ -1,0 +1,22 @@
+{
+  "name": "Masjid Al Amanah Tarumajaya",
+  "short_name": "Al Amanah",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#008444",
+  "icons": [
+    {
+      "src": "/img/logo-al-amanah.png",
+      "sizes": "598x612",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/logo-al-amanah.png",
+      "sizes": "598x612",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

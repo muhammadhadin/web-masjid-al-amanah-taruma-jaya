@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idul Adha 2025 - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   <style>
+    
+    /* TOMBOL KONFIRMASI WHATSAPP */
+a.konfirmasi {
+  display: block;
+  width: fit-content;
+  margin: 40px auto;            /* CENTER */
+  background: #198754;          /* hijau masjid */
+  color: #ffffff !important;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(25, 135, 84, 0.45);
+}
+
+a.konfirmasi:hover {
+  background: #157347;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(25, 135, 84, 0.6);
+}
+.jadwal-tarawih-container {
+    max-width: 500px; /* Ukuran kotak di laptop jangan terlalu raksasa */
+    margin: 40px auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.jadwal-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Paksa jadi kotak 1:1 */
+    overflow: hidden;
+    border-radius: 20px;
+    border: 4px solid #0f3d2e;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    cursor: pointer;
+    position: relative;
+}
+
+.jadwal-tarawih-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar kepotong rapi di tengah */
+    object-position: top; /* Fokus ke bagian atas gambar (biasanya judul jadwal) */
+    transition: transform 0.3s ease;
+}
+
+.jadwal-wrapper:hover .jadwal-tarawih-img {
+    transform: scale(1.05); /* Efek zoom dikit pas di-hover */
+}
+
+.overlay-click {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(15, 61, 46, 0.8);
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+/* Styling Tombol WA Melayang */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; /* Warna khas WA */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 10000; /* Pastikan di atas semua elemen termasuk modal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    color: white;
+}
+
+/* Tooltip teks (muncul di samping tombol kalau di desktop) */
+.wa-text-tooltip {
+    position: absolute;
+    right: 70px;
+    background: #333;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover .wa-text-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Penyesuaian untuk HP */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 28px;
+        right: 28px;
+        font-size: 25px;
+    }
+    .wa-text-tooltip {
+        display: none; /* Sembunyikan tooltip di HP biar gak menuhin layar */
+    }
+}
+.video-grid {
+    display: grid;
+    /* Ini yang bikin 2 kolom sejajar di desktop */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px; /* Kasih jarak antar kotak biar gak nyenggol */
+    max-width: 1100px; /* Lebarin dikit biar leluasa */
+    margin: 20px auto;
+}
+
+.video-wrapper {
+    width: 100%;
+    /* Pastikan tidak ada max-width yang bikin dia numpuk */
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr; /* Di HP balik tumpuk lagi */
+    }
+}
+/* Teks deskripsi di bawah kotak */
+.desc-luar {
+    margin-top: 15px; /* Jarak dari bawah kotak ke teks */
+    color: #444;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Pastikan grid-nya lebar biar bejejer di desktop */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* Jarak antar kolom diperlebar biar lega */
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+/* Biar di HP tetep tumpuk rapi */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+/* Pastikan image-container bisa menampung overlay */
+.image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Overlay tombol yang muncul saat di-hover */
+.zoom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 61, 46, 0.7); /* Hijau transparan */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0; /* Awalnya sembunyi */
+    transition: all 0.3s ease;
+}
+
+/* Munculkan overlay saat card atau gambar di-hover */
+.card-berita:hover .zoom-overlay {
+    opacity: 1;
+}
+
+.zoom-overlay i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+
+.card-berita:hover .zoom-overlay i {
+    transform: scale(1);
+}
+
+.zoom-text {
+    background: #ffc107;
+    color: #0f3d2e;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+/* Responsif HP */
+@media (max-width: 768px) {
+    /* Di HP, kita buat ikonnya agak kelihatan dikit (nggak 0 banget) 
+       biar orang tau itu bisa diklik, atau biarkan tetap 0 tapi pas di-tap lsg muncul */
+    .zoom-overlay {
+        background: rgba(15, 61, 46, 0.5); /* Lebih tipis biar gambarnya tetep jelas */
+    }
+    
+    /* Kasih efek pencet pas di tap */
+    .card-berita:active .zoom-overlay {
+        opacity: 1;
+    }
+
+    .zoom-overlay i {
+        font-size: 30px; /* Kecilin dikit ikonnya biar gak nutupin foto di layar kecil */
+    }
+}
+@media (max-width: 768px) {
+    /* Di HP, kita buat overlay-nya sedikit kelihatan (transparan tipis) 
+       biar ikon kaca pembesarnya kelihatan terus */
+    .zoom-overlay {
+        opacity: 0; /* Langsung muncul tanpa nunggu di-tap */
+        background: rgba(15, 61, 46, 0.4); /* Lebih transparan biar gambar aslinya tetep jelas */
+    }
+    
+    .zoom-text {
+        font-size: 11px; /* Kecilin dikit biar gak menuai layar HP */
+        padding: 4px 10px;
+    }
+}
+.card-arsip-sm {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 260px; /* Ukuran kotak kecil */
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.card-arsip-sm:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card-arsip-sm .thumb-box {
+    width: 100%;
+    height: 130px;
+    position: relative;
+}
+
+.card-arsip-sm .thumb-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-arsip-sm .content-sm {
+    padding: 10px;
+}
+
+.card-arsip-sm h4 {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #0f3d2e;
+    line-height: 1.2;
+}
+
+.card-arsip-sm p {
+    font-size: 11px;
+    color: #777;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="/img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
+
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+              <li><a href="/laporan-keuangan/laporan-keuangan-periode-ramadhan-2026-1447-h/">Laporan Keuangan Ramadhan 2026</a></li>
+            <li><a href="/laporan-keuangan/laporan-zakat-fitrah-1447-h/">Laporan Zakat Fitrah 1447 H</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+           <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+         <li><a href="/informasi/">Informasi - Al Amanah</a></li>
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
+</nav>
+
+
+<div class="marquee-info">
+    <div class="marquee-content">
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+    </div>
+</div>
+
+
+<section class="banner-berita">
+    <img src="../../img/slide06.png" alt="Ramadhan 2025 Masjid Al-Amanah" class="banner-img">
+    
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1 class="title-main gold-gradient">Idul Adha 2025 - 1446 H</h1>
+            <div class="title-sub">
+                <i class="fas fa-calendar-check"></i> Arsip Kegiatan Idul Adha - Masjid Al-Amanah
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="breadcrumb-container">
+    <div class="container-inner">
+        <ul class="breadcrumb-list">
+            <li><a href="../../index.html">Beranda</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            
+            <li><a href="/ramadhan/">Ramadhan - 1447 H</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            
+            <li class="current">Idul Adha 2025 - 1446 H</li>
+        </ul>
+    </div>
+</nav>
+
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>
+
+        <!--Banner Infaq-->
+<section style="text-align: center; padding: 20px;">
+    <div class="banner-container">
+        <a href="../infaq/">
+        <img src="../img/banner-infaq-terbaru-01-2026.gif" alt="Infaq Masjid Al Amanah Biru">
+        </a>
+    </div>
+    
+</section>
+
+
+<div class="container-content">
+
+    <div class="kajian-wrapper">
+
+        <section class="arsip-section">
+    <h2 style="text-align: center; color: #0f3d2e;">Dokumentasi Sholat Idul Adha 1446 H</h2>
+    <div class="kajian-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        
+        <article class="card-berita">
+            <a href="../img/solatidulfitri1.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/solatidulfitri1.jpeg" alt="Suasana Sholat Id 1">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">06 Juni 2025</span>
+                <h3>Shaf Jamaah Pria</h3>
+                <p>Kondisi jamaah yang memadati area luar masjid untuk pelaksanaan sholat Idul Adha.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/solatidulfitri7.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/solatidulfitri7.jpeg" alt="Khotib Sholat Id">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">06 Juni 2025</span>
+                <h3>Penyampaian Khutbah</h3>
+                <p>Momen khidmat saat khotib menyampaikan pesan-pesan takwa kepada seluruh jamaah.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/solatidulfitri4.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/solatidulfitri4.jpeg" alt="Suasana Sholat Id 2">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">06 Juni 2025</span>
+                <h3>Antusiasme Jamaah</h3>
+                <p>Pemandangan dari sisi belakang menunjukkan tertibnya barisan shaf sholat.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/solatidulfitri4.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/solatidulfitri3.jpeg" alt="Suasana Khutbah Id">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">06 Juni 2025</span>
+                <h3>Menyimak Khutbah Id</h3>
+                <p>Jamaah tetap khidmat di barisan masing-masing saat mendengarkan nasihat agama setelah sholat.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/solatidulfitri8.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/solatidulfitri8.jpeg" alt="Jamaah Al-Amanah">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">06 Juni 2025</span>
+                <h3>Penyampaian Nasihat Khatib</h3>
+                <p>Momen Khatib saat menyampaikan khutbah di atas mimbar, memberikan pesan-pesan ketakwaan kepada jamaah.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/solatidulfitri5.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/solatidulfitri5.jpeg" alt="Shaf Sholat Id">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">06 Juni 2025</span>
+                <h3>Tertibnya Shaf Luar</h3>
+                <p>Meskipun berada di area tambahan, jamaah tetap menjaga kerapihan barisan shaf mereka.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/solatidulfitri2.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/solatidulfitri2.jpeg" alt="Suasana Pagi Id">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">06 Juni 2025</span>
+                <h3>Momen Hari Raya</h3>
+                <p>Suasana teduh di pagi hari saat seluruh jamaah berkumpul dalam balutan ukhuwah Islamiyah.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/solatidulfitri6.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/solatidulfitri6.jpeg" alt="Dokumentasi Idul Adha">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">06 Juni 2025</span>
+                <h3>Kapasitas Meluap</h3>
+                <p>Dokumentasi antusiasme warga yang melimpah hingga memenuhi area parkir dan halaman masjid.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<hr style="border: 0; border-top: 1px solid #eee; margin: 50px 100px;">
+
+<section class="arsip-section" style="margin-bottom: 50px;">
+    <h2 style="text-align: center; color: #0f3d2e; margin-bottom: 20px;">Dokumentasi Pelaksanaan Qurban</h2>
+    <div class="kajian-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        
+        <article class="card-berita">
+            <a href="../img/qurban1.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/qurban1.jpeg" alt="Persiapan Hewan Qurban">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">07 Juni 2025</span>
+                <h3>Persiapan Hewan Qurban</h3>
+                <p>Panitia melakukan pengecekan terakhir terhadap kesehatan hewan sapi sebelum prosesi kurban.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/qurban3.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/qurban3.jpeg" alt="Prosesi Qurban">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Perbesar Foto</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">07 Juni 2025</span>
+                <h3>Penyembelihan Sapi</h3>
+                <p>Momen kerja sama panitia dan warga dalam menangani hewan kurban sesuai syariat.</p>
+            </div>
+        </article>
+
+        <article class="card-berita">
+            <a href="../img/qurban2.jpeg" target="_blank">
+                <div class="image-container">
+                    <img src="../img/qurban2.jpeg" alt="Prosesi Qurban">
+                    <div class="zoom-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span class="zoom-text">Lihat Foto Full</span>
+                    </div>
+                </div>
+            </a>
+            <div class="content-area">
+                <span class="date-badge">07 Juni 2025</span>
+                <h3>Prosesi Penyembelihan</h3>
+                <p>Kerjasama tim panitia dalam menangani hewan qurban dengan tertib dan syar'i.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+        </div>
+</div>
+
+
+</div> </div> 
+
+
+<!--FOOTER-->
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        <section class="footer-insight" style="background: #333; color: #fff; padding: 50px 20px;">
+    <div class="insight-wrapper" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; max-width: 1200px; margin: 0 auto;">
+
+        <div class="insight-col brand-column-salman" style="flex: 1; min-width: 280px;">
+            <div class="footer-brand-logo" style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <img src="/img/logo-al-amanah.jpeg" alt="Logo Masjid Al Amanah" style="border-radius: 50px; width: 60px; height: 60px; object-fit: cover;">
+                <div class="logo-divider-text">
+                    <span class="nama-masjid-text" style="font-weight: 800; line-height: 1.2; display: block; font-size: 17px;">MASJID AL-AMANAH<br>TARUMA JAYA</span>
+                </div>
+            </div>
+            <p class="masjid-address-text" style="font-size: 13px; opacity: 0.8; margin-bottom: 25px; line-height: 1.6;">
+                V2QH+MGX, Kp keramat, RT.003 RW006, <br>
+                Samudra Jaya, Kec. Tarumajaya, Bekasi Utara, Jawa Barat
+            </p>
+            
+            <div class="footer-social-links" style="display: flex; gap: 18px; font-size: 22px;">
+                <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-threads"></i></a>
+            </div>
+        </div>
+
+        <div class="insight-col" style="flex: 1; min-width: 280px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 18px; letter-spacing: 1px;">REKENING DONASI</h3>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li style="font-size: 16px; opacity: 0.9;">BCA Syariah</li>
+                <li style="font-size: 24px; font-weight: 900; color: #f57224; letter-spacing: 2px; margin: 5px 0;">0079900999</li>
+                <li style="font-size: 15px; font-weight: bold;">An. Masjid Al-Amanah</li>
+            </ul>
+            
+            <div style="border: 1px dashed rgba(255,255,255,0.3); padding: 15px; display: flex; gap: 12px; align-items: flex-start; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                <span style="font-size: 18px;">⚠️</span>
+                <p style="font-size: 11px; opacity: 0.8; margin: 0; line-height: 1.5; text-align: justify;">
+                    Seluruh dana yang didonasikan melalui kanal Masjid Al-Amanah dipastikan bukan bersumber dari dan bukan digunakan untuk tujuan pencucian uang (money laundering), pendanaan aktivitas terorisme, maupun tindak kejahatan lainnya sesuai regulasi NKRI.
+                </p>
+            </div>
+        </div>
+
+        <div class="insight-col" style="flex: 1; min-width: 280px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 18px; letter-spacing: 1px;">DONASI LANGSUNG</h3>
+            <div style="display: inline-block; padding: 10px; background: #fff; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <img src="/img/qrisalamanah1.jpeg" alt="QRIS Masjid Al-Amanah" style="width: 160px; height: auto; display: block;">
+            </div>
+
+            <p style="font-size: 11px; opacity: 0.8; line-height: 1.6; text-align: justify;">
+                <span style="font-weight: bold; color: #f57224;">Disclaimer:</span> Setiap donasi dan infaq yang masuk melalui QRCode (QRIS) maupun Rekening resmi ini akan dikelola secara amanah untuk mendukung operasional dakwah, renovasi fasilitas masjid, serta berbagai program pemberdayaan umat lainnya di lingkungan Masjid Al-Amanah.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+   <footer>
+      <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+    </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+<a href="https://yayasan-cahaya-sunnah-ummah.com/" class="portal-float" target="_blank">
+    <i class="fa fa-hands-holding-child"></i>
+    <span class="portal-text-tooltip">Ke Yayasan Cahaya Sunnah Ummah</span>
+</a>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+</script><script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Santunan Dhuafa - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   <style>
+
+    :root {
+            --hijau-tua: #0f3d2e;
+            --hijau-muda: #198754;
+            --bg-light: #f4fbf7;
+        }
+
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: #fff; color: #333; }
+
+        /* HEADER LAPORAN */
+        .report-header {
+            padding: 120px 5% 40px;
+            background: linear-gradient(rgba(15, 61, 46, 0.9), rgba(15, 61, 46, 0.9)), url('../img/santunandhuafa01.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+       .report-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+    
+    /* Efek Gradasi Teks */
+    background: linear-gradient(180deg, #ffffff 0%, #d1ffd6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Tambahin shadow dikit biar makin tegas di atas foto */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+        .report-meta { font-size: 1rem; opacity: 0.9; }
+        
+        /* TOMBOL KEMBALI */
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: 0.3s;
+        }
+        .btn-back:hover { background: white; color: var(--hijau-tua); }
+
+        /* MAIN CONTENT */
+        .report-container {
+            max-width: 900px;
+            margin: -50px auto 50px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 5;
+        }
+
+        .main-photo {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .program-description {
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        /* TRAFFIC / PROGRESS BOX */
+        .traffic-card {
+            background: var(--bg-light);
+            border: 1px solid #c3e6cb;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .traffic-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .stat-box small { display: block; color: #666; font-size: 13px; }
+        .stat-box span { font-size: 1.4rem; font-weight: 800; color: var(--hijau-tua); }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 15px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-bar-fill {
+            width: 85.3%; /* Sesuai data Rp 6.4jt dari Rp 7.5jt */
+            height: 100%;
+            background: linear-gradient(90deg, #198754, #2ecc71);
+            transition: 1s ease-in-out;
+        }
+
+        .shortfall-text {
+            color: #d32f2f;
+            font-weight: bold;
+            text-align: center;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* DONOR LIST MINI */
+        .donor-list {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        /* CTA BUTTON */
+        .btn-confirm-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25d366;
+            color: white;
+            padding: 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .btn-confirm-wa:hover { transform: translateY(-3px); background: #128c7e; }
+
+        @media (max-width: 768px) {
+            .report-header h1 { font-size: 1.8rem; }
+            .report-container { margin-top: -30px; padding: 20px; width: 90%; }
+        }
+   
+/* Biar konten gak ketutupan navbar */
+#search-status-global {
+    margin-top: 20px !important; /* Sesuaikan angka ini (80px - 100px biasanya pas) */
+    position: relative;
+    z-index: 10; /* Biar dia di atas background tapi di bawah navbar dropdown */
+}
+
+/* Kalau di HP navigasinya lebih tinggi, kita sesuaikan lagi */
+@media (max-width: 768px) {
+    #search-status-global {
+        margin-top: 80px !important;
+    }
+}
+
+/* Efek Awal: Konten disembunyikan dulu */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Efek Pas Muncul: Konten naik & terang */
+.animate-on-scroll.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay tiap elemen biar munculnya gantian (Staggered) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.5s; }
+.delay-4 { transition-delay: 0.7s; }
+.delay-5 { transition-delay: 0.9s; }
+
+/* Tambahan dikit biar Header ada efek Zoom out pelan pas load */
+.report-header {
+    animation: headerZoom 1.5s ease-out;
+}
+
+@keyframes headerZoom {
+    from { background-size: 110%; opacity: 0.5; }
+    to { background-size: 100%; opacity: 1; }
+}
+
+/* Container Marquee Baru */
+.marquee-container-pro {
+    background: #e9f7ec;
+    border-radius: 50px;
+    padding: 12px 0;
+    margin-bottom: 25px;
+    border: 1px solid #c3e6cb;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Label Statis di Kiri */
+.marquee-label {
+    background: #198754;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 10px;
+    z-index: 20;
+    box-shadow: 5px 0 10px rgba(233, 247, 236, 1); /* Biar nutupin teks di bawahnya smooth */
+    position: relative;
+}
+
+/* Area Teks yang Bergerak */
+.marquee-content-pro {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll-nonstop 30s linear infinite; /* Kecepatan bisa lu atur di sini */
+}
+
+/* Biar teksnya nyambung terus, kita butuh jarak antar item */
+.marquee-item {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f3d2e;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Keyframes buat animasinya */
+@keyframes scroll-nonstop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Geser separuh biar loop sempurna */
+}
+
+/* Berhenti pas di-hover (opsional, biar orang gampang baca) */
+.marquee-container-pro:hover .marquee-content-pro {
+    animation-play-state: paused;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="/img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
+
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+              <li><a href="/laporan-keuangan/laporan-keuangan-periode-ramadhan-2026-1447-h/">Laporan Keuangan Ramadhan 2026</a></li>
+            <li><a href="/laporan-keuangan/laporan-zakat-fitrah-1447-h/">Laporan Zakat Fitrah 1447 H</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+           <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+          <li><a href="/informasi/">Informasi - Al Amanah</a></li>
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
+</nav>
+
+<div class="marquee-info">
+    <div class="marquee-content">
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+    </div>
+</div>
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>
+
+<header class="report-header">
+    <div class="container">
+        <h1>Laporan Donasi Paket Sembako</h1>
+        <p class="report-meta" style="text-align: center;">
+            <i class="fas fa-calendar-alt"></i> 1 Maret 2026 &nbsp; | &nbsp; 
+            <i class="fas fa-map-marker-alt"></i> Kp. Keramat, Tarumajaya
+        </p>
+        <a href="../#santunan" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+    </div>
+</header>
+
+<br>
+
+<main class="report-container">
+    <img src="../img/santunandhuafa01.jpeg" alt="Dokumentasi Santunan" class="main-photo animate-on-scroll delay-1">
+
+    <div class="program-description animate-on-scroll delay-2" style="text-align: center;">
+        <h2 style="font-size: 1.5rem; color: #0f3d2e; margin-bottom: 10px;">﷽</h2>
+        <p style="font-weight: 700; color: #198754; font-size: 1.1rem; margin-bottom: 5px;">
+            Berbagi untuk Dhuafa
+        </p>
+        <p style="font-size: 14px; margin-bottom: 20px; color: #555;">
+            Bersama <b>MASJID AL AMANAH</b> & <b>YAYASAN CAHAYA SUNNAH UMMAH</b>
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+            <div style="background: #f0fdf4; padding: 10px 15px; border-radius: 8px; border: 1px dashed #28a745;">
+                <small style="display: block; color: #666;">Harga Paket</small>
+                <b style="color: #0f3d2e;">Rp 150.000</b>
+            </div>
+            <div style="background: #f0fdf4; padding: 10px 15px; border-radius: 8px; border: 1px dashed #28a745;">
+                <small style="display: block; color: #666;">Target Penerima</small>
+                <b style="color: #0f3d2e;">50 Orang</b>
+            </div>
+        </div>
+    </div>
+
+    <div class="traffic-card animate-on-scroll delay-3" style="margin-top: 20px; border: 2px solid #198754; background: #f0fdf4;">
+    <div class="traffic-stats">
+        <div class="stat-box">
+            <small style="color: #198754; font-weight: bold;">Dana Terkumpul</small>
+            <span style="color: #0f3d2e;">Rp 7.500.000</span>
+        </div>
+        <div class="stat-box" style="text-align: right;">
+            <small>Target Dana</small>
+            <span>Rp 7.500.000</span>
+        </div>
+    </div>
+    
+    <div class="progress-bar-container" style="background: #e9ecef; border: 1px solid #c3e6cb;">
+        <div class="progress-bar-fill" style="width: 100%; background: linear-gradient(90deg, #198754, #2ecc71);"></div>
+    </div>
+    
+    <div class="shortfall-text" style="color: #198754; font-weight: 800; text-align: center; font-size: 15px;">
+        <i class="fas fa-check-circle"></i> Alhamdulillah, Dana Terpenuhi!
+    </div>
+</div>
+
+    <div class="donor-list-section animate-on-scroll delay-4" style="margin-top: 40px;">
+        <h3 style="text-align: center; font-size: 16px; color: #0f3d2e; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">
+            DAFTAR DONATUR "RAMADHAN BERBAGI" 1447 H
+        </h3>
+        <div class="marquee-container-pro">
+    <div class="marquee-content-pro">
+        <div class="marquee-item"><i class="fas fa-check-circle" style="color: #2ecc71;"></i> PROGRAM TERPENUHI (Rp 7.500.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> PLN INDONESIA POWER (Rp 2.500.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Pak Budi L. (Rp 1.000.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Hamba Allah #24 (Rp 600.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Pak Ag. (Rp 400.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Paw. (Rp 300.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Hamba Allah #23 (Rp 150.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> 11 Hamba Allah (Rp 1.650.000)</div>
+
+        <div class="marquee-item"><i class="fas fa-check-circle" style="color: #2ecc71;"></i> PROGRAM TERPENUHI (Rp 7.500.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> PLN INDONESIA POWER (Rp 2.500.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Pak Budi L. (Rp 1.000.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Hamba Allah #24 (Rp 600.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Pak Ag. (Rp 400.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Paw. (Rp 300.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Hamba Allah #23 (Rp 150.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> 11 Hamba Allah (Rp 1.650.000)</div>
+
+        <div class="marquee-item"><i class="fas fa-check-circle" style="color: #2ecc71;"></i> PROGRAM TERPENUHI (Rp 7.500.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> PLN INDONESIA POWER (Rp 2.500.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Pak Budi L. (Rp 1.000.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Hamba Allah #24 (Rp 600.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Pak Ag. (Rp 400.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Paw. (Rp 300.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> Hamba Allah #23 (Rp 150.000)</div>
+        <div class="marquee-item"><i class="fas fa-hand-holding-heart"></i> 11 Hamba Allah (Rp 1.650.000)</div>
+    </div>
+</div>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                <thead style="background: #f8f9fa; color: #666;">
+                    <tr>
+                        <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">No</th>
+                        <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Nama Donatur</th>
+                        <th style="padding: 12px; text-align: right; border-bottom: 2px solid #dee2e6;">Jumlah (Rp)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">01-10</td><td>Hamba Allah (10 Orang)</td><td style="padding: 10px; text-align: right; font-weight: bold;">1.500.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">11</td><td>Pak Riz.</td><td style="padding: 10px; text-align: right; font-weight: bold;">150.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">12</td><td>Pak Sug.</td><td style="padding: 10px; text-align: right; font-weight: bold;">150.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">13</td><td>Pak Ag.</td><td style="padding: 10px; text-align: right; font-weight: bold;">400.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">14</td><td>Pak Ajie</td><td style="padding: 10px; text-align: right; font-weight: bold;">150.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">15</td><td>Paw.</td><td style="padding: 10px; text-align: right; font-weight: bold;">300.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">16</td><td>Pak Budi L.</td><td style="padding: 10px; text-align: right; font-weight: bold;">1.000.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">17</td><td>Pak Akmal</td><td style="padding: 10px; text-align: right; font-weight: bold;">150.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">18</td><td>Pak Firman</td><td style="padding: 10px; text-align: right; font-weight: bold;">100.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee; background: #fffdeb;">
+                        <td style="padding: 10px;">19</td><td style="font-weight: bold; color: #0056b3;">PLN INDONESIA POWER UBP. PRIOK</td><td style="padding: 10px; text-align: right; font-weight: bold; color: #0056b3;">2.500.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">20</td><td>Pak Nana</td><td style="padding: 10px; text-align: right; font-weight: bold;">100.000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">21</td><td>Hamba Allah</td><td style="padding: 10px; text-align: right; font-weight: bold;">150.000</td>
+                    </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px;">22</td>
+                                <td style="padding: 10px;">Hamba Allah</td>
+                                <td style="padding: 10px; text-align: right; font-weight: bold;">100.000</td>
+                            </tr>
+
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px;">23</td>
+                                <td style="padding: 10px;">Hamba Allah</td>
+                                <td style="padding: 10px; text-align: right; font-weight: bold;">150.000</td>
+                            </tr>
+
+                            <tr style="border-bottom: 2px solid #198754; background: #f0fdf4;">
+                                <td style="padding: 10px;">24</td>
+                                <td style="padding: 10px; font-weight: bold; color: #155724;">
+                                    Hamba Allah (Penutup)
+                                </td>
+                                <td style="padding: 10px; text-align: right; font-weight: bold; color: #155724;">600.000</td>
+                            </tr>
+
+                            <tr style="background: #198754; color: white;">
+                                <td colspan="2" style="padding: 12px; font-weight: bold; text-align: center;">TOTAL DANA TERKUMPUL</td>
+                                <td style="padding: 12px; text-align: right; font-weight: bold;">7.500.000</td>
+                            </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding: 20px; background: #fdfdfd; border-radius: 10px;">
+        <p style="font-style: italic; color: #555; margin-bottom: 15px;">
+            "Jazakumullah Khairan" (Semoga Allah membalas kebaikan Anda dengan kebaikan yang berlipat ganda).
+        </p>
+        <div style="border-top: 1px solid #eee; padding-top: 15px;">
+            <p style="font-size: 13px; color: #888; margin-bottom: 5px;">Konfirmasi transfer:</p>
+            <a href="https://wa.me/628558009990" style="color: #25d366; font-weight: bold; text-decoration: none; font-size: 1.1rem;">
+                <i class="fab fa-whatsapp"></i> 0855-8009-990
+            </a>
+            <p style="font-size: 12px; color: #999;">Admin Masjid Al-Amanah (Only WA)</p>
+        </div>
+    </div>
+
+  <div style="background: #f0fdf4; border-left: 5px solid #198754; padding: 20px; border-radius: 8px; margin: 30px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05);" class="catatan-penting animate-on-scroll delay-5">
+    <h4 style="color: #155724; margin-top: 0; margin-bottom: 10px; font-size: 16px;">
+        <i class="fas fa-check-circle"></i> Program Selesai (Target Tercapai)
+    </h4>
+    <p style="color: #1b5e20; font-size: 14px; line-height: 1.6; margin: 0;">
+        Alhamdulillah, berkat rahmat Allah SWT dan kedermawanan para Muhsinin, donasi untuk <strong>50 Paket Sembako Dhuafa</strong> telah resmi <strong>DITUTUP</strong> karena kuota dana sudah terpenuhi.
+    </p>
+    <p style="color: #1b5e20; font-size: 14px; line-height: 1.6; margin-top: 10px;">
+        Kami ucapkan <i>Jazakumullah Khairan Katsiran</i> kepada seluruh donatur. Semoga harta yang diinfakkan menjadi pembersih jiwa dan pemberat timbangan amal di akhirat kelak.
+    </p>
+    <p style="color: #2e7d32; font-weight: bold; font-size: 13px; margin-top: 12px; font-style: italic;">
+        "Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain." (HR. Ahmad)
+    </p>
+</div>
+
+<div style="margin-top: 25px; display: flex; flex-direction: column; gap: 12px; align-items: center;">
+    
+    <a href="https://wa.me/628558009990?text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah.%20Saya%20ingin%20konfirmasi%20mengenai%20sedekah%20Ramadhan." 
+       target="_blank" 
+       onmouseover="this.style.background='#198754'; this.style.transform='translateY(-2px)'" 
+       onmouseout="this.style.background='#0f3d2e'; this.style.transform='translateY(0)'"
+       style="width: 100%; max-width: 400px; background: #0f3d2e; color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+        <i class="fab fa-whatsapp" style="font-size: 18px;"></i> KONFIRMASI / HUBUNGI ADMIN
+    </a>
+
+    <a href="/hasildonasi/#terbarusantunanyatim01" 
+       onmouseover="this.style.background='#f0fdf4'; this.style.transform='translateY(-2px)'" 
+       onmouseout="this.style.background='#ffffff'; this.style.transform='translateY(0)'"
+       style="width: 100%; max-width: 400px; background: #ffffff; color: #198754; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; border: 2px solid #198754; transition: all 0.3s ease;">
+        <i class="fas fa-clipboard-list" style="font-size: 18px;"></i> LIHAT LAPORAN & HASIL PENYALURAN
+    </a>
+
+    <p style="font-size: 11px; color: #888; margin-top: 5px; font-style: italic; text-align: center;">
+        <i class="fas fa-info-circle"></i> Klik untuk melihat dokumentasi penyerahan bantuan secara transparan.
+    </p>
+</div>
+</main>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<!--FOOTER-->
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        <section class="footer-insight" style="background: #333; color: #fff; padding: 50px 20px;">
+    <div class="insight-wrapper" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; max-width: 1200px; margin: 0 auto;">
+
+        <div class="insight-col brand-column-salman" style="flex: 1; min-width: 280px;">
+            <div class="footer-brand-logo" style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <img src="/img/logo-al-amanah.jpeg" alt="Logo Masjid Al Amanah" style="border-radius: 50px; width: 60px; height: 60px; object-fit: cover;">
+                <div class="logo-divider-text">
+                    <span class="nama-masjid-text" style="font-weight: 800; line-height: 1.2; display: block; font-size: 17px;">MASJID AL-AMANAH<br>TARUMA JAYA</span>
+                </div>
+            </div>
+            <p class="masjid-address-text" style="font-size: 13px; opacity: 0.8; margin-bottom: 25px; line-height: 1.6;">
+                V2QH+MGX, Kp keramat, RT.003 RW006, <br>
+                Samudra Jaya, Kec. Tarumajaya, Bekasi Utara, Jawa Barat
+            </p>
+            
+            <div class="footer-social-links" style="display: flex; gap: 18px; font-size: 22px;">
+                <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-threads"></i></a>
+            </div>
+        </div>
+
+        <div class="insight-col" style="flex: 1; min-width: 280px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 18px; letter-spacing: 1px;">REKENING DONASI</h3>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li style="font-size: 16px; opacity: 0.9;">BCA Syariah</li>
+                <li style="font-size: 24px; font-weight: 900; color: #f57224; letter-spacing: 2px; margin: 5px 0;">0079900999</li>
+                <li style="font-size: 15px; font-weight: bold;">An. Masjid Al-Amanah</li>
+            </ul>
+            
+            <div style="border: 1px dashed rgba(255,255,255,0.3); padding: 15px; display: flex; gap: 12px; align-items: flex-start; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                <span style="font-size: 18px;">⚠️</span>
+                <p style="font-size: 11px; opacity: 0.8; margin: 0; line-height: 1.5; text-align: justify;">
+                    Seluruh dana yang didonasikan melalui kanal Masjid Al-Amanah dipastikan bukan bersumber dari dan bukan digunakan untuk tujuan pencucian uang (money laundering), pendanaan aktivitas terorisme, maupun tindak kejahatan lainnya sesuai regulasi NKRI.
+                </p>
+            </div>
+        </div>
+
+        <div class="insight-col" style="flex: 1; min-width: 280px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 18px; letter-spacing: 1px;">DONASI LANGSUNG</h3>
+            <div style="display: inline-block; padding: 10px; background: #fff; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <img src="/img/qrisalamanah1.jpeg" alt="QRIS Masjid Al-Amanah" style="width: 160px; height: auto; display: block;">
+            </div>
+
+            <p style="font-size: 11px; opacity: 0.8; line-height: 1.6; text-align: justify;">
+                <span style="font-weight: bold; color: #f57224;">Disclaimer:</span> Setiap donasi dan infaq yang masuk melalui QRCode (QRIS) maupun Rekening resmi ini akan dikelola secara amanah untuk mendukung operasional dakwah, renovasi fasilitas masjid, serta berbagai program pemberdayaan umat lainnya di lingkungan Masjid Al-Amanah.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+   <footer>
+      <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+    </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+    <a href="https://yayasan-cahaya-sunnah-ummah.com/" class="portal-float" target="_blank">
+    <i class="fa fa-hands-holding-child"></i>
+    <span class="portal-text-tooltip">Ke Yayasan Cahaya Sunnah Ummah</span>
+</a>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+
+const observerOptions = {
+    threshold: 0.1 // Muncul kalau 10% bagian sudah terlihat di layar
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el);
+});
+
+// Efek khusus pas halaman baru di-load (biar elemen paling atas langsung muncul)
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const firstElements = document.querySelectorAll('.delay-1, .delay-2');
+        firstElements.forEach(el => el.classList.add('appear'));
+    }, 100);
+}); 
+</script><script src="../script.js"></script>
+</body>
+</html>

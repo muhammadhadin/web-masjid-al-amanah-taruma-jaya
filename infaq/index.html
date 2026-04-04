@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infaq & Kontribusi - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style-infaq.css">
+    <link rel="stylesheet" href="/style-footer.css">
+    <link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   <style>
+    /* --- BANNER SLIDER TRANSISI (TRANSPARAN) --- */
+    .banner-container {
+        width: 100%;
+        max-width: 850px; 
+        margin: 0 auto; /* Margin atas bawah gue ilangin biar nggak ada space putih */
+        position: relative;
+        height: 350px; /* Sesuaikan tinggi asli gambarnya */
+        overflow: hidden;
+        /* Background, border, radius, dan shadow dibuang semua sesuai request */
+    }
+
+    .banner-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Penting biar gambar nggak kepotong */
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent; /* Pastikan background img transparan */
+    }
+
+    /* Gambar 1 (Ijo) */
+    .banner-container img:nth-child(1) {
+        animation: fade1 6s infinite; /* Gue saranin 6s biar orang sempet baca */
+    }
+
+    /* Gambar 2 (Biru) */
+    .banner-container img:nth-child(2) {
+        animation: fade2 6s infinite;
+    }
+
+    @keyframes fade1 {
+        0%, 45% { opacity: 1; z-index: 2; }
+        55%, 95% { opacity: 0; z-index: 1; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes fade2 {
+        0%, 45% { opacity: 0; z-index: 1; }
+        55%, 95% { opacity: 1; z-index: 2; }
+        100% { opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+        .banner-container { height: 180px; } /* Sesuaikan buat layar HP */
+    }
+/* --- CSS PROGRAM DONASI--- */
+.program-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.row-program {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Konten di tengah */
+    gap: 20px; /* Jarak antar kotak */
+}
+
+.card-program {
+    /* Desktop: 3 kolom (100% / 3 minus gap) */
+    flex: 1 1 calc(33.333% - 20px); 
+    min-width: 280px;
+    box-sizing: border-box;
+}
+
+.box.style1 {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 5px solid #0f3d2e; /* Garis hiasan atas */
+}
+
+.box.style1:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Kotak sempurna */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #f8f8f8;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box.style1 h3 {
+    color: #0f3d2e;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.box.style1 p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.rekening-box {
+    background: #e9f7ec;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: auto; /* Maksa box rekening di paling bawah */
+}
+
+/* --- RESPONSIVE SETTINGS --- */
+@media (max-width: 768px) {
+    .card-program {
+        /* HP: 2 kolom */
+        flex: 1 1 calc(50% - 20px);
+        min-width: 150px;
+    }
+    .program-wrapper {
+        margin: 20px auto;
+    }
+    .box.style1 {
+        padding: 15px;
+    }
+    .box.style1 h3 {
+        font-size: 1rem;
+    }
+    .box.style1 p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Layar sangat kecil: 1 kolom aja biar gak sesek */
+    .card-program {
+        flex: 1 1 100%;
+    }
+}
+/* Pastiin icon featured tampilannya rapi dan di tengah */
+.box.style1 .icon.featured {
+    display: block;
+    margin: 0 auto 20px auto;
+    font-size: 3rem;
+    color: #0f3d2e; /* Warna ijo masjid */
+}
+
+/* Biar 4 kotak tetep rapi di desktop */
+@media (min-width: 981px) {
+    #operasional .card-program {
+        flex: 1 1 calc(25% - 20px); /* 4 kolom */
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="/img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
+
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+              <li><a href="/laporan-keuangan/laporan-keuangan-periode-ramadhan-2026-1447-h/">Laporan Keuangan Ramadhan 2026</a></li>
+            <li><a href="/laporan-keuangan/laporan-zakat-fitrah-1447-h/">Laporan Zakat Fitrah 1447 H</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+           <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+         <li><a href="/informasi/">Informasi - Al Amanah</a></li>
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
+</nav>
+
+<br><br><br><br>
+
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>
+
+<!-- SECTION 1: HEADER -->
+    <header class="infaq-header">
+        <div class="container">
+            <div class="header-flex">
+                <div class="header-logo">
+                    <img src="/img/logoalamanah2.png" alt="Logo Al-Amanah">
+                </div>
+                <div class="header-text">
+                    <h1>Ahlan wa Sahlan</h1>
+                    <p>Kami mengajak kepada Antum untuk ikut berperan aktif dalam berpartisipasi membangun serta memakmurkan Masjid Al-Amanah Tarumajaya melalui infaq dan sedekah. Partisipasi Antum sangat berarti dalam menunjang kelancaran kegiatan dakwah, pelayanan jamaah, serta pemeliharaan fasilitas masjid demi kenyamanan ibadah kita bersama.</p>
+                    
+                    <a href="#operasional-al-amanah-tarumajaya" class="btn-utama">Operasional Al-Amanah</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: FOKUS AKTIVITAS -->
+    <section class="aktivitas-section" id="operasional-al-amanah-tarumajaya">
+        <div class="container">
+            <h2 class="section-title">Fokus Aktivitas Khidmat Masjid</h2>
+            <div class="aktivitas-grid">
+
+                <div class="aktivitas-card">
+    <i class="fas fa-users-gear"></i> <!-- Icon baru yang cocok buat operasional -->
+    <h3>Tim Khidmat & Karyawan</h3>
+    <p>Seluruh kru dan relawan yang berkhidmat mengoperasikan kegiatan harian di Masjid Al-Amanah Tarumajaya serta pengelolaan administrasi di Yayasan Cahaya Sunnah Ummah demi kelancaran dakwah dan pelayanan umat.</p>
+</div>
+
+                <div class="aktivitas-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Dakwah</h3>
+                    <p>Mendukung penyelenggaraan ibadah sholat berjamaah lima waktu secara tepat waktu serta pelaksanaan kajian-kajian rutin sunnah yang berlandaskan Al-Qur'an dan As-Sunnah sesuai pemahaman Salafush Shalih.</p>
+                </div>
+                <div class="aktivitas-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Dapur</h3>
+                    <p>Memastikan pelayanan terbaik dalam penyediaan konsumsi bagi para jamaah yang melaksanakan i'tikaf, para musafir yang singgah, hingga penyediaan hidangan buka puasa sunnah maupun wajib.</p>
+                </div>
+                <div class="aktivitas-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Fasilitas</h3>
+                    <p>Menjaga kesucian, keasrian, dan kenyamanan area utama masjid melalui perawatan rutin sarana gedung, perbaikan berkala pada infrastruktur, serta memastikan area wudhu tetap higienis.</p>
+                </div>
+                <div class="aktivitas-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Operasional</h3>
+                    <p>Pembiayaan rutin operasional yang meliputi ketersediaan daya listrik AC, pasokan air bersih berkelanjutan, hingga biaya kebersihan harian yang dilakukan intensif oleh tim khidmat masjid.</p>
+                </div>
+               
+            </div>
+            
+            <div class="doa-penutup">
+                <p class="doa-penutup-p">Hanya kepada Allah semata kita menaruh harap dan doa, semoga apa-apa yang kami sajikan melalui khidmat Masjid Al-Amanah Tarumajaya ini dapat menjadi simpanan pahala jariyah bagi kami serta para donatur sekalian. Semoga Allah senantiasa memberikan keistiqomahan kepada kita semua untuk terus tegak di atas dakwah sunnah di wilayah Tarumajaya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: REKENING -->
+    <section class="rekening-section">
+        <div class="container">
+            <h2 class="section-title">Rekening Penyaluran</h2>
+            <div class="rekening-grid">
+    
+                <!-- Rekening Yayasan Cahaya Sunnah Ummah-->
+                <article class="rek-card-v2">
+    <div class="rek-image">
+        <img src="/img/santunandhuafa01.jpeg" alt="Yayasan Cahaya Sunnah Ummah">
+    </div>
+    <div class="rek-content">
+        <h3>Yayasan Cahaya Sunnah Ummah</h3>
+        <p>
+            <strong>Bank Syari'ah Indonesia (BSI)</strong><br>
+            No. Rek: <strong id="rek-yayasan">7347155335</strong><br>
+            A/N: Yayasan Cahaya Sunnah Ummah<br>
+            <span style="font-size: 12px; display: block; margin-top: 10px; color: #94a3b8;">
+                Peruntukan: Operasional Yayasan, Kegiatan Sosial, Sedekah Dhuafa, Janaiz, Wakaf Ambulans & Tanah Kuburan.
+            </span>
+        </p>
+        <button class="btn-copy-v2" onclick="copyText('rek-yayasan')">SALIN NOMOR REKENING</button>
+    </div>
+</article>
+
+<!-- Rekening Masjid Al-Amanah Tarumajaya -->
+
+<article class="rek-card-v2">
+    <div class="rek-image">
+        <img src="/img/renovasi-bagian-khotib-masjid-al-amanah-taruma-jaya.webp" alt="Masjid Al-Amanah">
+    </div>
+    <div class="rek-content">
+        <h3>Masjid Al-Amanah</h3>
+        <p>
+            <strong>BCA Syari'ah</strong><br>
+            No. Rek: <strong id="rek-masjid">0079900999</strong><br>
+            A/N: Masjid Al-Amanah<br>
+            <span style="font-size: 12px; display: block; margin-top: 10px; color: #94a3b8;">
+                Peruntukan: Operasional Masjid, Kajian Rutin, Operasional Jumat, Listrik & PDAM, Operasional Kebersihan.
+            </span>
+        </p>
+        <button class="btn-copy-v2" onclick="copyText('rek-masjid')">SALIN NOMOR REKENING</button>
+    </div>
+</article>
+</div>
+        </div>
+    </section>
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin.%20Perkenalkan%20saya%20..........%20dari%20..........%20mau%20konfirmasi" class="konfirmasi">Konfirmasi Melalui WhatsApp</a>
+
+
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        
+       <!-- SECTION KONFIRMASI AL-AMANAH -->
+<section class="konfirmasi-section">
+    <div class="container">
+        <h2 class="section-title-custom">Konfirmasi</h2>
+        <p class="konfirmasi-desc" style="text-align: center;">
+            Antum tidak diharuskan untuk melakukan konfirmasi setiap melakukan transfer, tapi kami menyediakan proses konfirmasi jika Antum ingin memberikan informasi kepada kami. Tetapi, jika Antum melengkapi proses konfirmasi, kami akan memberikan informasi terbaru mengenai perkembangan dakwah dan pembangunan Masjid Al-Amanah Tarumajaya sehingga Antum lebih dekat bersama kami. Antum bisa melakukan konfirmasi melalui WhatsApp.
+        </p>
+
+        <div class="whatsapp-info">
+            <h3 class="subtitle-custom">WhatsApp</h3>
+            <p class="wa-text" style="text-align: center;">
+                Bagi antum yang sudah mentransferkan dana ke salah satu nomor rekening di atas dalam guna kebutuhan operasional Masjid Al-Amanah atau infaq atau menyalurkan zakat antum, antum bisa konfirmasi melalui WhatsApp di nomor <span class="highlight-wa">+62 855-8009-990</span> dengan mengetikkan: <strong style="color: #e9f7ec;">KONFIRMASI</strong>
+            </p>
+        </div>
+
+        <br><br>
+
+        <div class="sosmed-info">
+            <h3 class="subtitle-custom">Social Media Al-Amanah</h3>
+            <div class="sosmed-links">
+                <p>Instagram: <a href="https://www.instagram.com/masjidalamanahtarumajaya/">instagram.com/masjidalamanahtarumajaya</a></p>
+                <p>Facebook: <a href="https://www.facebook.com/masjid.al.amanah.2025">facebook.com/masjidalamanahtarumajaya</a></p>
+                <p>YouTube: <a href="https://www.youtube.com/@MasjidalamanahTarumajaya">youtube.com/Masjid al amanah Tarumajaya</a></p>
+                <p>Website: <a href="https://alamanah-tarumajaya.com/">www.alamanahtarumajaya.com</a></p>
+                <p>Tiktok: <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" target="_blank">tiktok.com/@masjidalamanahtarumajaya</a></p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="sosmed-info">
+            <h3 class="subtitle-custom">Social Media Yayasan Cahaya Sunnah Ummah</h3>
+            <div class="sosmed-links">
+                <p>Tiktok: <a href="https://www.tiktok.com/@yayasan.cahaya.su3">tiktok.com/@yayasan.cahaya.su3</a></p>
+                <p>Website: <a href="https://yayasan-cahaya-sunnah-ummah.com/">www.yayasancahayasunnahummah.com</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+        <footer>
+            <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+        </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+    <a href="https://yayasan-cahaya-sunnah-ummah.com/" class="portal-float" target="_blank">
+    <i class="fa fa-hands-holding-child"></i>
+    <span class="portal-text-tooltip">Ke Yayasan Cahaya Sunnah Ummah</span>
+</a>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+
+function copyText(elementId) {
+    // Ambil teksnya
+    const text = document.getElementById(elementId).innerText;
+    // Langsung salin ke clipboard
+    navigator.clipboard.writeText(text);
+    
+    // Opsional: Kasih alert kecil biar user tau udah berhasil
+    alert("Nomor Rekening " + text + " Berhasil Disalin!");
+}
+</script><script src="../script.js"></script>
+</body>
+</html>
