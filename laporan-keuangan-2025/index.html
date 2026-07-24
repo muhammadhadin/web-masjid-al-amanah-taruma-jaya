@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Keuangan - Masjid Al Amanah Taruma Jaya</title>
+    <link rel="stylesheet" href="../style.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="stylesheet" href="/style-laporan-keuangan-periode-ramadhan.css">
+<link rel="icon" type="image/png" href="../img/logo-al-amanah.png">
+<link rel="apple-touch-icon" href="../img/logo-al-amanah.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#008444">
+<meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="keywords" content="Masjid Al Amanah, Masjid Al Amanah Tarumajaya, Al Amanah Bekasi, Masjid Samudra Jaya, Masjid Kp Keramat, Jadwal Sholat Tarumajaya, Kajian Sunnah Bekasi, Kajian Rutin Tarumajaya, Infaq Masjid Al Amanah, Donasi Anak Yatim Bekasi, Kegiatan Ramadhan Masjid, Info Kajian Bekasi Utara, Masjid Terdekat Tarumajaya, DKM Masjid Al Amanah, Dakwah Sunnah Bekasi">
+
+   
+<style>
+  /* Efek Loading Muter-muter */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #1d4ed8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hide-loader { opacity: 0; pointer-events: none; }
+
+        /* Style Tabel Bersih */
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #e5e7eb; padding: 12px; }
+        
+     
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 640px) {
+        td, th { padding-left: 0.5rem !important; padding-right: 0.5rem !important; font-size: 10px !important; }
+        .grid-cols-1 { gap: 0.5rem !important; }
+    }
+    </style>
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container"> <!-- BUNGKUS BIAR GAK MEPET PINGGIR DI LAYAR GEDE -->
+    
+    <div class="logo">
+      <img src="/img/logo-al-amanah.jpeg" alt="Logo Al Amanah">
+      <h3>Masjid Al Amanah <span>Taruma Jaya</span></h3>
+    </div>
+
+    <!-- Tombol Hamburger (Mobile Only) -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+
+    <ul id="nav-list">
+      <!-- Search Bar -->
+      <li class="nav-search">
+        <form onsubmit="return jalankanCari(event)">
+          <input type="text" placeholder="Cari..." id="search-input">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+
+      <!-- Menu Utama -->
+      <li><a href="/">Beranda</a></li>
+      
+      <li><a href="/infaq">Infaq</a></li>
+     
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Transparansi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+             <li><a href="/laporan-keuangan-2025/">Laporan Keuangan 2025</a></li>
+            <li><a href="/laporan-keuangan/">Laporan Keuangan</a></li>
+              <li><a href="/laporan-keuangan/laporan-keuangan-periode-ramadhan-2026-1447-h/">Laporan Keuangan Ramadhan 2026</a></li>
+            <li><a href="/laporan-keuangan/laporan-zakat-fitrah-1447-h/">Laporan Zakat Fitrah 1447 H</a></li>
+           <li><a href="/hasildonasi">Laporan Donasi</a></li>
+          <li><a href="/programrenovasi">Laporan Renovasi Masjid</a></li>
+           <li><a href="/laporan-santunan-dhuafa-al-amanah-taruma-jaya/">Laporan Santunan Dhuafa</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Menu (Click Mode & Accordion) -->
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Informasi <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+           <li><a href="/informasi/">Informasi - Al Amanah</a></li>
+          <li><a href="/berita">Berita - Al Amanah</a></li>
+          <li><a href="/kajian">Kajian & Iftor Jama'i - Al Amanah</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <!-- Pakai Button: Di Desktop & HP fungsinya cuma buat buka menu, bukan link -->
+        <button type="button" class="dropbtn">
+          Ramadhan <i class="fa fa-chevron-down arrow-icon"></i>
+        </button>
+        <ul class="dropdown-content">
+            <li><a href="/proposal-ramadhan/">Proposal Ramadhan - 1447 H</a></li>
+          <li><a href="/ramadhan/">Ramadhan 1447 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2025/">Idul Adha 2025 - 1446 H</a></li>
+          <li><a href="/idul-adha-al-amanah-taruma-jaya-2026/">Idul Adha 2026 - 1447 H</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/galerimasjid">Galeri</a></li>
+      <li><a href="/kontak">Kontak</a></li>
+    </ul>
+
+  </div> <!-- END nav-container -->
+</nav>
+
+
+
+<div class="marquee-info">
+    <div class="marquee-content">
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+        <span>• Infaq Operasional Masjid Al Amanah • BCA Syariah • QRIS Tersedia • 007-9900-999 A.n Masjid Al-Amanah • Kajian Rutin Ahad Ba’da Ashar • Seputar tanya jawab hubungi 0855-8009-990 • Mari Makmurkan Masjid Al-Amanah! </span>
+    </div>
+</div>
+
+<section class="banner-berita">
+    <img src="../img/totebagsantunandhuafa01.jpeg" alt="Laporan Hasil Donasi Masjid Al-Amanah" class="banner-img">
+    
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1 class="title-main green-gradient">Laporan Keuangan 2025</h1>
+            <div class="title-sub">
+                Data Sinkronisasi Keseluruhan Laporan Keuangan Masjid Al Amanah Tarumajaya Tahun 2025
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="breadcrumb-container">
+    <div class="container-inner">
+        <ul class="breadcrumb-list">
+            <li><a href="/index.html">Beranda</a></li>
+            <li class="separator"><i class="fas fa-chevron-right"></i></li>
+            <li class="current">Laporan Keuangan</li>
+
+            <li class="link-arsip">
+                <a href="../infaq/index.html" class="btn-text-infaq">
+                    Ingin Berinfaq? Klik <i class="fas fa-hand-holding-heart" style="font-size: 10px; margin-left: 5px;"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="search-status-global" style="display: none; background: #e9f7ec; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 1100px; width: 90%; border-left: 5px solid #0f3d2e; font-family: sans-serif;">
+    <span style="color: #666;">Menampilkan hasil untuk: </span>
+    <b id="keyword-tampilan" style="color: #0f3d2e; font-size: 1.1rem;"></b>
+    <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
+</div>    
+
+   <main class="bg-white min-h-screen py-8 px-4 font-sans text-gray-900">
+    <div class="max-w-6xl mx-auto">
+        
+        
+
+<div class="report-grid-system">
+
+    <!-- CARD 2: LAPORAN KEUANGAN JANUARI 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan Januari 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+         <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 6.309.899</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 48.719.168</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 52.870.000</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 10.460.731</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum seluruh lalu lintas kas operasional selama periode Januari 2025. Pemasukan bulan ini didominasi oleh besarnya dukungan dana taawun dari para donatur untuk proyek fisik, serta konsistensi infaq rutin jamaah harian.</p>
+        <p style="margin-top: 10px;">Pengeluaran pada periode ini difokuskan secara masif pada pembiayaan renovasi, pembangunan, dan peninggian lantai masjid akibat banjir[cite: 3]. Selain itu, alokasi operasional tetap berjalan untuk insentif Khotib Jumat, kajian rutin bulanan, biaya langganan wifi, serta kebersihan[cite: 3]. Seluruh catatan ditransparansikan secara akuntabel.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan Januari 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+    <!-- CARD 3: LAPORAN KEUANGAN FEBRUARI 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan Februari 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 10.460.731</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 42.106.688</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 58.387.500</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 26.741.543</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum seluruh perputaran kas operasional selama periode Februari 2025. Saldo pemasukan bulan ini melonjak berkat besarnya aliran dana taawun pembangunan tahap 2 dari para donatur, infaq kolektif, serta sokongan dana operasional rutin.</p>
+        <p style="margin-top: 10px;">Pengeluaran bulan ini dialokasikan secara berkelanjutan untuk pembiayaan fisik kepada Pak Yudi Kurniawan. Di samping itu, kas disalurkan untuk persiapan Ramadhan (belanja kurma, ifthar, peralatan masak), insentif Khotib Jumat & Tarawih, kajian rutin, operasional kebersihan (Pak Ruslan), tagihan PDAM, serta biaya langganan wifi masjid.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan Februari 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+     <!-- CARD 4: LAPORAN KEUANGAN MARET 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan Maret 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 26.741.543</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 49.724.216</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 23.578.591</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 595.918</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum seluruh lalu lintas kas operasional selama periode Maret 2025. Pemasukan bulan ini didukung oleh penyaluran zakat fitrah dan zakat mal jamaah, infaq rutin harian, serta donasi khusus untuk program santunan dhuafa dan konsumsi iktikaf.</p>
+        <p style="margin-top: 10px;">Pengeluaran pada periode ini teralokasi secara masif untuk pembiayaan agenda Ramadhan, meliputi pengadaan beras zakat/fitrah, insentif harian Imam Tarawih dan Khotib Jumat, belanja bumbu serta logistik buka puasa (O Save & RM Doa Ibu), tunjangan THR marbot (Pak Ruslan), operasional kelistrikan, hingga program santunan sosial kemasyarakatan.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan Maret 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+   <!-- CARD 5: LAPORAN KEUANGAN APRIL 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan April 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 595.918</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 27.934.500</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 27.570.000</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 231.418</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum seluruh lalu lintas kas operasional selama periode April 2025. Pemasukan bulan ini didominasi oleh setoran dana kolektif patungan sapi dan hewan qurban dari para jamaah, transfer dari Yayasan Cahaya Sunnah Ummah, serta infaq rutin masjid.</p>
+        <p style="margin-top: 10px;">Pengeluaran pada periode ini teralokasi untuk penyaluran dana qurban ke pihak yayasan, operasional pelayanan ibadah (termasuk insentif marbot untuk penjagaan parkir hari raya), biaya operasional badal khotib, serta pembiayaan rutin kajian akhir pekan bersama ustadz eksternal.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan April 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+<!-- CARD 6: LAPORAN KEUANGAN MEI 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan Mei 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 231.418</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 48.195.000</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 50.230.000</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 2.266.418</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum seluruh lalu lintas kas operasional selama periode Mei 2025. Pemasukan bulan ini melonjak signifikan berkat amanah dana patungan sapi/hewan qurban kolektif jamaah, infaq khusus untuk pengadaan fasilitas tripod hoist, serta alokasi dana operasional dan dakwah dari para muhsinin.</p>
+        <p style="margin-top: 10px;">Pengeluaran pada periode ini didominasi oleh penyaluran dan pelunasan dana kurban ke Yayasan Cahaya Sunnah, pembiayaan rutin kelistrikan/wifi, insentif marbot, operasional kajian sabtu, serta uang muka makan siang untuk kepanitiaan Idul Adha mendatang.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan Mei 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+<!-- CARD 7: LAPORAN KEUANGAN JULI 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan Juli 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 1.564.918</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 1.486.000</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 4.165.000</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 4.243.918</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum sirkulasi kas operasional selama bulan Juli 2025. Arus masuk bulan ini didominasi oleh setoran awal tabungan qurban tahap kedua dari beberapa jamaah, infaq kegiatan kelas Bahasa Arab, serta kontribusi infaq rutin bulanan dari para muhsinin dan badan usaha sekitar.</p>
+        <p style="margin-top: 10px;">Untuk pengeluaran, dana teralokasi secara berkala untuk pembiayaan token listrik, penyelesaian kewajiban operasional jaringan internet wifi/kotak, operasional kajian ilmiah hari Sabtu, serta penyaluran insentif bagi para Asatidzah khotib Jumat.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan Juli 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+<!-- CARD 8: LAPORAN KEUANGAN AGUSTUS 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan Agustus 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 2.526.913</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 13.520.000</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 17.185.000</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 6.191.913</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum sirkulasi kas operasional selama bulan Agustus 2025. Saldo kas mengalami peningkatan signifikan yang didorong oleh penerimaan amanah dana wakaf karpet masjid, cicilan tabungan qurban tahap kedua, pelunasan piutang internal, serta infaq rutin dari jamaah dan beberapa korporasi mitra di kawasan Tarumajaya.</p>
+        <p style="margin-top: 10px;">Alokasi pengeluaran pada periode ini difokuskan pada pengadaan sarana fisik berupa pembelian unit kipas angin baru, pembayaran tagihan jaringan internet wifi, penyelesaian administrasi program karpet, serta penyaluran mukafah rutin operasional dakwah untuk Khotib Jumat dan Asatidzah kajian Sabtu.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan Agustus 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+<!-- CARD 9: LAPORAN KEUANGAN SEPTEMBER 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan September 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 6.191.913</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 9.219.052</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 8.692.798</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 5.665.659</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum sirkulasi kas operasional selama bulan September 2025. Pemasukan bulan ini didukung oleh pelunasan sisa dana bon internal, penerimaan infaq berkala via Merchant QRIS, setoran celengan kencleng jamaah, serta kelanjutan kontribusi operasional dari donatur tetap dan kemitraan lokal.</p>
+        <p style="margin-top: 10px;">Pengeluaran pada periode September dialokasikan untuk pembiayaan operasional rutin seperti internet wifi, penyediaan logistik (roti) untuk jamaah, pengadaan stiker celengan, operasional BBM, belanja logistik via e-commerce, serta mukafah bagi para Asatidzah Khotib Jumat dan kajian berkala (Sabtu & Ahad).</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan September 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+<!-- CARD 10: LAPORAN KEUANGAN OKTOBER 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan Oktober 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 5.665.659</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 7.013.560</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 10.135.000</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 8.787.099</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum sirkulasi kas operasional selama bulan Oktober 2025. Pemasukan bulan ini mengalami pertumbuhan positif yang didukung oleh penerimaan amanah infaq khusus proyek karpet dan toilet masjid, setoran cicilan tabungan qurban tahap ketiga, titipan dana jamaah, setoran kencleng rutin, serta dukungan dana operasional berkelanjutan dari para donatur dan korporasi mitra di Tarumajaya.</p>
+        <p style="margin-top: 10px;">Alokasi pengeluaran pada periode Oktober difokuskan pada peningkatan prasarana fisik dan konsumsi, seperti pemeliharaan cuci AC, pengadaan lampu emergency, pembelian inventaris penunjang (kursi, kopi, spidol), pemenuhan logistik dapur (minyak masak, bumbu, roti), pembayaran tagihan air PAM dan internet wifi, serta penyaluran mukafah rutin bagi Khotib Jumat dan Asatidzah kajian pekanan.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan Oktober 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+<!-- CARD 11: LAPORAN KEUANGAN NOVEMBER 2026 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan November 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 8.787.099</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 8.525.725</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 6.290.525</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 6.551.899</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum sirkulasi kas operasional selama bulan November 2025. Arus pemasukan bulan ini didukung secara konsisten oleh pemindahan saldo kas fisik ke rekening, penerimaan infaq rutin dari donatur tetap, setoran celengan kencleng jamaah, transfer berkala dari mitra korporasi di Tarumajaya, serta koreksi pembatalan transaksi (reversal) perbaikan sarana.</p>
+        <p style="margin-top: 10px;">Alokasi pengeluaran pada periode November difokuskan untuk peningkatan kenyamanan fasilitas fisik berupa pemeliharaan AC masjid, pembelian perlengkapan wewangian/pewangi ruangan, pembayaran tagihan bulanan air PAM dan internet wifi, belanja logistik konsumsi (roti & konsumsi kajian), serta penyaluran mukafah rutin untuk para Khotib Jumat dan Asatidzah kajian pekanan.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan November 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+    <!-- CARD 12: LAPORAN KEUANGAN DESEMBER 2025 -->
+<div class="report-card">
+    <div style="text-align: center;">
+        <span class="status-badge-mini">LAPORAN OPERASIONAL</span>
+        <h2 class="report-title-mini">Laporan Kas Bulanan Desember 2025</h2>
+        <p class="report-location">Masjid Al Amanah Tarumajaya | Bekasi</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-mini">
+            <span class="label-mini">Saldo Awal</span>
+            <span class="value-mini">Rp 6.551.899</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Debet</span>
+            <span class="value-mini">Rp 6.901.862</span>
+        </div>
+        <div class="stat-mini">
+            <span class="label-mini">Mutasi Kredit</span>
+            <span class="value-mini">Rp 6.659.862</span>
+        </div>
+        <div class="stat-mini-highlight">
+            <span class="label-mini">Saldo Akhir</span>
+            <span class="value-mini">Rp 6.309.899</span>
+        </div>
+    </div>
+
+    <!-- Teks Deskripsi -->
+    <div class="info-box">
+        <p>Laporan ini merangkum sirkulasi kas operasional penutupan tahun pada bulan Desember 2025. Arus masuk kas didukung oleh pengumpulan dana kencleng akhir tahun, setoran kas celengan masjid, infaq pribadi berkala, kiriman dana operasional dari kemitraan CV korporasi Tarumajaya, serta transfer penggantian (reimbursement) biaya BBM operasional.</p>
+        <p style="margin-top: 10px;">Alokasi pengeluaran pada periode Desember difokuskan pada penuntasan program penunjang, meliputi subsidi kesehatan jamaah (belanja apotek), operasional kebersihan lingkungan masjid, tagihan rutin internet wifi, akomodasi logistik/konsumsi rapat dkm, serta pemenuhan mukafah rutin bagi Khotib Jumat dan Asatidzah kajian pekanan.</p>
+    </div>
+
+    <div class="action-footer" style="text-align: center;">
+        <a href="/laporan-keuangan-2025-pdf/Laporan Keuangan Desember 2025.pdf" class="btn-lihat-laporan">
+            Cek Rincian
+        </a>
+    </div>
+</div>
+
+</div>
+
+
+
+        
+  
+
+    
+
+
+
+
+        <div class="max-w-4xl mx-auto mt-16 pb-12 border-t border-gray-200 pt-10 text-center">
+    <div class="flex flex-col items-center">
+        <h3 class="text-sm font-bold text-gray-800 uppercase tracking-[0.2em] mb-3">
+            Pernyataan Transparansi
+        </h3>
+        
+        <p class="text-xs text-gray-500 leading-relaxed max-w-xl mb-8 px-4">
+            Seluruh data keuangan di atas telah diverifikasi sesuai dengan catatan kas fisik dan bukti transaksi material. 
+            Kami menjunjung tinggi amanah dan kejujuran dalam pengelolaan dana jamaah Masjid Al Amanah.
+        </p>
+
+        <div class="flex flex-col items-center">
+            <p class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-1">
+                Status Laporan
+            </p>
+            <p class="text-sm font-semibold text-gray-700">
+                Laporan Keuangan tahun 2025 — Update 24 Juli 2026
+            </p>
+        </div>
+    </div>
+    
+    <div class="mt-10">
+        <div class="inline-block w-10 h-[1px] bg-gray-300"></div>
+    </div>
+</div>
+    </div>
+    
+</main>
+
+
+
+  
+
+<!--FOOTER-->
+<div class="wrapper style4">
+    <article id="contact" class="container">
+        <section class="footer-insight" style="background: #333; color: #fff; padding: 50px 20px;">
+    <div class="insight-wrapper" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; max-width: 1200px; margin: 0 auto;">
+
+        <div class="insight-col brand-column-salman" style="flex: 1; min-width: 280px;">
+            <div class="footer-brand-logo" style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <img src="/img/logo-al-amanah.jpeg" alt="Logo Masjid Al Amanah" style="border-radius: 50px; width: 60px; height: 60px; object-fit: cover;">
+                <div class="logo-divider-text">
+                    <span class="nama-masjid-text" style="font-weight: 800; line-height: 1.2; display: block; font-size: 17px;">MASJID AL-AMANAH<br>TARUMA JAYA</span>
+                </div>
+            </div>
+            <p class="masjid-address-text" style="font-size: 13px; opacity: 0.8; margin-bottom: 25px; line-height: 1.6;">
+                V2QH+MGX, Kp keramat, RT.003 RW006, <br>
+                Samudra Jaya, Kec. Tarumajaya, Bekasi Utara, Jawa Barat
+            </p>
+            
+            <div class="footer-social-links" style="display: flex; gap: 18px; font-size: 22px;">
+                <a href="https://www.tiktok.com/@user8298712614614?is_from_webapp=1&sender_device=pc" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/masjidalamanahtarumajaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@masjidalamanahtarumajaya?si=-s5MC8bSZo2vdqHQ" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.threads.com/@masjidalamanahtarumajaya?xmt=AQF001HqFIf9w7rUYAuxbkWzOqE9a-xWDHYI69U36jjZTVI" target="_blank" style="color: #fff; opacity: 0.8;"><i class="fab fa-threads"></i></a>
+            </div>
+        </div>
+
+        <div class="insight-col" style="flex: 1; min-width: 280px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 18px; letter-spacing: 1px;">REKENING DONASI</h3>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li style="font-size: 16px; opacity: 0.9;">BCA Syariah</li>
+                <li style="font-size: 24px; font-weight: 900; color: #f57224; letter-spacing: 2px; margin: 5px 0;">0079900999</li>
+                <li style="font-size: 15px; font-weight: bold;">An. Masjid Al-Amanah</li>
+            </ul>
+            
+            <div style="border: 1px dashed rgba(255,255,255,0.3); padding: 15px; display: flex; gap: 12px; align-items: flex-start; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                <span style="font-size: 18px;">⚠️</span>
+                <p style="font-size: 11px; opacity: 0.8; margin: 0; line-height: 1.5; text-align: justify;">
+                    Seluruh dana yang didonasikan melalui kanal Masjid Al-Amanah dipastikan bukan bersumber dari dan bukan digunakan untuk tujuan pencucian uang (money laundering), pendanaan aktivitas terorisme, maupun tindak kejahatan lainnya sesuai regulasi NKRI.
+                </p>
+            </div>
+        </div>
+
+        <div class="insight-col" style="flex: 1; min-width: 280px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 18px; letter-spacing: 1px;">DONASI LANGSUNG</h3>
+            <div style="display: inline-block; padding: 10px; background: #fff; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <img src="/img/qrisalamanah1.jpeg" alt="QRIS Masjid Al-Amanah" style="width: 160px; height: auto; display: block;">
+            </div>
+
+            <p style="font-size: 11px; opacity: 0.8; line-height: 1.6; text-align: justify;">
+                <span style="font-weight: bold; color: #f57224;">Disclaimer:</span> Setiap donasi dan infaq yang masuk melalui QRCode (QRIS) maupun Rekening resmi ini akan dikelola secara amanah untuk mendukung operasional dakwah, renovasi fasilitas masjid, serta berbagai program pemberdayaan umat lainnya di lingkungan Masjid Al-Amanah.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+        <br><br>
+        <div style="text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;"></div>
+   <footer>
+      <p style="text-align: center; color: #777; font-size: 13px;">&copy; 2026 Al Amanah Taruma Jaya. All rights reserved.</p>
+    </footer>
+    </article>
+</div>
+
+<div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+    <a href="https://yayasan-cahaya-sunnah-ummah.com/" class="portal-float" target="_blank">
+    <i class="fa fa-hands-holding-child"></i>
+    <span class="portal-text-tooltip">Ke Yayasan Cahaya Sunnah Ummah</span>
+</a>
+
+<a href="https://api.whatsapp.com/send?phone=628558009990&text=Assalamualaikum%20Admin%20Masjid%20Al-Amanah..." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    <span class="wa-text-tooltip">Hubungi Kami</span>
+</a>
+<script>
+    // Script untuk Burger Menu
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.onclick = function() {
+        navList.classList.toggle('active');
+        // Ubah icon jadi X kalau mau (opsional)
+        if(navList.classList.contains('active')) {
+            menuToggle.innerHTML = "✖";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+    };
+
+    // Nutup menu otomatis kalau link diklik (biar nggak nutupin konten)
+    document.querySelectorAll('#nav-list li a').forEach(link => {
+        link.onclick = () => {
+            navList.classList.remove('active');
+            menuToggle.innerHTML = "☰";
+        };
+    });
+
+
+// 2. FUNGSI MENANGKAP DATA (Jalan otomatis pas halaman kebuka)
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const kataKunci = params.get('q');
+
+    const statusBox = document.getElementById('search-status-global');
+    const teksKeyword = document.getElementById('keyword-tampilan');
+
+    // Kalau ada parameter 'q' di URL, munculin box hijaunya
+    if (kataKunci && kataKunci.trim() !== "") {
+        if (statusBox && teksKeyword) {
+            statusBox.style.display = "block"; 
+            teksKeyword.innerText = `"${decodeURIComponent(kataKunci)}"`;
+        }
+    }
+});
+</script>
+
+<script src="../script.js"></script>
+</body>
+</html>
