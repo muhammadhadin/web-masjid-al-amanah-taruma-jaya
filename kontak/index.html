@@ -278,6 +278,46 @@
     <a href="?" style="margin-left: 15px; color: #d32f2f; text-decoration: none; font-size: 0.8rem; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">Hapus Filter</a>
 </div>
 
+<pre>
+#include &lt;stdio.h&gt;
+
+int main(){
+    int jumlahHari, jumlahGelombang, staminaHarian;
+    
+    scanf("%d", &jumlahHari);
+    scanf("%d", &jumlahGelombang);
+    scanf("%d", &staminaHarian);
+    
+    int totalDamage = 0;
+    int sisaSstaminaAkhir = 0;
+    
+    for (int hari = 1; hari &lt;= jumlahHari; hari++) {
+        int stamina = staminaHarian;
+        int j = 1;
+        
+        while (j &lt;= jumlahGelombang &amp;&amp; stamina &gt;= 10) {
+            if (j % 3 == 0) {
+                if (stamina &gt;= 20){
+                    totalDamage += 60;
+                    stamina -= 20;
+                } else {
+                    totalDamage += 25;
+                    stamina -= 10;
+                }
+            }
+            else {
+                totalDamage += 25;
+                stamina -= 10;
+            }
+            j++;
+        }
+        if (hari == jumlahHari) {
+            sisaStaminaAkhir = stamina;
+        }
+    }
+    printf("Total Damage: %d | Sisa Stamina Hari Terakhir: %d\n", totalDamage, sisaSstaminaAkhir);
+}
+</pre>
 
 <section class="info-section" id="kontak">
     <div class="info-container">
