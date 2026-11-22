@@ -105,7 +105,7 @@ function jalankanCari(event) {
         window.location.href = '/donasisosial/' + kado;
     }
     // 4. KATEGORI LAIN (Sama kayak codingan lama lu)
-    else if (['infaq', 'donasi', 'sedekah', 'zakat', 'nyumbang', 'sumbangan', 'amal', 'jariyah', 'transfer', 'rekening', 'bsi', 'bca'].some(key => kataKunci.includes(key))) {
+    else if (['infaq', 'donasi', 'sedekah', 'zakat', 'infak', 'nyumbang', 'sumbangan', 'amal', 'jariyah', 'transfer', 'rekening', 'bsi', 'bca'].some(key => kataKunci.includes(key))) {
         window.location.href = '/infaq/' + kado;
     } 
     else if (['ramadhan', 'puasa', 'proposal', 'romadon', 'romadhon', 'teraweh', 'terawih', 'tarawih', 'takjil', 'bukber', 'buka puasa', 'sahur', 'imsakiyah', 'itikaf'].some(key => kataKunci.includes(key))) {
@@ -119,6 +119,9 @@ function jalankanCari(event) {
     }
     else if (['berita', 'info', 'artikel', 'pengumuman', 'kabar', 'warta', 'update', 'kegiatan', 'event', 'masjid hari ini', 'seputar masjid'].some(key => kataKunci.includes(key))) {
         window.location.href = '/berita/' + kado;
+    }
+    else if (['janaiz', 'jenazah', 'pengurusan jenazah', 'ambulans', 'ambulan', 'keranda', 'pemulasaraan', 'kafan', 'talqin', 'layanan janaiz'].some(key => kataKunci.includes(key))) {
+        window.location.href = '/janaiz-masjid-al-amanah/';
     }
     else if (['renovasi', 'pembangunan', 'bangun', 'semen', 'batu bata', 'perbaikan', 'tukang', 'kubah', 'pagar', 'keramik', 'cat', 'proyek', 'perluasan', 'fondasi', 'material', 'rab', 'renov'].some(key => kataKunci.includes(key))) {
         window.location.href = '/programrenovasi/' + kado;

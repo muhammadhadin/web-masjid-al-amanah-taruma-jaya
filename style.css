@@ -1,9 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Terapkan Montserrat untuk semua teks di seluruh halaman, termasuk style inline. */
+html,
+body,
+body * {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Jangan ubah font bawaan ikon Font Awesome. */
+.fa,
+.fa-solid,
+.fa-regular,
+.fa-brands,
+.fas,
+.far,
+.fab,
+[class^="fa-"],
+[class*=" fa-"],
+[class^="fa-"]::before,
+[class*=" fa-"]::before {
+    font-family: "Font Awesome 6 Free" !important;
+}
+.fa-brands,
+.fab,
+[class*="fa-brands"] {
+    font-family: "Font Awesome 6 Brands" !important;
 }
 
 html {
@@ -2802,6 +2829,214 @@ html {
     text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 
+.janaiz-section {
+  padding: 24px 0 48px;
+}
+
+/* Kunci supaya tidak mepet kiri-kanan dan berada di tengah */
+.janaiz-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.janaiz-opsi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.janaiz-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #d7e3dc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 61, 46, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.janaiz-card:hover {
+  transform: translateY(-3px);
+  border-color: #0f3d2e;
+  box-shadow: 0 10px 24px rgba(15, 61, 46, 0.12);
+}
+
+/* Area Foto 16:9 Anti-Gagal di HP & Desktop */
+.janaiz-card-media {
+  position: relative;
+  width: 100%;
+  height: 0 !important;
+  padding-top: 56.25% !important; /* Rasio 16:9 (9 / 16 = 56.25%) */
+  background: #e8f3ed;
+  overflow: hidden;
+}
+
+.janaiz-card-media img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.janaiz-card:hover .janaiz-card-media img {
+  transform: scale(1.04);
+}
+
+/* Badge Nomor di Pojok Kiri Atas Foto */
+.janaiz-btn-no {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #0f3d2e;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Isi Konten Bawah Foto */
+.janaiz-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 10px;
+  padding: 20px;
+  border-top: 4px solid #0f3d2e;
+}
+
+.janaiz-btn-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #14261f;
+}
+
+.janaiz-btn-sub {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #4b5d54;
+  line-height: 1.55;
+}
+
+.janaiz-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.janaiz-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: #0f3d2e;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-wa-btn:hover {
+  background: #175742;
+  transform: translateY(-1px);
+}
+
+.janaiz-wa-btn--outline {
+  background: #f4faf7;
+  color: #0f3d2e;
+}
+
+.janaiz-wa-btn--outline:hover {
+  background: #e3f2eb;
+}
+
+@media (max-width: 768px) {
+  .janaiz-container {
+    padding: 0 16px;
+  }
+
+  .janaiz-opsi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .janaiz-card-media {
+    height: 170px;
+  }
+}
+
+.janaiz-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f4faf7;
+  color: #0f3d2e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-copy-btn:hover {
+  background: #e3f2eb;
+  transform: translateY(-1px);
+}
+
+/* Notifikasi Toast di Pojok Bawah */
+.janaiz-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  transform: translate(-50%, calc(-50% + 12px));
+  background: #0f3d2e;
+  color: #ffffff;
+  border: 1.5px solid #2ecc71;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  max-width: calc(100% - 32px);
+}
+
+.janaiz-toast.is-show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.janaiz-toast strong {
+  display: block;
+  color: #2ecc71;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+
+
 /* --- BREADCRUMBS --- */
 .breadcrumb-container {
     background: #f8f9fa;
@@ -2944,956 +3179,1653 @@ html {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 4px;
-    margin-bottom: 15px;
-    line-height: 1.2;
-
-    /* JURUS GRADASI TEKS */
-    /* 1. Tentukan Warnanya (Linear Gradient) */
-    /* Contoh: Dari Putih (#fff) ke Putih Gading (#f1f1f1) */
-    background-image: linear-gradient(180deg, #ffffff 0%, #f1f1f1 100%) !important;
-    
-    /* 2. Potong Background Mengikuti Bentuk Teks */
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    
-    /* 3. Bikin Warna Font Asli Jadi Transparan (Biar Background Keliatan) */
-    color: transparent !important;
-    
-    /* Bayangan Teks (Sesuaikan dikit biar gradasi nonjol) */
-    text-shadow: 0px 4px 10px rgba(0,0,0,0.3) !important;
+    margin-bottom: 5px;
+    text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
 }
 
 .title-sub {
     font-size: 1.2rem !important;
     font-weight: 400;
-    letter-spacing: 1px;
-    color: #2ecc71; /* Warna Hijau Fresh */
-    max-width: 700px;
-}
-
-/* TOMBOL NAVIGASI (PANAH) */
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    padding: 20px 25px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    transition: 0.3s;
-    font-size: 1.5rem;
-}
-
-.nav-btn:hover {
-    background: #198754; /* Berubah hijau pas di-hover */
-    border-color: #198754;
-    scale: 1.1;
-}
-
-.prev { left: 30px; }
-.next { right: 30px; }
-
-/* RESPONSIVE KHUSUS HP */
-@media (max-width: 768px) {
-    .slider { height: 400px; }
+    letter-spacing: 2px;
+    color: #2ecc71; /* Hijau cerah sesuai gambar */
     
-    .title-main {
-        font-size: 1.8rem !important;
-        letter-spacing: 1px;
-    }
-    
-    .title-sub {
-        font-size: 0.9rem !important;
-    }
-    
-    .nav-btn {
-        padding: 10px 15px;
-        font-size: 1rem;
-    }
-}
-/* TOMBOL MELAYANG TENGAH */
-.floating-agenda-btn {
-    position: fixed;
-    bottom: 30px; /* Jarak dari bawah layar */
-    left: 50%; /* Taruh di tengah horizontal */
-    transform: translateX(-50%); /* Geser balik biar bener-bener center */
-    z-index: 999; /* Biar selalu di depan konten apa pun */
-    
-    background: linear-gradient(135deg, #198754, #145c32);
-    color: white !important;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    /* Kuncinya di sini */
     display: flex;
     align-items: center;
-    gap: 10px;
-   /* ... kode posisi fixed yang tadi ... */
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    border: 2px solid rgba(255,255,255,0.2);
-    white-space: nowrap; /* Biar gak kepotong jadi dua baris */
+    justify-content: center; /* Meratakan konten di tengah secara horizontal */
+    text-align: center;      /* Jaga-jaga kalau teksnya nge-wrap/turun baris */
+    width: 100%;            /* Paksa ambil lebar penuh biar bisa di tengahin */
+    margin: 0 auto;         /* Centering box-nya sendiri */
+    
+    gap: 8px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 
-.floating-agenda-btn:hover {
-    transform: translateX(-50%) translateY(-5px); /* Tetep di tengah, tapi naik dikit */
-    background: linear-gradient(135deg, #d4af37, #b8860b); /* Berubah emas pas hover */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+.janaiz-section {
+  padding: 24px 0 48px;
 }
 
-/* Class buat ngilangin tombol */
-.floating-agenda-btn.hidden {
-   opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) translateY(20px); /* Efek turun sedikit saat hilang */
+/* Kunci supaya tidak mepet kiri-kanan dan berada di tengah */
+.janaiz-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* Biar gak tabrakan sama elemen lain di HP */
+.janaiz-opsi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.janaiz-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #d7e3dc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 61, 46, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.janaiz-card:hover {
+  transform: translateY(-3px);
+  border-color: #0f3d2e;
+  box-shadow: 0 10px 24px rgba(15, 61, 46, 0.12);
+}
+
+/* Area Foto 16:9 Anti-Gagal di HP & Desktop */
+.janaiz-card-media {
+  position: relative;
+  width: 100%;
+  height: 0 !important;
+  padding-top: 56.25% !important; /* Rasio 16:9 (9 / 16 = 56.25%) */
+  background: #e8f3ed;
+  overflow: hidden;
+}
+
+.janaiz-card-media img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.janaiz-card:hover .janaiz-card-media img {
+  transform: scale(1.04);
+}
+
+/* Badge Nomor di Pojok Kiri Atas Foto */
+.janaiz-btn-no {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #0f3d2e;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Isi Konten Bawah Foto */
+.janaiz-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 10px;
+  padding: 20px;
+  border-top: 4px solid #0f3d2e;
+}
+
+.janaiz-btn-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #14261f;
+}
+
+.janaiz-btn-sub {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #4b5d54;
+  line-height: 1.55;
+}
+
+.janaiz-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.janaiz-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: #0f3d2e;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-wa-btn:hover {
+  background: #175742;
+  transform: translateY(-1px);
+}
+
+.janaiz-wa-btn--outline {
+  background: #f4faf7;
+  color: #0f3d2e;
+}
+
+.janaiz-wa-btn--outline:hover {
+  background: #e3f2eb;
+}
+
 @media (max-width: 768px) {
-    .floating-agenda-btn {
-        bottom: 32px;
-        padding: 10px 20px;
-        font-size: 13px;
-    }
+  .janaiz-container {
+    padding: 0 16px;
+  }
+
+  .janaiz-opsi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .janaiz-card-media {
+    height: 170px;
+  }
 }
 
-.badge-terbaru {
-    display: inline-block;
-    background: linear-gradient(45deg, #ffc107, #ffeb3b); /* Kuning Gradasi biar Mewah */
-    color: #000;
-    font-size: 11px;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 50px; /* Bentuk lonjong/kapsul */
-    margin-bottom: 15px; /* Jarak ke judul H3 */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.janaiz-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f4faf7;
+  color: #0f3d2e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-.badge-terbaru i {
-    margin-right: 5px; /* Jarak icon ke teks */
+.janaiz-copy-btn:hover {
+  background: #e3f2eb;
+  transform: translateY(-1px);
 }
 
-.badge-proses {
-    display: inline-block;
-    background: #e3f2fd; /* Biru muda soft */
-    color: #1976d2; /* Biru tua buat teks */
-    border: 1px solid #90caf9;
-    font-size: 11px;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 50px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+/* Notifikasi Toast di Pojok Bawah */
+.janaiz-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  transform: translate(-50%, calc(-50% + 12px));
+  background: #0f3d2e;
+  color: #ffffff;
+  border: 1.5px solid #2ecc71;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  max-width: calc(100% - 32px);
 }
 
-.badge-proses i {
-    margin-right: 6px;
+.janaiz-toast.is-show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.janaiz-toast strong {
+  display: block;
+  color: #2ecc71;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+
+
+/* --- BREADCRUMBS --- */
+.breadcrumb-container {
+    background: #f8f9fa;
+    padding: 15px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.container-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.breadcrumb-list li a {
+    text-decoration: none;
+    color: #888;
+    transition: 0.3s;
+}
+
+.breadcrumb-list li a:hover {
+    color: #198754; /* Hijau Masjid */
+}
+
+.breadcrumb-list .separator {
+    margin: 0 12px;
+    color: #ccc;
     font-size: 10px;
 }
 
-/* Styling Artikel Berita */
-.news-card {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.news-header {
-    margin-bottom: 30px;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 20px;
-}
-
-.badge-status {
-    background: #e9f7ec;
-    color: #198754;
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 12px;
+.breadcrumb-list .current {
+    color: #333;
     font-weight: 700;
-    text-transform: uppercase;
 }
 
-.news-title {
-    font-size: 28px;
-    color: #0f3d2e;
-    font-weight: 800;
-    line-height: 1.3;
-    margin: 15px 0;
-    font-family: sans-serif;
-}
-
-.news-meta {
-    font-size: 13px;
-    color: #888;
-    display: flex;
-    gap: 20px;
-}
-
-/* News Body */
-.news-body p {
-    font-size: 16px;
-    color: #444;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    text-align: justify;
-}
-
-/* Gambar & Video dalam Berita */
-.news-figure {
-    margin: 30px 0;
-    padding: 0;
-    text-align: center;
-}
-
-.news-figure img, .video-wrapper video {
-    width: 100% !important;
-    /* Kita paksa rasionya 1 banding 1 */
-    aspect-ratio: 1 / 1 !important; 
-    /* Kita suruh dia motong bagian yang lebih biar gak melar */
-    object-fit: cover !important; 
-    /* Penting: pastiin height-nya nggak dikunci angka tertentu */
-    height: auto !important; 
+/* --- RESPONSIVE MOBILE (HP) --- */
+@media (max-width: 768px) {
+    .banner-berita {
+        height: 350px; /* Di HP jangan 580px, kepanjangan nanti */
+    }
     
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    display: block;
-    margin: 0 auto;
-}
+    .title-main {
+        font-size: 2.5rem; /* Turunin ukuran teks di HP */
+        letter-spacing: 2px;
+    }
+    
+    .title-sub {
+        font-size: 0.9rem; /* Turunin ukuran teks di HP */
+        letter-spacing: 1px;
+    }
 
-/* Opsional: Kalau di Desktop kegedean kalau 1:1 full width, kasih batesan */
-@media (min-width: 768px) {
-    .news-figure img {
-        max-width: 500px; /* Atur angka ini sesuai selera lo Jon */
+    .container-inner {
+        padding: 0 15px; /* Kurangi padding di HP */
+    }
+
+    .breadcrumb-list {
+        font-size: 13px; /* Kecilin dikit breadcrumb di HP */
     }
 }
 
-.news-figure figcaption {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #666;
-    font-style: italic;
-    line-height: 1.5;
-    padding: 0 10px;
-    border-left: 3px solid #198754;
-    text-align: left; /* Biar teks keterangan tetep rapi di kiri */
-}
-
-/* Grouping Foto di Bawah */
-.photo-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* Tombol Back */
-.btn-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #f1f1f1;
-    color: #555;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-back:hover {
-    background: #0f3d2e;
-    color: #fff;
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    .news-card { padding: 20px; }
-    .news-title { font-size: 22px; }
-    .photo-group { grid-template-columns: 1fr; }
-}
-
-/* Container Utama Video */
-.video-preview-container {
-    position: relative;
-    width: 100%;
-    max-width: 500px; /* Biar gak kegedean di desktop */
-    margin: 0 auto;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
-}
-
-/* Wadah Video */
-.video-box {
-    position: relative;
-    width: 100%;
-    max-width: 550px; /* Biar gak menuhin layar desktop */
-    margin: 0 auto;
-    background: #000;
-    border-radius: 12px;
-    cursor: pointer;
-    overflow: hidden;
-    /* AWALNYA KOTAK 1:1 */
-    aspect-ratio: 1 / 1; 
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Pas Video Jalan (Class ini ditambahin lewat JS) */
-.video-box.playing {
-    aspect-ratio: 16 / 9; /* Berubah jadi GEPENG/LEBAR */
-    max-width: 100%; /* Melebar penuh di artikel */
-}
-
-/* Videonya di dalem */
-.video-element {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Biar pas kotak gak ada item-item di pinggir */
-    display: block;
-}
-
-.video-box.playing .video-element {
-    object-fit: contain; /* Pas lebar, nampilin video utuh */
-}
-
-/* Tombol Play */
-.play-btn {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(25, 135, 84, 0.9);
-    color: white;
-    width: 65px; height: 65px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 25px;
-    z-index: 2;
-    transition: 0.3s;
-}
-
-.video-box.playing .play-btn {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.share-container {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-top: 15px;
-    border-top: 1px dashed #eee;
-}
-
-.share-label {
-    font-size: 13px;
-    font-weight: 700;
-    color: #666;
-    text-transform: uppercase;
-}
-
-.share-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.share-btn {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-/* Warna Brand */
-.wa { background: #25d366; }
-.ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.threads { background: #000; }
-.copy { background: #6c757d; }
-.fb { background: #1877f2; }
-
-.share-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    filter: brightness(1.1);
-}
-.share-btn.link { background: #607d8b; }
-
-/* Tooltip simpel saat copy link */
-.copy-success {
-    background: #198754 !important;
-}
-/* --- CSS CLEAN & MOBILE FIRST --- */
-
-
-
-
-        /* Konten Utama */
-        .container-content {
-            margin-top: 10px; 
-            padding: 15px;
-            max-width: 600px; 
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #0f3d2e;
-        }
-
-         /* --- KAJIAN SECTION --- */
-
-.container-content {
-
-    max-width: 1200px; /* Lebarin containernya biar kartu punya ruang */
-
-    margin: 20px auto;
-
-    padding: 0 20px;
-
-}
-
-
-
-.kajian-wrapper {
-
-    display: flex;
-
-    flex-direction: row; /* Wajib ke samping */
-
-    flex-wrap: wrap;    /* Biar kalau gak muat dia turun, tapi kita atur lebarnya */
-
-    gap: 30px;          /* Jarak antar kartu biar gak dempet */
-
-    justify-content: center;
-
-}
-
-
-
-.card-berita {
-
-    background: white;
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-
-   
-
-    /* Desktop: Kita set lebarnya mantap (sekitar 450px - 500px) */
-
-    flex: 1 1 450px;
-
-    max-width: 500px; /* Batasi biar gak kegedean banget di layar ultra-wide */
-
-   
-
-    display: flex;
-
-    flex-direction: column;
-
-}
-
-
-
-.image-container {
-
-    width: 100%;
-
-    aspect-ratio: 1 / 1; /* Balikin ke kotak (1:1) sesuai request awal lu biar gambar gede */
-
-    overflow: hidden;
-
-}
-
-
-
-/* --- RESPONSIVE UNTUK HP --- */
-
-@media (max-width: 768px) {
-
-    .kajian-wrapper {
-
-        flex-direction: column; /* HP tetep tumpuk ke bawah */
-
-        align-items: center;
-
-    }
-
-
-
-    .card-berita {
-
-        flex: 1 1 100%;
-
-        max-width: 100%; /* Full lebar di HP */
-
-    }
-
-}
-
-
-
-        .image-container img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-        }
-
-
-
-        .content-area {
-
-            padding: 20px;
-
-        }
-
-
-
-        .content-area h3 {
-
-            font-size: 20px;
-
-            color: #0f3d2e;
-
-            margin-bottom: 10px;
-
-            line-height: 1.3;
-
-        }
-
-
-
-        .content-area p {
-
-            font-size: 15px;
-
-            color: #555;
-
-            text-align: justify;
-
-        }
-
-
-
-        .date-badge {
-
-            display: inline-block;
-
-            background: #e8f5e9;
-
-            color: #2e7d32;
-
-            padding: 4px 10px;
-
-            border-radius: 5px;
-
-            font-size: 12px;
-
-            font-weight: bold;
-
-            margin-bottom: 10px;
-
-        }
-
-
-
-       
-
-.image-container {
-
-    position: relative;
-
-    width: 100%;
-
-    aspect-ratio: 1 / 1;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-}
-
-
-
-/* Overlay tombol yang muncul saat di-hover */
-
-.zoom-overlay {
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    background: rgba(15, 61, 46, 0.7); /* Hijau transparan */
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    color: white;
-
-    opacity: 0; /* Awalnya sembunyi */
-
-    transition: all 0.3s ease;
-
-}
-
-
-
-/* Munculkan overlay saat card atau gambar di-hover */
-
-.card-berita:hover .zoom-overlay {
-
-    opacity: 0.2;
-
-}
-
-
-
-.zoom-overlay i {
-
-    font-size: 40px;
-
-    margin-bottom: 10px;
-
-    transform: scale(0.8);
-
-    transition: 0.3s ease;
-
-}
-
-
-
-.card-berita:hover .zoom-overlay i {
-
-    transform: scale(1);
-
-}
-
-
-
-.zoom-text {
-
-    background: #ffc107;
-
-    color: #0f3d2e;
-
-    padding: 6px 15px;
-
-    border-radius: 20px;
-
-    font-weight: bold;
-
-    font-size: 13px;
-
-    text-transform: uppercase;
-
-}
-
-/* Responsif HP */
-
-@media (max-width: 768px) {
-
-    /* Di HP, kita buat ikonnya agak kelihatan dikit (nggak 0 banget)
-
-       biar orang tau itu bisa diklik, atau biarkan tetap 0 tapi pas di-tap lsg muncul */
-
-    .zoom-overlay {
-
-        background: rgba(15, 61, 46, 0.5); /* Lebih tipis biar gambarnya tetep jelas */
-
-    }
-
-   
-
-    /* Kasih efek pencet pas di tap */
-
-    .card-berita:active .zoom-overlay {
-
-        opacity: 1;
-
-    }
-
-
-
-    .zoom-overlay i {
-
-        font-size: 30px; /* Kecilin dikit ikonnya biar gak nutupin foto di layar kecil */
-
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    /* Di HP, kita buat overlay-nya sedikit kelihatan (transparan tipis)
-
-       biar ikon kaca pembesarnya kelihatan terus */
-
-    .zoom-overlay {
-
-        opacity: 0.8; /* Langsung muncul tanpa nunggu di-tap */
-
-        background: rgba(15, 61, 46, 0.4); /* Lebih transparan biar gambar aslinya tetep jelas */
-
-    }
-
-   
-
-    .zoom-text {
-
-        font-size: 11px; /* Kecilin dikit biar gak menuai layar HP */
-
-        padding: 4px 10px;
-
-    }
-
-}
-
-.teks-arab {
-    display: block;      /* Biar dia makan satu baris sendiri */
-    text-align: right;   /* Rata kanan */
-    direction: rtl;      /* Standar penulisan Arab (Right to Left) */
-    font-size: 1.4rem;   /* Biar tulisan Arabnya lebih gede & jelas dibaca */
-    margin: 10px 0;      /* Kasih jarak atas bawah */
-    font-family: 'Amiri', serif; /* Kalau lu pake font Arab, kalo gak hapus aja baris ini */
-}
-.kajian-detail {
-    text-align: left;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.info-kajian-box {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 12px;
-    border-left: 5px solid #0f3d2e;
-    margin-bottom: 25px;
-}
-
-.info-kajian-box h3 {
-    margin-top: 0;
-    color: #0f3d2e;
-    font-size: 1.2rem;
-}
-
-.info-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.info-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 12px;
-    font-size: 15px;
-    color: #444;
-}
-
-.info-list li i {
-    color: #27ae60;
-    width: 20px;
-    text-align: center;
-    margin-top: 3px;
-}
-
-/* Styling Hadits */
-.hadits-box {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
-.hadits-item {
-    margin-bottom: 25px;
-}
-
-.teks-arab {
-    display: block;
-    text-align: right;
-    direction: rtl;
-    font-size: 1.3rem;
-    color: #0f3d2e;
-    margin-bottom: 8px;
-    line-height: 1.8;
-}
-
-.arti-hadits {
-    font-style: italic;
-    color: #666;
-    font-size: 14px;
-    line-height: 1.5;
-    border-left: 3px solid #eee;
+/* Jarak longkap dikit setelah breadcrumb utama */
+.link-arsip {
+    margin-left: 30px; /* Atur jarak longkapnya di sini */
+    border-left: 1px solid #ddd; /* Kasih garis tipis biar ada pembatas */
     padding-left: 15px;
 }
-/* Container 1:1 tapi fleksibel */
-.media-video-container {
-    position: relative;
-    width: 100%;
-    max-width: 500px; /* Batasin biar gak kegedean di desktop */
-    margin: 0 auto 1.5rem auto;
-    background-color: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    aspect-ratio: 1 / 1; /* Paksa 1:1 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+
+
+.link-arsip a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #198754; /* Warna hijau biar keliatan itu link klik-able */
+    font-weight: 500;
 }
 
-/* Videonya ngisi container tanpa gepeng */
-.media-video-container video {
+.link-arsip a:hover {
+    text-decoration: underline; /* Kasih underline pas di-hover biar jelas */
+}
+
+/* Biar di HP gak berantakan */
+@media (max-width: 768px) {
+    .link-arsip {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+}
+
+/* CONTAINER SLIDER */
+.slider {
+    width: 100%;
+    height: 580px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slides, .slide {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Video asli tetep kelihatan utuh di dalem kotak 1:1 */
-    display: block;
 }
 
-/* Overlay Tombol Play */
-.media-play-btn {
+.slide {
     position: absolute;
     inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out; /* Transisi lebih halus */
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* CAPTION (TEXT DI TENGAH) */
+.caption {
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 15%; /* Jaga teks gak mentok ke samping */
+}
+
+.title-main {
+    /* Ukuran dasarnya sama */
+    font-size: 3.5rem !important; 
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+}
+
+.title-sub {
+    font-size: 1.2rem !important;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #2ecc71; /* Hijau cerah sesuai gambar */
+    
+    /* Kuncinya di sini */
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-    z-index: 10;
+    justify-content: center; /* Meratakan konten di tengah secara horizontal */
+    text-align: center;      /* Jaga-jaga kalau teksnya nge-wrap/turun baris */
+    width: 100%;            /* Paksa ambil lebar penuh biar bisa di tengahin */
+    margin: 0 auto;         /* Centering box-nya sendiri */
+    
+    gap: 8px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 
-/* Sembunyiin overlay pas video jalan */
-.v-playing .media-play-btn {
-    opacity: 0;
-    pointer-events: none; /* Biar klikan langsung kena ke kontrol video (Timeline/Fullscreen) */
+.janaiz-section {
+  padding: 24px 0 48px;
 }
 
-.btn-dokumentasi {
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        gap: 10px; 
-        background: #ffffff; 
-        padding: 0; /* Padding dipindah ke <a> agar area klik luas */
-        border-radius: 10px; 
-        border: 2px dashed #198754;
-        transition: all 0.3s ease;
-        overflow: hidden;
-    }
-
-    .btn-dokumentasi:hover {
-        background: #f0fff4;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(25, 135, 84, 0.2);
-    }
-
-    .btn-dokumentasi a {
-        text-decoration: none; 
-        color: #198754; 
-        font-size: 14px; 
-        font-weight: bold;
-        padding: 15px; /* Area klik seluas kotak */
-        width: 100%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-    /* Container Utama Konten Berita */
-.max-w-2xl {
-    max-width: 680px; /* Lebar ideal buat baca berita, gak kepanjangan */
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+/* Kunci supaya tidak mepet kiri-kanan dan berada di tengah */
+.janaiz-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* Biar Video & Gambar Selalu Full Width di dalem Container */
-.group div {
-    width: 100%;
-    display: block;
+.janaiz-opsi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
 
-video.aspect-video, 
-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover; /* Biar gak gepeng */
+.janaiz-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #d7e3dc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 61, 46, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Styling Paragraf biar enak dibaca */
-p {
-    margin-bottom: 1.5rem;
-    text-align: justify; /* Biar rapi kanan kiri kayak koran */
-    line-height: 1.8;
+.janaiz-card:hover {
+  transform: translateY(-3px);
+  border-color: #0f3d2e;
+  box-shadow: 0 10px 24px rgba(15, 61, 46, 0.12);
 }
 
-/* Gaya Kutipan (Quote) di bagian bawah */
-.border-l-4 {
-    border-left-width: 4px;
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-    font-style: italic;
+/* Area Foto 16:9 Anti-Gagal di HP & Desktop */
+.janaiz-card-media {
+  position: relative;
+  width: 100%;
+  height: 0 !important;
+  padding-top: 56.25% !important; /* Rasio 16:9 (9 / 16 = 56.25%) */
+  background: #e8f3ed;
+  overflow: hidden;
 }
 
-/* Jarak antar elemen biar gak nempel-nempel */
-.space-y-8 > * + * {
-    margin-top: 2rem;
+.janaiz-card-media img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
 }
 
-/* Responsif buat HP */
+.janaiz-card:hover .janaiz-card-media img {
+  transform: scale(1.04);
+}
+
+/* Badge Nomor di Pojok Kiri Atas Foto */
+.janaiz-btn-no {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #0f3d2e;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Isi Konten Bawah Foto */
+.janaiz-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 10px;
+  padding: 20px;
+  border-top: 4px solid #0f3d2e;
+}
+
+.janaiz-btn-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #14261f;
+}
+
+.janaiz-btn-sub {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #4b5d54;
+  line-height: 1.55;
+}
+
+.janaiz-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.janaiz-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: #0f3d2e;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-wa-btn:hover {
+  background: #175742;
+  transform: translateY(-1px);
+}
+
+.janaiz-wa-btn--outline {
+  background: #f4faf7;
+  color: #0f3d2e;
+}
+
+.janaiz-wa-btn--outline:hover {
+  background: #e3f2eb;
+}
+
 @media (max-width: 768px) {
-    .max-w-2xl {
-        padding-left: 1rem;
-        padding-right: 1rem;
+  .janaiz-container {
+    padding: 0 16px;
+  }
+
+  .janaiz-opsi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .janaiz-card-media {
+    height: 170px;
+  }
+}
+
+.janaiz-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f4faf7;
+  color: #0f3d2e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-copy-btn:hover {
+  background: #e3f2eb;
+  transform: translateY(-1px);
+}
+
+/* Notifikasi Toast di Pojok Bawah */
+.janaiz-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  transform: translate(-50%, calc(-50% + 12px));
+  background: #0f3d2e;
+  color: #ffffff;
+  border: 1.5px solid #2ecc71;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  max-width: calc(100% - 32px);
+}
+
+.janaiz-toast.is-show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.janaiz-toast strong {
+  display: block;
+  color: #2ecc71;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+
+
+/* --- BREADCRUMBS --- */
+.breadcrumb-container {
+    background: #f8f9fa;
+    padding: 15px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.container-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.breadcrumb-list li a {
+    text-decoration: none;
+    color: #888;
+    transition: 0.3s;
+}
+
+.breadcrumb-list li a:hover {
+    color: #198754; /* Hijau Masjid */
+}
+
+.breadcrumb-list .separator {
+    margin: 0 12px;
+    color: #ccc;
+    font-size: 10px;
+}
+
+.breadcrumb-list .current {
+    color: #333;
+    font-weight: 700;
+}
+
+/* --- RESPONSIVE MOBILE (HP) --- */
+@media (max-width: 768px) {
+    .banner-berita {
+        height: 350px; /* Di HP jangan 580px, kepanjangan nanti */
     }
     
-    p {
-        text-align: left; /* Di HP mending rata kiri biar gak renggang-renggang banget */
-        font-size: 0.95rem;
+    .title-main {
+        font-size: 2.5rem; /* Turunin ukuran teks di HP */
+        letter-spacing: 2px;
     }
+    
+    .title-sub {
+        font-size: 0.9rem; /* Turunin ukuran teks di HP */
+        letter-spacing: 1px;
+    }
+
+    .container-inner {
+        padding: 0 15px; /* Kurangi padding di HP */
+    }
+
+    .breadcrumb-list {
+        font-size: 13px; /* Kecilin dikit breadcrumb di HP */
+    }
+}
+
+/* Jarak longkap dikit setelah breadcrumb utama */
+.link-arsip {
+    margin-left: 30px; /* Atur jarak longkapnya di sini */
+    border-left: 1px solid #ddd; /* Kasih garis tipis biar ada pembatas */
+    padding-left: 15px;
 }
 
 
 
+.link-arsip a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #198754; /* Warna hijau biar keliatan itu link klik-able */
+    font-weight: 500;
+}
+
+.link-arsip a:hover {
+    text-decoration: underline; /* Kasih underline pas di-hover biar jelas */
+}
+
+/* Biar di HP gak berantakan */
+@media (max-width: 768px) {
+    .link-arsip {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+}
+
+/* CONTAINER SLIDER */
+.slider {
+    width: 100%;
+    height: 580px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slides, .slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out; /* Transisi lebih halus */
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* CAPTION (TEXT DI TENGAH) */
+.caption {
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 15%; /* Jaga teks gak mentok ke samping */
+}
+
+.title-main {
+    /* Ukuran dasarnya sama */
+    font-size: 3.5rem !important; 
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+}
+
+.title-sub {
+    font-size: 1.2rem !important;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #2ecc71; /* Hijau cerah sesuai gambar */
+    
+    /* Kuncinya di sini */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Meratakan konten di tengah secara horizontal */
+    text-align: center;      /* Jaga-jaga kalau teksnya nge-wrap/turun baris */
+    width: 100%;            /* Paksa ambil lebar penuh biar bisa di tengahin */
+    margin: 0 auto;         /* Centering box-nya sendiri */
+    
+    gap: 8px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.janaiz-section {
+  padding: 24px 0 48px;
+}
+
+/* Kunci supaya tidak mepet kiri-kanan dan berada di tengah */
+.janaiz-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.janaiz-opsi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.janaiz-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #d7e3dc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 61, 46, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.janaiz-card:hover {
+  transform: translateY(-3px);
+  border-color: #0f3d2e;
+  box-shadow: 0 10px 24px rgba(15, 61, 46, 0.12);
+}
+
+/* Area Foto 16:9 Anti-Gagal di HP & Desktop */
+.janaiz-card-media {
+  position: relative;
+  width: 100%;
+  height: 0 !important;
+  padding-top: 56.25% !important; /* Rasio 16:9 (9 / 16 = 56.25%) */
+  background: #e8f3ed;
+  overflow: hidden;
+}
+
+.janaiz-card-media img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.janaiz-card:hover .janaiz-card-media img {
+  transform: scale(1.04);
+}
+
+/* Badge Nomor di Pojok Kiri Atas Foto */
+.janaiz-btn-no {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #0f3d2e;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Isi Konten Bawah Foto */
+.janaiz-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 10px;
+  padding: 20px;
+  border-top: 4px solid #0f3d2e;
+}
+
+.janaiz-btn-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #14261f;
+}
+
+.janaiz-btn-sub {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #4b5d54;
+  line-height: 1.55;
+}
+
+.janaiz-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.janaiz-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: #0f3d2e;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-wa-btn:hover {
+  background: #175742;
+  transform: translateY(-1px);
+}
+
+.janaiz-wa-btn--outline {
+  background: #f4faf7;
+  color: #0f3d2e;
+}
+
+.janaiz-wa-btn--outline:hover {
+  background: #e3f2eb;
+}
+
+@media (max-width: 768px) {
+  .janaiz-container {
+    padding: 0 16px;
+  }
+
+  .janaiz-opsi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .janaiz-card-media {
+    height: 170px;
+  }
+}
+
+.janaiz-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f4faf7;
+  color: #0f3d2e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-copy-btn:hover {
+  background: #e3f2eb;
+  transform: translateY(-1px);
+}
+
+/* Notifikasi Toast di Pojok Bawah */
+.janaiz-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  transform: translate(-50%, calc(-50% + 12px));
+  background: #0f3d2e;
+  color: #ffffff;
+  border: 1.5px solid #2ecc71;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  max-width: calc(100% - 32px);
+}
+
+.janaiz-toast.is-show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.janaiz-toast strong {
+  display: block;
+  color: #2ecc71;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+
+
+/* --- BREADCRUMBS --- */
+.breadcrumb-container {
+    background: #f8f9fa;
+    padding: 15px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.container-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.breadcrumb-list li a {
+    text-decoration: none;
+    color: #888;
+    transition: 0.3s;
+}
+
+.breadcrumb-list li a:hover {
+    color: #198754; /* Hijau Masjid */
+}
+
+.breadcrumb-list .separator {
+    margin: 0 12px;
+    color: #ccc;
+    font-size: 10px;
+}
+
+.breadcrumb-list .current {
+    color: #333;
+    font-weight: 700;
+}
+
+/* --- RESPONSIVE MOBILE (HP) --- */
+@media (max-width: 768px) {
+    .banner-berita {
+        height: 350px; /* Di HP jangan 580px, kepanjangan nanti */
+    }
+    
+    .title-main {
+        font-size: 2.5rem; /* Turunin ukuran teks di HP */
+        letter-spacing: 2px;
+    }
+    
+    .title-sub {
+        font-size: 0.9rem; /* Turunin ukuran teks di HP */
+        letter-spacing: 1px;
+    }
+
+    .container-inner {
+        padding: 0 15px; /* Kurangi padding di HP */
+    }
+
+    .breadcrumb-list {
+        font-size: 13px; /* Kecilin dikit breadcrumb di HP */
+    }
+}
+
+/* Jarak longkap dikit setelah breadcrumb utama */
+.link-arsip {
+    margin-left: 30px; /* Atur jarak longkapnya di sini */
+    border-left: 1px solid #ddd; /* Kasih garis tipis biar ada pembatas */
+    padding-left: 15px;
+}
+
+
+
+.link-arsip a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #198754; /* Warna hijau biar keliatan itu link klik-able */
+    font-weight: 500;
+}
+
+.link-arsip a:hover {
+    text-decoration: underline; /* Kasih underline pas di-hover biar jelas */
+}
+
+/* Biar di HP gak berantakan */
+@media (max-width: 768px) {
+    .link-arsip {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+}
+
+/* CONTAINER SLIDER */
+.slider {
+    width: 100%;
+    height: 580px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slides, .slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out; /* Transisi lebih halus */
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* CAPTION (TEXT DI TENGAH) */
+.caption {
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 15%; /* Jaga teks gak mentok ke samping */
+}
+
+.title-main {
+    /* Ukuran dasarnya sama */
+    font-size: 3.5rem !important; 
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+}
+
+.title-sub {
+    font-size: 1.2rem !important;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #2ecc71; /* Hijau cerah sesuai gambar */
+    
+    /* Kuncinya di sini */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Meratakan konten di tengah secara horizontal */
+    text-align: center;      /* Jaga-jaga kalau teksnya nge-wrap/turun baris */
+    width: 100%;            /* Paksa ambil lebar penuh biar bisa di tengahin */
+    margin: 0 auto;         /* Centering box-nya sendiri */
+    
+    gap: 8px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.janaiz-section {
+  padding: 24px 0 48px;
+}
+
+/* Kunci supaya tidak mepet kiri-kanan dan berada di tengah */
+.janaiz-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.janaiz-opsi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.janaiz-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #d7e3dc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 61, 46, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.janaiz-card:hover {
+  transform: translateY(-3px);
+  border-color: #0f3d2e;
+  box-shadow: 0 10px 24px rgba(15, 61, 46, 0.12);
+}
+
+/* Area Foto 16:9 Anti-Gagal di HP & Desktop */
+.janaiz-card-media {
+  position: relative;
+  width: 100%;
+  height: 0 !important;
+  padding-top: 56.25% !important; /* Rasio 16:9 (9 / 16 = 56.25%) */
+  background: #e8f3ed;
+  overflow: hidden;
+}
+
+.janaiz-card-media img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.janaiz-card:hover .janaiz-card-media img {
+  transform: scale(1.04);
+}
+
+/* Badge Nomor di Pojok Kiri Atas Foto */
+.janaiz-btn-no {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #0f3d2e;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Isi Konten Bawah Foto */
+.janaiz-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 10px;
+  padding: 20px;
+  border-top: 4px solid #0f3d2e;
+}
+
+.janaiz-btn-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #14261f;
+}
+
+.janaiz-btn-sub {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #4b5d54;
+  line-height: 1.55;
+}
+
+.janaiz-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.janaiz-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: #0f3d2e;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-wa-btn:hover {
+  background: #175742;
+  transform: translateY(-1px);
+}
+
+.janaiz-wa-btn--outline {
+  background: #f4faf7;
+  color: #0f3d2e;
+}
+
+.janaiz-wa-btn--outline:hover {
+  background: #e3f2eb;
+}
+
+@media (max-width: 768px) {
+  .janaiz-container {
+    padding: 0 16px;
+  }
+
+  .janaiz-opsi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .janaiz-card-media {
+    height: 170px;
+  }
+}
+
+.janaiz-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f4faf7;
+  color: #0f3d2e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-copy-btn:hover {
+  background: #e3f2eb;
+  transform: translateY(-1px);
+}
+
+/* Notifikasi Toast di Pojok Bawah */
+.janaiz-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  transform: translate(-50%, calc(-50% + 12px));
+  background: #0f3d2e;
+  color: #ffffff;
+  border: 1.5px solid #2ecc71;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  max-width: calc(100% - 32px);
+}
+
+.janaiz-toast.is-show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.janaiz-toast strong {
+  display: block;
+  color: #2ecc71;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+
+
+/* --- BREADCRUMBS --- */
+.breadcrumb-container {
+    background: #f8f9fa;
+    padding: 15px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.container-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.breadcrumb-list li a {
+    text-decoration: none;
+    color: #888;
+    transition: 0.3s;
+}
+
+.breadcrumb-list li a:hover {
+    color: #198754; /* Hijau Masjid */
+}
+
+.breadcrumb-list .separator {
+    margin: 0 12px;
+    color: #ccc;
+    font-size: 10px;
+}
+
+.breadcrumb-list .current {
+    color: #333;
+    font-weight: 700;
+}
+
+/* --- RESPONSIVE MOBILE (HP) --- */
+@media (max-width: 768px) {
+    .banner-berita {
+        height: 350px; /* Di HP jangan 580px, kepanjangan nanti */
+    }
+    
+    .title-main {
+        font-size: 2.5rem; /* Turunin ukuran teks di HP */
+        letter-spacing: 2px;
+    }
+    
+    .title-sub {
+        font-size: 0.9rem; /* Turunin ukuran teks di HP */
+        letter-spacing: 1px;
+    }
+
+    .container-inner {
+        padding: 0 15px; /* Kurangi padding di HP */
+    }
+
+    .breadcrumb-list {
+        font-size: 13px; /* Kecilin dikit breadcrumb di HP */
+    }
+}
+
+/* Jarak longkap dikit setelah breadcrumb utama */
+.link-arsip {
+    margin-left: 30px; /* Atur jarak longkapnya di sini */
+    border-left: 1px solid #ddd; /* Kasih garis tipis biar ada pembatas */
+    padding-left: 15px;
+}
+
+
+
+.link-arsip a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #198754; /* Warna hijau biar keliatan itu link klik-able */
+    font-weight: 500;
+}
+
+.link-arsip a:hover {
+    text-decoration: underline; /* Kasih underline pas di-hover biar jelas */
+}
+
+/* Biar di HP gak berantakan */
+@media (max-width: 768px) {
+    .link-arsip {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+}
+
+/* CONTAINER SLIDER */
+.slider {
+    width: 100%;
+    height: 580px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slides, .slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out; /* Transisi lebih halus */
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* CAPTION (TEXT DI TENGAH) */
+.caption {
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 15%; /* Jaga teks gak mentok ke samping */
+}
+
+.title-main {
+    /* Ukuran dasarnya sama */
+    font-size: 3.5rem !important; 
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+}
+
+.title-sub {
+    font-size: 1.2rem !important;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #2ecc71; /* Hijau cerah sesuai gambar */
+    
+    /* Kuncinya di sini */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Meratakan konten di tengah secara horizontal */
+    text-align: center;      /* Jaga-jaga kalau teksnya nge-wrap/turun baris */
+    width: 100%;            /* Paksa ambil lebar penuh biar bisa di tengahin */
+    margin: 0 auto;         /* Centering box-nya sendiri */
+    
+    gap: 8px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.janaiz-section {
+  padding: 24px 0 48px;
+}
+
+/* Kunci supaya tidak mepet kiri-kanan dan berada di tengah */
+.janaiz-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.janaiz-opsi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.janaiz-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #d7e3dc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 61, 46, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.janaiz-card:hover {
+  transform: translateY(-3px);
+  border-color: #0f3d2e;
+  box-shadow: 0 10px 24px rgba(15, 61, 46, 0.12);
+}
+
+/* Area Foto 16:9 Anti-Gagal di HP & Desktop */
+.janaiz-card-media {
+  position: relative;
+  width: 100%;
+  height: 0 !important;
+  padding-top: 56.25% !important; /* Rasio 16:9 (9 / 16 = 56.25%) */
+  background: #e8f3ed;
+  overflow: hidden;
+}
+
+.janaiz-card-media img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.janaiz-card:hover .janaiz-card-media img {
+  transform: scale(1.04);
+}
+
+/* Badge Nomor di Pojok Kiri Atas Foto */
+.janaiz-btn-no {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #0f3d2e;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Isi Konten Bawah Foto */
+.janaiz-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 10px;
+  padding: 20px;
+  border-top: 4px solid #0f3d2e;
+}
+
+.janaiz-btn-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #14261f;
+}
+
+.janaiz-btn-sub {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #4b5d54;
+  line-height: 1.55;
+}
+
+.janaiz-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.janaiz-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: #0f3d2e;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1.5px solid #0f3d2e;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.janaiz-wa-btn:hover {
+  background: #175742;
+  transform: translateY(-1px);
+}
+
+.janaiz-wa-btn--outline {
+  background: #f4faf7;
+  color: #0f3d2e;
+}
+
+.janaiz-wa-btn--outline:hover {
+  background: #e3f2eb;
+}
+
+@media (max-width: 768px) {
+  .janaiz-container {
+    padding: 0 16px;
+  }
